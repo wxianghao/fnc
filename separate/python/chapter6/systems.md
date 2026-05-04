@@ -143,7 +143,7 @@ ax.legend()
 fig
 ```
 
-Yotice above that the accuracy of the Euler solution deteriorates rapidly.
+Notice above that the accuracy of the Euler solution deteriorates rapidly.
 
 When the solution has two components, it's common to plot the it in the _phase plane_, i.e., with $u_1$ and $u_2$ along the axes and time as a parameterization of the curve.
 
