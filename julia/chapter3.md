@@ -65,6 +65,7 @@ include("FNC_init.jl")
 Here are 5-year averages of the worldwide temperature anomaly as compared to the 1951–1980 average (source: NASA).
 
 ```{code-cell}
+using Plots
 year = 1955:5:2000
 temp = [ -0.0480, -0.0180, -0.0360, -0.0120, -0.0040,
        0.1180, 0.2100, 0.3320, 0.3340, 0.4560 ]
@@ -93,7 +94,7 @@ If you `plot` a function, then the points are chosen automatically to make a smo
 ```
 
 ```{code-cell}
-using Polynomials, Plots
+using Polynomials
 p = Polynomial(c)
 f = yr -> p((yr - 1950) / 10)
 plot!(f, 1955, 2000, label="interpolant")
@@ -164,7 +165,7 @@ If we were to continue increasing the degree of the polynomial, the residual at 
 :open:
 
 ```{code-cell}
-a = [1/k^2 for k=1:100] 
+a = [1/k^2 for k in 1:100] 
 s = cumsum(a)        # cumulative summation
 p = @. sqrt(6*s)
 
@@ -179,7 +180,7 @@ This graph suggests that maybe $p_k\to \pi$, but it's far from clear how close t
 ϵ = @. abs(π - p)    # error sequence
 scatter(1:100, ϵ;
     title="Convergence of errors",
-    xaxis=(:log10,L"k"),  yaxis=(:log10,"error"))
+    xaxis=(:log10, L"k"),  yaxis=(:log10, "error"))
 ```
 
 The straight line on the log-log scale suggests a power-law relationship where $\epsilon_k\approx a k^b$, or $\log \epsilon_k \approx b (\log k) + \log a$.
@@ -257,13 +258,13 @@ Julia provides access to both the thin and full forms of the QR factorization.
 
 ```{code-cell}
 A = rand(1.:9., 6, 4)
-@show m,n = size(A);
+@show m, n = size(A);
 ```
 
 Here is a standard call:
 
 ```{code-cell}
-Q,R = qr(A);
+Q, R = qr(A)
 Q
 ```
 
@@ -329,7 +330,7 @@ The `rand` function can select randomly from within the interval $[0,1]$, or fro
 
 ```{code-cell}
 A = rand(float(1:9), 6, 4)
-m,n = size(A)
+m, n = size(A)
 ```
 
 ```{index} Julia; normalize, ! Julia; I
