@@ -206,7 +206,7 @@ Let's convert the roots of a quadratic polynomial $f(x)$ to a fixed point proble
 
 ```{code-cell}
 using Polynomials
-f = Polynomial([3.5, -4, 1])
+p = Polynomial([3.5, -4, 1])
 r = roots(p)
 rmin, rmax = extrema(r)
 @show rmin, rmax;
