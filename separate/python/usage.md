@@ -2,7 +2,7 @@
 kernelspec:
   display_name: Python 3
   language: python
-  name: python3
+  name: FNC
 ---
 
 # How to use this book
