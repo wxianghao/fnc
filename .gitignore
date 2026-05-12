@@ -23,6 +23,7 @@ docs/site/
 # environment.
 
 _build
+_site
 separate/**/_static
 separate/**/exports
 separate/**/python/fncbook

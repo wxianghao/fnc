@@ -6,6 +6,11 @@ platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
+separate = { cmd = "julia _scripts/separator.jl", description = "Regenerate standalone language versions from source" }
+verify = { cmd = "julia _scripts/verify.jl", description = "Compare separated versions against source for structural consistency" }
+build = { cmd = "bash _scripts/build-all.sh", description = "Build all sites and assemble _site/" }
+deploy = { cmd = "bash _scripts/deploy.sh", description = "Deploy _site/ to gh-pages branch" }
+release = { cmd = "bash _scripts/release.sh", description = "Build, deploy, and tag a release (pass VERSION as arg)" }
 
 [dependencies]
 scipy = ">=1.17.1,<2"
@@ -20,6 +25,7 @@ scikit-image = ">=0.26.0,<0.27"
 mystmd = ">=1.8.3,<2"
 
 [pypi-dependencies]
+ghp-import = ">=2.1.0, <3"
 fncbook = ">=0.1.4, <0.2"
 rogues = ">=1.0.1, <2"
 jupyter-matlab-proxy = ">=0.19.0, <0.20"
