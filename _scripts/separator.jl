@@ -1,5 +1,7 @@
 using Printf
 
+const REPO_ROOT = dirname(@__DIR__)
+
 function get_code_blocks(chap, lang)
     header =
     if lang == "python"
@@ -9,7 +11,7 @@ kernelspec:
   language: python
   name: python3
 """
-        init = readlines("/Users/driscoll/Documents/GitHub/fnc/python/FNC_init.py")
+        init = readlines(joinpath(REPO_ROOT, "python", "FNC_init.py"))
         (; yaml, init)
     elseif lang == "matlab"
         yaml = """
@@ -18,7 +20,7 @@ kernelspec:
   language: matlab
   name: jupyter_matlab_kernel
 """
-        init = replace.(readlines("/Users/driscoll/Documents/GitHub/fnc/matlab/FNC_init.m"), "FNC-matlab/" => "../FNC_matlab/")
+        init = replace.(readlines(joinpath(REPO_ROOT, "matlab", "FNC_init.m")), "FNC-matlab/" => "../FNC_matlab/")
         (; yaml, init)
     elseif lang == "julia"
         yaml = """
@@ -27,12 +29,12 @@ kernelspec:
           language: julia
           name: julia-1.12
         """
-        init = readlines("/Users/driscoll/Documents/GitHub/fnc/julia/FNC_init.jl")
+        init = readlines(joinpath(REPO_ROOT, "julia", "FNC_init.jl"))
         (; yaml, init)
     end
 
     # read functions and demos contents
-    code_file = readlines("/Users/driscoll/Documents/GitHub/fnc/$lang/chapter$chap.md")
+    code_file = readlines(joinpath(REPO_ROOT, lang, "chapter$chap.md"))
     func_start = something(findfirst(contains("## Functions"), code_file), length(code_file) + 1)
     example_start = something(findfirst(contains("## Examples"), code_file), length(code_file) + 1)
 
@@ -46,7 +48,6 @@ kernelspec:
         drop_idx = findnext(contains("{dropdown}"), code_file, fun_idx)
         backticks = match(r"(`+){dropdown}", code_file[drop_idx]).captures[1]
         drop_end = findnext(contains(Regex("$backticks")), code_file, drop_idx+1)
-        # blocks[tag] = code_file[drop_idx:drop_end]
         blocks[tag] = code_file[drop_idx+2:drop_end-1]
         idx = drop_end + 1
     end
@@ -60,7 +61,6 @@ kernelspec:
         drop_idx = findnext(contains("{dropdown}"), code_file, exam_idx)
         backticks = match(r"(`+){dropdown}", code_file[drop_idx]).captures[1]
         drop_end = findnext(contains(Regex("$backticks")), code_file, drop_idx+1)
-        # blocks[tag] = code_file[drop_idx:drop_end]
         blocks[tag] = code_file[drop_idx+2:drop_end-1]
         idx = drop_end + 1
     end
@@ -79,7 +79,7 @@ function transfer_content(dir, new_dir, chap, lang)
     if lang == "python"
         try
             fn = @sprintf("chapter%02d.py", chap)
-            cp(joinpath("/Users/driscoll/Documents/GitHub/fnc/python/fncbook/fncbook", fn), joinpath(new_dir, fn); force=true)
+            cp(joinpath(REPO_ROOT, "python", "fncbook", "fncbook", fn), joinpath(new_dir, fn); force=true)
         catch
         end
         for (key, val) in pairs(blocks)
@@ -88,14 +88,14 @@ function transfer_content(dir, new_dir, chap, lang)
     elseif lang == "julia"
         try
             fn = @sprintf("chapter%02d.jl", chap)
-            cp(joinpath("/Users/driscoll/Documents/GitHub/fnc/julia/FNCFunctions/src", fn), joinpath(new_dir, fn); force=true)
+            cp(joinpath(REPO_ROOT, "julia", "FNCFunctions", "src", fn), joinpath(new_dir, fn); force=true)
         catch
         end
         for (key, val) in pairs(blocks)
             blocks[key] = replace.(val, "FNCFunctions/src/" => "")
         end
     elseif lang == "matlab"
-        cp("/Users/driscoll/Documents/GitHub/fnc/matlab/FNC-matlab", "/Users/driscoll/Documents/GitHub/fnc/separate/matlab/FNC_matlab"; force=true)
+        cp(joinpath(REPO_ROOT, "matlab", "FNC-matlab"), joinpath(REPO_ROOT, "separate", "matlab", "FNC_matlab"); force=true)
         for (key, val) in pairs(blocks)
             blocks[key] = replace.(val, "FNC-matlab/" => "../FNC_matlab/")
         end
@@ -141,8 +141,6 @@ function transfer_content(dir, new_dir, chap, lang)
                 item_idx = findfirst(contains(Regex("(`+){tab-item}.*$lang")), lowercase.(excerpt))
                 item_ticks = match(r"(`+){tab-item}", excerpt[item_idx]).captures[1]
                 item_end = findnext(contains(Regex("$item_ticks")), excerpt, item_idx + 1)
-                # sync_idx = findfirst(contains(":sync: $lang"), lowercase.(excerpt))
-                # isnothing(sync_idx) && error("File $file does not contain :sync: at $tab_idx")
                 @show item_idx, item_end
                 embed_idx = findnext(contains(r"{embed}"), excerpt, item_idx + 1)
                 if isnothing(embed_idx)
@@ -168,48 +166,48 @@ end
 
 ##
 
-lang = "julia"
-for chap in 1:13
-    println("\nProcessing chapter $chap for $lang")
-    dir = "/Users/driscoll/Documents/GitHub/fnc/chapter$chap"
-    new_dir = "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter$chap"
+for lang in ["julia", "matlab", "python"]
+    println("\n===== Processing $lang =====")
+    for chap in 1:13
+        println("\nProcessing chapter $chap for $lang")
+        dir = joinpath(REPO_ROOT, "chapter$chap")
+        new_dir = joinpath(REPO_ROOT, "separate", lang, "chapter$chap")
+        mkpath(new_dir)
+        mkpath(joinpath(new_dir, "figures"))
+        transfer_content(dir, new_dir, chap, lang)
+    end
+
+    println("\nProcessing appendix for $lang")
+    dir = joinpath(REPO_ROOT, "appendix")
+    new_dir = joinpath(REPO_ROOT, "separate", lang, "appendix")
     mkpath(new_dir)
-    mkpath(new_dir * "/figures")
-    transfer_content(dir, new_dir, chap, lang)
-end
+    transfer_content(dir, new_dir, 0, lang)
 
-println("Processing appendix for $lang")
-dir = "/Users/driscoll/Documents/GitHub/fnc/appendix"
-new_dir = "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/appendix"
-mkpath(new_dir)
-transfer_content(dir, new_dir, 0, lang)
+    dir = REPO_ROOT
+    new_dir = joinpath(REPO_ROOT, "separate", lang)
+    for fn in ["home.md", "genindex.md", "refs.md", "FNC.bib", "_static", "frontmatter"]
+        cp(joinpath(dir, fn), joinpath(new_dir, fn); force=true)
+    end
+    cp(joinpath(dir, lang, "setup.md"), joinpath(new_dir, "setup.md"); force=true)
 
-##
-
-dir = "/Users/driscoll/Documents/GitHub/fnc"
-new_dir = "/Users/driscoll/Documents/GitHub/fnc/separate/$lang"
-for fn in ["home.md", "genindex.md", "refs.md", "FNC.bib", "_static", "frontmatter"]
-    cp(joinpath(dir, fn), joinpath(new_dir, fn); force=true)
-end
-cp(joinpath(dir, "$lang/setup.md"), joinpath(new_dir, "setup.md"); force=true)
-
-if lang == "python"
-    cp("/Users/driscoll/Documents/GitHub/fnc/python/roswelladj.mat", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter8/roswelladj.mat"; force=true)
-    cp("/Users/driscoll/Documents/GitHub/fnc/python/voting.mat", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter7/voting.mat"; force=true)
-elseif lang == "julia"
-    cp("/Users/driscoll/Documents/GitHub/fnc/julia/roswell.jld2", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter8/roswell.jld2"; force=true)
-    cp("/Users/driscoll/Documents/GitHub/fnc/julia/smallworld.jld2", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter8/smallworld.jld2"; force=true)
-    cp("/Users/driscoll/Documents/GitHub/fnc/julia/voting.jld2", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter7/voting.jld2"; force=true)
-elseif lang == "matlab"
-    for chap in [4, 6, 12, 13]
-        for fn in filter(contains(Regex("f$chap.*\\.m")), readdir("/Users/driscoll/Documents/GitHub/fnc/matlab"))
-            cp(joinpath("/Users/driscoll/Documents/GitHub/fnc/matlab", fn), joinpath("/Users/driscoll/Documents/GitHub/fnc/separate/matlab/chapter$chap", fn); force=true)
+    if lang == "python"
+        cp(joinpath(REPO_ROOT, "python", "roswelladj.mat"), joinpath(new_dir, "chapter8", "roswelladj.mat"); force=true)
+        cp(joinpath(REPO_ROOT, "python", "voting.mat"), joinpath(new_dir, "chapter7", "voting.mat"); force=true)
+    elseif lang == "julia"
+        cp(joinpath(REPO_ROOT, "julia", "roswell.jld2"), joinpath(new_dir, "chapter8", "roswell.jld2"); force=true)
+        cp(joinpath(REPO_ROOT, "julia", "smallworld.jld2"), joinpath(new_dir, "chapter8", "smallworld.jld2"); force=true)
+        cp(joinpath(REPO_ROOT, "julia", "voting.jld2"), joinpath(new_dir, "chapter7", "voting.jld2"); force=true)
+    elseif lang == "matlab"
+        for chap in [4, 6, 12, 13]
+            for fn in filter(contains(Regex("f$chap.*\\.m")), readdir(joinpath(REPO_ROOT, "matlab")))
+                cp(joinpath(REPO_ROOT, "matlab", fn), joinpath(new_dir, "chapter$chap", fn); force=true)
+            end
         end
+        for chap in 2:13
+            cp(joinpath(REPO_ROOT, "matlab", "redsblues.m"), joinpath(new_dir, "chapter$chap", "redsblues.m"); force=true)
+        end
+        cp(joinpath(REPO_ROOT, "matlab", "roswelladj.mat"), joinpath(new_dir, "chapter8", "roswelladj.mat"); force=true)
+        cp(joinpath(REPO_ROOT, "matlab", "smallworld.mat"), joinpath(new_dir, "chapter8", "smallworld.mat"); force=true)
+        cp(joinpath(REPO_ROOT, "matlab", "voting.mat"), joinpath(new_dir, "chapter7", "voting.mat"); force=true)
     end
-    for chap in 2:13
-        cp("/Users/driscoll/Documents/GitHub/fnc/matlab/redsblues.m", "/Users/driscoll/Documents/GitHub/fnc/separate/matlab/chapter$chap/redsblues.m"; force=true)
-    end
-    cp("/Users/driscoll/Documents/GitHub/fnc/matlab/roswelladj.mat", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter8/roswelladj.mat"; force=true)
-    cp("/Users/driscoll/Documents/GitHub/fnc/matlab/smallworld.mat", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter8/smallworld.mat"; force=true)
-    cp("/Users/driscoll/Documents/GitHub/fnc/matlab/voting.mat", "/Users/driscoll/Documents/GitHub/fnc/separate/$lang/chapter7/voting.mat"; force=true)
 end
