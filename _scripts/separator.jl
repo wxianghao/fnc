@@ -129,17 +129,17 @@ function transfer_content(dir, new_dir, chap, lang)
 
             # work up to each tab set
             while idx < length(md_content)
-                tab_idx = findnext(contains(r"(`+){tab-set}"), md_content, idx)
+                tab_idx = findnext(contains(r"([`:]+){tab-set}"), md_content, idx)
                 isnothing(tab_idx) && break
                 foreach(line -> write(f, line * "\n"), md_content[idx:tab_idx-1])
-                backticks = match(r"(`+){tab-set}", md_content[tab_idx]).captures[1]
+                backticks = match(r"([`:]+){tab-set}", md_content[tab_idx]).captures[1]
                 tab_end = findnext(contains(Regex("$backticks")), md_content, tab_idx+1)
                 excerpt = md_content[tab_idx:tab_end]
                 @show tab_idx, tab_end
 
                 # find the tab-item for the desired language
-                item_idx = findfirst(contains(Regex("(`+){tab-item}.*$lang")), lowercase.(excerpt))
-                item_ticks = match(r"(`+){tab-item}", excerpt[item_idx]).captures[1]
+                item_idx = findfirst(contains(Regex("([`:]+){tab-item}.*$lang")), lowercase.(excerpt))
+                item_ticks = match(r"([`:]+){tab-item}", excerpt[item_idx]).captures[1]
                 item_end = findnext(contains(Regex("$item_ticks")), excerpt, item_idx + 1)
                 @show item_idx, item_end
                 embed_idx = findnext(contains(r"{embed}"), excerpt, item_idx + 1)
