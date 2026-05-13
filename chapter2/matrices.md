@@ -200,7 +200,7 @@ A[:, 0] += 2 * A[:, 2]
 The `+=` operator means to increment the item on the left-hand side. There are similar interpretations for `-=` and `*=`
 :::
 ::::
-
+:::::
 ````
 
 ## Exercises
