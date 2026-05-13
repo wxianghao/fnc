@@ -13,6 +13,7 @@ deploy = { cmd = "bash _scripts/deploy.sh", description = "Deploy _site/ to gh-p
 release = { cmd = "bash _scripts/release.sh", description = "Build, deploy, and tag a release (pass VERSION as arg)" }
 
 [dependencies]
+python = ">=3.11,<3.13"
 scipy = ">=1.17.1,<2"
 numpy = ">=2.4.2,<3"
 matplotlib = ">=3.10.8,<4"
