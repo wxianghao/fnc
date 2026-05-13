@@ -190,6 +190,20 @@ for lang in ["julia", "matlab", "python"]
     end
     cp(joinpath(dir, lang, "setup.md"), joinpath(new_dir, "setup.md"); force=true)
 
+    # Copy pre-generated animation mp4 files from the language figures directory
+    # into every chapter's figures directory.  MyST validates figure references
+    # before executing notebooks, so these must exist even if execution will
+    # regenerate them.  (mp4s are gitignored; duplication across chapters is fine.)
+    lang_figures = joinpath(REPO_ROOT, lang, "figures")
+    if isdir(lang_figures)
+        for mp4_file in filter(endswith(".mp4"), readdir(lang_figures))
+            for chap in 1:13
+                dest = joinpath(new_dir, "chapter$chap", "figures", mp4_file)
+                isdir(dirname(dest)) && cp(joinpath(lang_figures, mp4_file), dest; force=true)
+            end
+        end
+    end
+
     if lang == "python"
         cp(joinpath(REPO_ROOT, "python", "roswelladj.mat"), joinpath(new_dir, "chapter8", "roswelladj.mat"); force=true)
         cp(joinpath(REPO_ROOT, "python", "voting.mat"), joinpath(new_dir, "chapter7", "voting.mat"); force=true)
