@@ -65,3 +65,8 @@ code {
 .katex {
     font-size: 108%;
 }
+
+/* override white background for the logo in dark mode, which is used in the Jupyter Book template */
+.dark div:has(img[src*="FNClogo"]) {
+    background-color: transparent;
+}
