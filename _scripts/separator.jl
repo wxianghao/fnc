@@ -31,11 +31,14 @@ kernelspec:
     return (; yaml, init)
 end
 
-function get_code_blocks(chap, lang)
-    header = get_lang_header(lang)
+function get_code_blocks(chap::Integer, lang::String)
+    get_code_blocks(joinpath(REPO_ROOT, lang, "chapter$chap.md"), lang)
+end
 
+function get_code_blocks(path::String, lang::String)
+    header = get_lang_header(lang)
     # read functions and demos contents
-    code_file = readlines(joinpath(REPO_ROOT, lang, "chapter$chap.md"))
+    code_file = readlines(path)
     func_start = something(findfirst(contains("## Functions"), code_file), length(code_file) + 1)
     example_start = something(findfirst(contains("## Examples"), code_file), length(code_file) + 1)
 
@@ -53,8 +56,8 @@ function get_code_blocks(chap, lang)
         idx = drop_end + 1
     end
 
-    idx = example_start + 1
-    while idx < length(code_file)
+    idx = example_start > length(code_file) ? 1 : example_start + 1
+    while idx <= length(code_file)
         exam_idx = findnext(contains(r"(demo-.*-)"), code_file, idx)
         isnothing(exam_idx) && break
         tag = match(r"\((.*)\)", code_file[exam_idx]).captures[1]
@@ -76,6 +79,9 @@ function transfer_content(dir, new_dir, chap, lang; only_files=nothing)
     if chap > 0
         println("Getting code blocks for chapter $chap")
         _, blocks = get_code_blocks(chap, lang)
+    else
+        fm = joinpath(REPO_ROOT, lang, "frontmatter.md")
+        isfile(fm) && ((_, blocks) = get_code_blocks(fm, lang))
     end
 
     # fix up code includes
@@ -215,6 +221,11 @@ for lang in ["julia", "matlab", "python"]
         isfile(joinpath(dir, fn)) || continue
         transfer_content(dir, new_dir, 0, lang; only_files=[fn])
     end
+
+    # Process the language-specific frontmatter.md (kernelspec + init injection).
+    lang_dir = joinpath(REPO_ROOT, lang)
+    isfile(joinpath(lang_dir, "frontmatter.md")) &&
+        transfer_content(lang_dir, new_dir, 0, lang; only_files=["frontmatter.md"])
 
     # Copy pre-generated animation mp4 files from the language figures directory
     # into every chapter's figures directory.  MyST validates figure references

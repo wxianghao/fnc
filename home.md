@@ -11,26 +11,45 @@ site:
 
 +++ { "kind": "centered", "class": "col-body"}
 
-This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by Tobin A. Driscoll and Richard J. Braun. We support three programming languages.
+This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by Tobin A. Driscoll and Richard J. Braun. 
+
+**Choose your programming language:**
 
 `````{grid}
-```{image} _static/logo-julia.*
+````{card}
+:header: [Julia version](julia/usage)
+```{image} _static/julia-logo-color.*
+:class: dark:hidden
 :alt: Julia
-:height: 160px
+:height: 100px
 Julia edition
 ``` 
 
+```{image} _static/julia-logo-dark.*
+:class: hidden dark:block
+:alt: Julia
+:height: 100px
+Julia edition
+``` 
+````
+
+````{card}
+:header: [MATLAB version](matlab/usage)
 ```{image} _static/logo-matlab.*
 :alt: MATLAB
-:height: 160px
+:height: 100px
 MATLAB edition
 ``` 
+````
 
+````{card}
+:header: [Python version](python/usage)
 ```{image} _static/logo-python.*
 :alt: Python
-:height: 160px
+:height: 100px
 Python support
-``` 
+```
+```` 
 
 `````
 
