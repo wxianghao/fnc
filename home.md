@@ -7,11 +7,11 @@ site:
   hide_footer: true
 ---
 
-# Fundamentals of Numerical Computation
-
-+++ { "kind": "centered", "class": "col-body"}
+## Fundamentals of Numerical Computation
 
 This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by Tobin A. Driscoll and Richard J. Braun. 
+
++++ { "kind": "centered", "class": "col-body"}
 
 **Choose your programming language:**
 
@@ -38,7 +38,7 @@ Julia edition
 ```{image} _static/logo-matlab.*
 :alt: MATLAB
 :height: 100px
-MATLAB edition
+MATLAB[^trademark] edition
 ``` 
 ````
 
@@ -53,5 +53,4 @@ Python support
 
 `````
 
-{button}`Start here! <usage.md>`
-
+[^trademark]: MATLAB and Simulink are registered trademarks of The MathWorks, Inc. See mathworks.com/trademarks for a list of additional trademarks.

@@ -25,17 +25,17 @@ First, set up your computing environment:
 `````{tab-set}
 ````{tab-item} Julia
 :sync: julia
-[Julia](#section-setup-julia)
+[Julia setup](#section-setup-julia)
 ```` 
 
 ````{tab-item} MATLAB
 :sync: matlab
-[MATLAB](#section-setup-matlab)
+[MATLAB setup](#section-setup-matlab)
 ```` 
 
 ````{tab-item} Python
 :sync: python
-[Python](#section-setup-python)
+[Python setup](#section-setup-python)
 ````
 `````
 
