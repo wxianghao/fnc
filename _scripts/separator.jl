@@ -2,8 +2,7 @@ using Printf
 
 const REPO_ROOT = dirname(@__DIR__)
 
-function get_code_blocks(chap, lang)
-    header =
+function get_lang_header(lang)
     if lang == "python"
         yaml = """
 kernelspec:
@@ -12,7 +11,6 @@ kernelspec:
   name: python3
 """
         init = readlines(joinpath(REPO_ROOT, "python", "FNC_init.py"))
-        (; yaml, init)
     elseif lang == "matlab"
         yaml = """
 kernelspec:
@@ -21,7 +19,6 @@ kernelspec:
   name: jupyter_matlab_kernel
 """
         init = replace.(readlines(joinpath(REPO_ROOT, "matlab", "FNC_init.m")), "FNC-matlab/" => "../FNC_matlab/")
-        (; yaml, init)
     elseif lang == "julia"
         yaml = """
         kernelspec:
@@ -30,8 +27,12 @@ kernelspec:
           name: julia-1.12
         """
         init = readlines(joinpath(REPO_ROOT, "julia", "FNC_init.jl"))
-        (; yaml, init)
     end
+    return (; yaml, init)
+end
+
+function get_code_blocks(chap, lang)
+    header = get_lang_header(lang)
 
     # read functions and demos contents
     code_file = readlines(joinpath(REPO_ROOT, lang, "chapter$chap.md"))
@@ -67,12 +68,14 @@ kernelspec:
     return header, blocks
 end
 
-function transfer_content(dir, new_dir, chap, lang)
-    header =  (; yaml=[], init=[])
+# only_files: when provided, process only those filenames and skip copying
+# non-md files from dir (safe to use on the repo root).
+function transfer_content(dir, new_dir, chap, lang; only_files=nothing)
+    header = get_lang_header(lang)
     blocks = Dict()
     if chap > 0
         println("Getting code blocks for chapter $chap")
-        header, blocks = get_code_blocks(chap, lang)
+        _, blocks = get_code_blocks(chap, lang)
     end
 
     # fix up code includes
@@ -101,23 +104,39 @@ function transfer_content(dir, new_dir, chap, lang)
         end
     end
 
-    # transfer other files
-    files = filter(!endswith(".md"), readdir(dir))
-    foreach(file -> cp(joinpath(dir, file), joinpath(new_dir, file); force=true), files)
+    # transfer other files (skip when only_files is given — caller handles non-md assets)
+    if isnothing(only_files)
+        nonmd = filter(!endswith(".md"), readdir(dir))
+        foreach(file -> cp(joinpath(dir, file), joinpath(new_dir, file); force=true), nonmd)
+    end
 
     # process markdown files
-    files = filter(endswith(".md"), readdir(dir))
+    all_md = filter(endswith(".md"), readdir(dir))
+    md_files = isnothing(only_files) ? all_md : filter(in(only_files), all_md)
     excerpt = []
-    for file in files
+    for file in md_files
         println("\nProcessing $file")
         file_path = joinpath(dir, file)
         md_content = readlines(file_path)
         open(joinpath(new_dir, file), "w") do f
-            # write out the header
+            # write out the header, replacing any existing kernelspec with the
+            # language-specific one.  Fires whenever the file has frontmatter.
             idx = findnext(startswith("---"), md_content, 2)
-            if !isnothing(idx) && chap > 0
+            if !isnothing(idx)
                 write(f, "---\n")
-                foreach(line -> write(f, line * "\n"), md_content[2:idx-1])
+                # Copy existing frontmatter, skipping any kernelspec: block
+                # (it will be replaced by the language-specific yaml below).
+                in_kernelspec = false
+                for line in md_content[2:idx-1]
+                    if startswith(line, "kernelspec:")
+                        in_kernelspec = true
+                    elseif in_kernelspec && (startswith(line, " ") || startswith(line, "\t"))
+                        continue
+                    else
+                        in_kernelspec = false
+                        write(f, line * "\n")
+                    end
+                end
                 write(f, header.yaml * "---\n")
                 write(f, "```{code-cell}\n:tags: [remove-cell]\n")
                 foreach(line -> write(f, line * "\n"), header.init)
@@ -189,6 +208,13 @@ for lang in ["julia", "matlab", "python"]
         cp(joinpath(dir, fn), joinpath(new_dir, fn); force=true)
     end
     cp(joinpath(dir, lang, "setup.md"), joinpath(new_dir, "setup.md"); force=true)
+
+    # Process root-level md files that contain tab-sets.
+    # only_files avoids copying unrelated files from the repo root.
+    for fn in ["usage.md"]
+        isfile(joinpath(dir, fn)) || continue
+        transfer_content(dir, new_dir, 0, lang; only_files=[fn])
+    end
 
     # Copy pre-generated animation mp4 files from the language figures directory
     # into every chapter's figures directory.  MyST validates figure references
