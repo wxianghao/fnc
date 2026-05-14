@@ -250,6 +250,30 @@ The condition number of a root can be arbitrarily large. In the extreme case of 
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_yksu52q8&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_o9kdxmp3%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+```` 
+
+````{tab-item} MATLAB
+:sync: matlab
+```` 
+
+````{tab-item} Python
+:sync: python
+```` 
+`````
+
+::::
+
 ## Exercises
 
 ``````{exercise}

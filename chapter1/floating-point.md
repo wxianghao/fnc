@@ -132,6 +132,7 @@ Absolute accuracy has the same units as $x$, while relative accuracy is dimensio
 We often round this value down to an integer, but it does make sense to speak of "almost seven digits" or "ten and a half digits."
 
 (demo-float-accuracy)=
+
 ::::{prf:example} Absolute and relative accuracy
 
 `````{tab-set}
@@ -151,6 +152,29 @@ We often round this value down to an integer, but it does make sense to speak of
 :sync: python
 :::{embed} #demo-float-accuracy-python
 :::
+```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_kc227kat&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_bdf3koc0%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
+```` 
+
+````{tab-item} MATLAB
+:sync: matlab
+```` 
+
+````{tab-item} Python
+:sync: python
 ```` 
 `````
 
@@ -190,6 +214,29 @@ We often speak of double-precision floating-point numbers as having about 16 dec
 :sync: python
 :::{embed} #demo-float-double-python
 :::
+```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_i43ihhvy&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_18rbflyi%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
+```` 
+
+````{tab-item} MATLAB
+:sync: matlab
+```` 
+
+````{tab-item} Python
+:sync: python
 ```` 
 `````
 
@@ -239,6 +286,29 @@ Hence, the relative error in arithmetic is essentially the same as for the float
 :sync: python
 :::{embed} #demo-float-arithmetic-python
 :::
+```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_v4qqt6ue&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_0tp9riwg%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
+```` 
+
+````{tab-item} MATLAB
+:sync: matlab
+```` 
+
+````{tab-item} Python
+:sync: python
 ```` 
 `````
 

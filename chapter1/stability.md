@@ -52,6 +52,30 @@ x_2 = \frac{-b - \sqrt{b^2-4ac}}{2a}.
 `````
 ``````
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_4ug49ukm&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_y3pcfiws%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 ```{index} subtractive cancellation
 ```
 
@@ -82,6 +106,30 @@ We can confirm this conclusion by finding a different path that avoids subtracti
 ```` 
 `````
 ``````
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_bnng2ukz&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_fgo2o818%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
 
 The algorithms in @demo-stability-quadbad and @demo-stability-quadgood are equivalent when using real numbers and exact arithmetic. When results are perturbed by machine representation at each step, though, the effects may depend dramatically on the specific sequence of operations, thanks to the chain rule {eq}`condition-chain`.
 
@@ -142,6 +190,30 @@ Backward error is the difference between the original data and the data that exa
 ```` 
 `````
 ``````
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_y6dxnlam&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_2xcm0icy%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
 
 Small backward error is the best we can hope for in a poorly conditioned problem. Without getting into the formal details, know that if an algorithm always produces small backward errors, then it is stable. But the converse is not always true: some stable algorithms may produce a large backward error.
 
