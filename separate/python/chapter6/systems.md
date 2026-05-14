@@ -183,11 +183,11 @@ def snapshot(t):
 anim = animation.FuncAnimation(
     fig, snapshot, frames=linspace(0, 60, 801)
     )
-anim.save("figures/predator-prey.mp4", fps=24)
+anim.save("predator-prey.mp4", fps=24)
 close()
 ```
 
-![Predator–prey solution](figures/predator-prey.mp4)
+![Predator–prey solution](predator-prey.mp4)
 
 ::::
 
@@ -318,10 +318,10 @@ def snapshot(i):
     time_.set_text(f"t = {sol.t[i]:.1f} s")
 
 anim = animation.FuncAnimation(fig, snapshot, frames=401)
-anim.save("figures/pendulums-weak.mp4", fps=24)
+anim.save("pendulums-weak.mp4", fps=24)
 ```
 
-![Uncoupled pendulums](figures/pendulums-weak.mp4)
+![Uncoupled pendulums](pendulums-weak.mp4)
 
 Because the model is nonlinear and the initial angles are not small, they have slightly different periods of oscillation, and they go in and out of phase.
 
@@ -340,10 +340,10 @@ The coupling makes the pendulums swap energy back and forth:
 ```{code-cell}
 :tags: [hide-input, remove-output]
 anim = animation.FuncAnimation(fig, snapshot, frames=1001)
-anim.save("figures/pendulums-strong.mp4", fps=24)
+anim.save("pendulums-strong.mp4", fps=24)
 ```
 
-![Coupled pendulums](figures/pendulums-strong.mp4)
+![Coupled pendulums](pendulums-strong.mp4)
 
 ::::
 
@@ -465,7 +465,7 @@ with $[x(0),y(0)]=[0.95,0]$, $[0,1.05]$, and $[-2.5,0]$.
 \end{split}
 ```
 
-Assume $v_1(0) = 0.5$, $v_2(0) = 0.1$, $a = 0.1$, $\epsilon = 0.008$, $\gamma = 1$. For each value of $I$ below, imitate the method of @demo-systems-coupledpendula tofind and plot the solution for $0\le t \le 600$. The solutions are highly sensitive to $I$, and you need to change the requested absolute and relative error tolerances to $10^{-9}$. In each case the solution quickly approaches a periodic oscillation.
+Assume $v_1(0) = 0.5$, $v_2(0) = 0.1$, $a = 0.1$, $\epsilon = 0.008$, $\gamma = 1$. For each value of $I$ below, imitate the method of @demo-systems-coupledpendula to find and plot the solution for $0\le t \le 600$. The solutions are highly sensitive to $I$, and you need to change the requested absolute and relative error tolerances to $10^{-9}$. In each case the solution quickly approaches a periodic oscillation.
 
 **(a)** $I = 0.05527,\quad$
 **(b)** $I = 0.05683,\quad$

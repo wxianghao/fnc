@@ -291,7 +291,7 @@ $$
 h f_{i+1} = \frac{3}{2} u_{i+1} - 2 u_i + \frac{1}{2} u_{i-1}.
 $$
 
-Rearranging and Normalizing by the coefficient of $u_{i+1}$ gives $\rho(z)=z^2 + \tfrac{4}{3}z - \tfrac{1}{3}$ and $\sigma(z) = \tfrac{2}{3}z^2$, which is the BD2 method.
+Rearranging and normalizing by the coefficient of $u_{i+1}$ gives $\rho(z)=z^2 - \tfrac{4}{3}z + \tfrac{1}{3}$ and $\sigma(z) = \tfrac{2}{3}z^2$, which is the BD2 method.
 :::
 
 ## Exercises

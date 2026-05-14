@@ -91,7 +91,7 @@ The {term}`Jacobian matrix` of $\mathbf{f}(\mathbf{x})$, where $\mathbf{f}$ is $
     \rule[2mm]{0pt}{1em}\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \cdots & \frac{\partial f_1}{\partial x_n}\\[2mm]
     \frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n}\\[1mm]
     \vdots & \vdots & & \vdots\\[1mm]
-    \rule[-3mm]{0pt}{1em} \frac{\partial f_n}{\partial x_1} & \frac{\partial f_n}{\partial x_2} & \cdots & \frac{\partial f_n}{\partial x_n}
+    \rule[-3mm]{0pt}{1em} \frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \cdots & \frac{\partial f_m}{\partial x_n}
   \end{bmatrix} = \left[ \frac{\partial f_i}{\partial x_j} \right]_{\,i=1,\ldots,m,\, j=1,\ldots,n.}
 ```
 
@@ -186,7 +186,7 @@ Note that $\mathbf{J}^{-1}\mathbf{f}$ now plays the role that $f/f'$ had in the 
 :label: definition-newtonsmethodsys
 Given $\mathbf{f}$ and a starting value $\mathbf{x}_1$, for each $k=1,2,3,\ldots$
 
-1. Compute $\mathbf{y}_k = \mathbf{f}(\mathbf{x}_k)$ and $\mathbf{A}_k=\mathbf{f\,}'(\mathbf{x}_k)$.
+1. Compute $\mathbf{y}_k = \mathbf{f}(\mathbf{x}_k)$ and $\mathbf{A}_k=\mathbf{f\,}'(\mathbf{x}_k)= \mathbf{J}(\mathbf{x}_k)$.
 2. Solve the linear system $\mathbf{A}_k\mathbf{s}_k = -\mathbf{y}_k$ for the **Newton step** $\mathbf{s}_k$.
 3. Let $\mathbf{x}_{k+1} = \mathbf{x}_k + \mathbf{s}_k$.
 ::::

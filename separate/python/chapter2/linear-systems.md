@@ -138,6 +138,10 @@ A linear system with a singular matrix might have no solution or infinitely many
 
 ::::
 
+::::{aside}
+
+
+::::
 (section-linsys-triangular)=
 
 ## Triangular systems
@@ -309,6 +313,11 @@ print("error:", x - x_exact)
 ```
 
 It's not so good to get 4 digits of accuracy after starting with sixteen! But the source of the error is not hard to track down. Solving for $x_1$ performs $(\alpha-\beta)+\beta$ in the first row. Since $|\alpha|$ is so much smaller than $|\beta|$, this a recipe for losing digits to subtractive cancellation.
+
+::::
+
+::::{aside}
+
 
 ::::
 

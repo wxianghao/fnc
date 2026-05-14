@@ -71,6 +71,17 @@ The next step is `U[2, :] = A[2, :]`, which is also OK. But then we are supposed
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_gtnp4zu6&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_qjoq3ml2%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 In {numref}`section-linsys-lu` we remarked that LU factorization is equivalent to Gaussian elimination with no row swaps. However, those swaps are necessary in situations like those encountered in @demo-pivoting-fail, in order to avoid division by zero. We will find a modification of the outer product procedure that allows us to do the same thing.
 
 ## Choosing a pivot
@@ -158,6 +169,17 @@ L
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_l88h8fov&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_lz7tsi0r%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 We will return to the loss of triangularity in $\mathbf{L}$ momentarily. First, though, there is a question left to answer: what if at some stage, all the elements of the targeted column are zero, i.e., there are no available pivots? Fortunately that loose end ties up nicely, although a proof is a bit beyond our scope here.
 
 ```{prf:theorem} Row pivoting
@@ -198,6 +220,17 @@ And $\mathbf{L}$ has the same rows as before, but arranged into triangular order
 ```{code-cell}
 L
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_iapwbhbq&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_25kgtz7h%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -265,6 +298,17 @@ b - A*x
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_1t0ecgbl&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_9cjlodlb%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 While {numref}`Function {number} <function-plufact>` is a serviceable implementation, it is not the gold standard for solving linear systems in practice. Each language offers its own built-in function for PLU factorization.
 
 ::::{prf:example} Built-in PLU factorization
@@ -285,6 +329,17 @@ factored = lu(A)       # store factorization result
 factored \ rand(500)   # force compilation for timing
 @elapsed for k=1:50; factored \ rand(500); end
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_o256xozz&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_g6v6a9m8%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -338,6 +393,17 @@ This effect is not due to ill conditioning of the problem—a solution with PLU 
 ```{code-cell}
 A \ b
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_e0k1ky8e&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_t2r0pfm7%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

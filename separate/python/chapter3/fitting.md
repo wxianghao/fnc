@@ -137,7 +137,6 @@ y = array([-0.0480, -0.0180, -0.0360, -0.0120, -0.0040,
 t = (year - 1950) / 10
 ```
 
-
 The standard best-fit line results from using a linear polynomial that meets the least-squares criterion.
 ```{tip}
 :class: dropdown
@@ -157,7 +156,6 @@ from scipy.linalg import lstsq
 c, res, rank, sv = lstsq(V, y)
 p = poly1d(c)
 f = lambda year: p((year - 1950) / 10)
-```
 ```
 
 ```{code-cell}
@@ -187,6 +185,7 @@ The definition of `f` above is in terms of `c`. When `c` is changed, `f` is upda
 
 ```{code-cell}
 c, res, rank, sv = lstsq(V, y)
+p = poly1d(c)
 yr = linspace(1955, 2000, 500)
 ax.plot(yr, f(yr), label="cubic fit")
 fig
@@ -362,7 +361,7 @@ legend(); title("Sequence convergence");
 92.22, 106.0, 122.8, 132.2, 150.7, 179.3, 203.3, 226.5, 248.7, 281.4, 308.7
 ```
 
-**(a)** Find a best-fitting cubic polynomial for the data. Plot the data as points superimposed on a (smooth) graph of the cubic over the full range of time. Label the axes. What does the fit predict for the population in the years 2000, 2010, and 2020? (In MATLAB, )
+**(a)** Find a best-fitting cubic polynomial for the data. Plot the data as points superimposed on a (smooth) graph of the cubic over the full range of time. Label the axes. What does the fit predict for the population in the years 2000, 2010, and 2020?
 
 **(b)** Look up the actual U.S. population in 2000, 2010, and 2020 and compare to the predictions of part (a).
 ``````

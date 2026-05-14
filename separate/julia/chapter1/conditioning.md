@@ -34,7 +34,7 @@ using LinearAlgebra
 
 Let's think a bit about what must be the easiest math problem you've dealt with in quite some time: adding 1 to a number. Formally, we describe this problem as a function $f(x)=x+1$, where $x$ is any real number.
 
-On a computer, $x$ will be represented by its floating-point counterpart, $\fl(x)$. Given the property {eq}`fpbound`, we have $\fl(x)=x(1+\epsilon)$ for some $\epsilon$ satisfying $|\epsilon| < \macheps/2$.  There is no error in representing the value 1.
+On a computer, $x$ will be represented by its floating-point counterpart, $\fl(x)$. Given the property {eq}`fpboundalt`, we have $\fl(x)=x(1+\epsilon)$ for some $\epsilon$ satisfying $|\epsilon| < \macheps/2$.  There is no error in representing the value 1.
 
 Let's suppose that we are fortunate and that the addition proceeds exactly, with no additional errors. Then the machine result is just
 
@@ -295,6 +295,17 @@ eps() / ϵ
 ```
 
 This matches the observation pretty well.
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_yksu52q8&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_o9kdxmp3%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

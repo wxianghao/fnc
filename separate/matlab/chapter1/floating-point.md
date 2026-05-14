@@ -149,6 +149,7 @@ Absolute accuracy has the same units as $x$, while relative accuracy is dimensio
 We often round this value down to an integer, but it does make sense to speak of "almost seven digits" or "ten and a half digits."
 
 (demo-float-accuracy)=
+
 ::::{prf:example} Absolute and relative accuracy
 
 
@@ -195,6 +196,11 @@ The `log` function is for the natural log. For other common bases, use `log10` o
 format short
 accurate_digits = -log10(rel_accuracy)
 ```
+
+
+::::
+
+::::{aside}
 
 
 ::::
@@ -265,6 +271,11 @@ format short e
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Our theoretical description of $\float$ did not place limits on the exponent, but in double precision its range is limited to $-1022\le n \le 1023$. Thus, the largest number is just short of $2^{1024}\approx 2\times 10^{308}$, which is enough in most applications. Results that should be larger are said to *overflow* and will actually result in the value `Inf`. Similarly, the smallest positive number is $2^{-1022}\approx 2\times 10^{-308}$, and smaller values are said to *underflow* to zero.[^denormalized]
 
 [^denormalized]: Actually, there are some still-smaller *denormalized* numbers that have less precision, but we won't use that level of detail.
@@ -306,6 +317,11 @@ However, the spacing between floats in $[1/2,1)$ is $\macheps/2$, so both $1-\ma
 ```
 
 This is now the expected result. But we have found a rather shocking breakdown of the associative law of addition!
+
+::::
+
+::::{aside}
+
 
 ::::
 

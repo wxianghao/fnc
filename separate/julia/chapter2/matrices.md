@@ -262,7 +262,7 @@ Errors are formally called *exceptions* in Julia.
 ```
 
 ```{code-cell} julia
-:tags: raises-exception
+:tags: [raises-exception]
 A * B    # throws an error
 ```
 
@@ -315,6 +315,17 @@ show(@. cospi( (x + 1)^3) )    # broadcast an entire expression
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_gso8lihq&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_1kvepxso%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 ## Row and column operations
 
 A critical identity in matrix multiplication is
@@ -364,9 +375,6 @@ Suppose we want to do this operation "in place," meaning replacing the first col
   \end{bmatrix}.
 ```
 
-:::::{tab-set}
-::::{tab-item} Julia
-:sync: julia
 
 ```{index} ! Julia; +=
 ```
@@ -378,29 +386,6 @@ A[:, 1] += 2A[:, 3]
 ```
 
 The `+=` operator means to increment the item on the left-hand side. There are similar interpretations for `-=` and `*=`.
-::::
-
-:::{tab-item} MATLAB
-:sync: matlab
-The MATLAB equivalent is
-
-```matlab
-A(:, 1) = A(:, 1) + 2 * A(:, 3)
-```
-
-:::
-:::{tab-item} Python
-:sync: python
-The NumPy equivalent is
-
-```python
-A[:, 0] += 2 * A[:, 2]
-```
-
-The `+=` operator means to increment the item on the left-hand side. There are similar interpretations for `-=` and `*=`
-:::
-::::
-
 ````
 
 ## Exercises

@@ -126,7 +126,7 @@ The error tolerance in the IVP solver is kept smaller than in the rootfinder, to
 ::::{prf:example} Shooting solution of a BVP
 :label: demo-shooting-mems
 
-We revisit @demo-shooting-naive>` but let {numref}`Function {number} <function-shoot do the heavy lifting.
+We revisit @demo-shooting-naive but let {numref}`Function {number} <function-shoot>` do the heavy lifting.
 
 ```{code-cell}
 λ = 0.6

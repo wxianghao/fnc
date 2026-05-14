@@ -43,6 +43,7 @@ In {numref}`section-linsys-polyinterp` we saw how a polynomial can be used to in
 Here are 5-year averages of the worldwide temperature anomaly as compared to the 1951–1980 average (source: NASA).
 
 ```{code-cell}
+using Plots
 year = 1955:5:2000
 temp = [ -0.0480, -0.0180, -0.0360, -0.0120, -0.0040,
        0.1180, 0.2100, 0.3320, 0.3340, 0.4560 ]
@@ -71,7 +72,7 @@ If you `plot` a function, then the points are chosen automatically to make a smo
 ```
 
 ```{code-cell}
-using Polynomials, Plots
+using Polynomials
 p = Polynomial(c)
 f = yr -> p((yr - 1950) / 10)
 plot!(f, 1955, 2000, label="interpolant")
@@ -285,7 +286,7 @@ Say $s_k$ is the sum of the first $k$ terms of the series above, and $p_k = \sqr
 
 
 ```{code-cell}
-a = [1/k^2 for k=1:100] 
+a = [1/k^2 for k in 1:100] 
 s = cumsum(a)        # cumulative summation
 p = @. sqrt(6*s)
 
@@ -300,7 +301,7 @@ This graph suggests that maybe $p_k\to \pi$, but it's far from clear how close t
 ϵ = @. abs(π - p)    # error sequence
 scatter(1:100, ϵ;
     title="Convergence of errors",
-    xaxis=(:log10,L"k"),  yaxis=(:log10,"error"))
+    xaxis=(:log10, L"k"),  yaxis=(:log10, "error"))
 ```
 
 The straight line on the log-log scale suggests a power-law relationship where $\epsilon_k\approx a k^b$, or $\log \epsilon_k \approx b (\log k) + \log a$.

@@ -103,6 +103,11 @@ The lower and upper bandwidths of $\mathbf{A}$ are repeated in the factors from 
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ```{index} pivoting
 ```
 
@@ -191,6 +196,11 @@ We have arrived at the desired factorization, which we can validate:
 ```{code-cell}
 norm(A_1 - (L * diag(d) * L'))
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -332,6 +342,11 @@ norm(R' * R - B) / norm(B)
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}
@@ -434,6 +449,6 @@ What is the ratio of running times for part (a) and (b)?
 
 ``````{exercise}
 :label: problem-structure-ATA
-✍ Prove that if $\mathbf{A}$ is any real invertible square matrix, then $\mathbf{A}^T\mathbf{A}$ is SPD. (Hint: First, check symmetry. Then show that $\mathbf{x}^T\mathbf{A}^T\mathbf{A}\mathbf{x} \ge 0$ for all $\mathbf{x}$. Finally, explain why zero is ruled out if $\mathbf{x}\neq \boldsymbol{0}$.)
+✍ Prove that if $\mathbf{A}$ is any real invertible square matrix, then $\mathbf{A}^T\mathbf{A}$ is SPD. (Hint: First, verify symmetry. Then show that $\mathbf{x}^T\mathbf{A}^T\mathbf{A}\mathbf{x} \ge 0$ for all $\mathbf{x}$. Finally, explain why zero is ruled out if $\mathbf{x}\neq \boldsymbol{0}$.)
 
 ``````

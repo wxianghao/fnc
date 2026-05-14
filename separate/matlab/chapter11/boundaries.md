@@ -16,7 +16,7 @@ set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
 set(gcf, 'Position', [0 0 600 350])
-addpath ../FNC_matlab
+addpath FNC-matlab
 ```
 
 (section-diffusion-boundaries)=

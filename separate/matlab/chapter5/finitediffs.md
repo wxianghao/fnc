@@ -209,7 +209,7 @@ BD2 = (f(-2*h) - 4*f(-h) + 3*f(0)) / (2*h)
 Many applications require the second derivative of a function. It's tempting to use the finite difference of a finite difference. For example, applying {eq}`centerFD12` to $f'$ gives
 
 ```{math}
-f''(0) \approx  \frac{ f'(h) - f'(h) }{2h}.
+f''(0) \approx  \frac{ f'(h) - f'(-h) }{2h}.
 ```
 
 Then applying {eq}`centerFD12` to approximate the appearances of $f'$ leads to

@@ -158,6 +158,7 @@ Absolute accuracy has the same units as $x$, while relative accuracy is dimensio
 We often round this value down to an integer, but it does make sense to speak of "almost seven digits" or "ten and a half digits."
 
 (demo-float-accuracy)=
+
 ::::{prf:example} Absolute and relative accuracy
 
 :::{tip} Getting started in Julia
@@ -210,6 +211,16 @@ println("Number of accurate digits = $(-log10(acc/π))")
 ```
 This last value could be rounded down by using `floor`.
 
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_kc227kat&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_bdf3koc0%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
 
 ::::
 
@@ -338,6 +349,16 @@ If you try to convert a noninteger floating-point value into an integer you get 
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_i43ihhvy&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_18rbflyi%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
+
+::::
+
 Our theoretical description of $\float$ did not place limits on the exponent, but in double precision its range is limited to $-1022\le n \le 1023$. Thus, the largest number is just short of $2^{1024}\approx 2\times 10^{308}$, which is enough in most applications. Results that should be larger are said to *overflow* and will actually result in the value `Inf`. Similarly, the smallest positive number is $2^{-1022}\approx 2\times 10^{-308}$, and smaller values are said to *underflow* to zero.[^denormalized]
 
 [^denormalized]: Actually, there are some still-smaller *denormalized* numbers that have less precision, but we won't use that level of detail.
@@ -380,6 +401,16 @@ However, the spacing between floats in $[1/2,1)$ is $\macheps/2$, so both $1-\ma
 ```
 
 This is now the expected result. But we have found a rather shocking breakdown of the associative law of addition!
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_v4qqt6ue&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_0tp9riwg%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+```
+:::
 
 ::::
 

@@ -113,6 +113,11 @@ print(norm(x, 1))
 
 ::::
 
+::::{aside}
+
+
+::::
+
 :::{note}
 Most of the time, when just $\| \mathbf{x} \|$ is written, the 2-norm is implied. However, in this section we use it to mean a generic, unspecified vector norm.
 :::
@@ -349,6 +354,11 @@ ylabel("$y_2$");
 ```
 
 As seen on the right-side plot, the image of the transformed vectors is an ellipse that just touches the circle of radius $\|\mathbf{A}\|_2$.
+
+
+::::
+
+::::{aside}
 
 
 ::::

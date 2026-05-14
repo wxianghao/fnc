@@ -147,6 +147,11 @@ Simply because of the triangular zero structures, only the first outer product c
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Let the columns of $\mathbf{L}$ be written as $\boldsymbol{\ell}_k$ and the rows of $\mathbf{U}$ be written as $\mathbf{u}_k^T$. Then the first row of $\mathbf{L}\mathbf{U}$ is
 
 ```{math}
@@ -261,6 +266,11 @@ In floating point, we cannot expect the difference to be exactly zero as we foun
 
 ::::
 
+::::{aside}
+
+
+::::
+
 We have arrived at the linchpin of solving linear systems.
 
 ```{index} ! matrix factorization; LU, ! LU factorization
@@ -339,6 +349,11 @@ A check on the residual assures us that we found the solution.
 ```{code-cell}
 b - A * x
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

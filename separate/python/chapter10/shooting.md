@@ -114,7 +114,7 @@ Our implementation of shooting is given in {numref}`Function {number} <function-
 ::::{prf:example} Shooting solution of a BVP
 :label: demo-shooting-mems
 
-We revisit @demo-shooting-naive>` but let {numref}`Function {number} <function-shoot do the heavy lifting.
+We revisit @demo-shooting-naive but let {numref}`Function {number} <function-shoot>` do the heavy lifting.
 
 ```{code-cell}
 lamb = 0.6

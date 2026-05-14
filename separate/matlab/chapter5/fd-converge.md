@@ -271,12 +271,12 @@ Again the graph is made so that $h$ decreases from left to right. The errors are
 
 ``````{exercise}
 :label: problem-fdconverge-fwd2
-✍ Calculate the first nonzero term in the Taylor series of the truncation error $\tau_{f}(h)$ for the finite-difference formula defined by the second row of {numref}`table-FDforward`. (Find the entire term, not just the $O(h^p)$ equivalent.)
+✍ Calculate the first nonzero term (with coefficient) in the Taylor series of the truncation error $\tau_{f}(h)$ for the finite-difference formula defined by the second row of {numref}`table-FDforward`. 
 ``````
 
 ``````{exercise}
 :label: problem-fdconverge-fwd3
-✍ Calculate the first nonzero term in the Taylor series of the truncation error $\tau_{f}(h)$ for the finite-difference formula defined by the third row of {numref}`table-FDforward`.
+✍ Calculate the first nonzero term (with coefficient) in the Taylor series of the truncation error $\tau_{f}(h)$ for the finite-difference formula defined by the third row of {numref}`table-FDforward`. 
 ``````
 
 ``````{exercise}

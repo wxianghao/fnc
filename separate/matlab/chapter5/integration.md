@@ -308,7 +308,7 @@ It follows that if we combine {eq}`traperrorexpansion` and {eq}`traperrorexpansi
 
 ```{math}
 :label: extraplevel1
-  I = S_f(2n) + O(n^{-4}) =  b_4 n^{-4} + b_6 n^{-6} + \cdots.
+  I - S_f(2n) = O(n^{-4}) = b_4 n^{-4} + b_6 n^{-6} + \cdots.
 ```
 
 ```{index} ! Simpson's formula
@@ -319,7 +319,7 @@ The formula {eq}`nc-simpson` is called **Simpson's formula**, or *Simpson's rule
 Equation {eq}`extraplevel1` is another particular error expansion in the form {eq}`extraperror`, so we can extrapolate again! The details change only a little. Considering that
 
 ```{math}
-  I = S_f(4n) = \tfrac{1}{16} b_4 n^{-4} + \tfrac{1}{64} b_6 n^{-6} + \cdots,
+  I - S_f(4n) = \tfrac{1}{16} b_4 n^{-4} + \tfrac{1}{64} b_6 n^{-6} + \cdots,
 ```
 
 the proper combination this time is
@@ -506,7 +506,7 @@ where $p$ is the quadratic polynomial from part (a), in terms of $h$, $\alpha$, 
 
 ``````{exercise}
 :label: problem-integration-simpsonextrap
-✍ Show that the Simpson formula {eq}`simpson` is equivalent to $S_f(n/2),$ given the definition of $S_f$ in {eq}`nc-simpson`.
+✍ Show that the Simpson formula {eq}`simpson` is equivalent to $S_f(n),$ given the definition of $S_f$ in {eq}`nc-simpson`.
 ``````
 
 ``````{exercise}
@@ -528,7 +528,7 @@ Make two separate plots of the absolute error as a function of $n$, one using a 
 
 ``````{exercise}
 :label: problem-integration-extrap6
-⌨ For the integrals in (a)–(c) of @problem-integration-tests, extrapolate the trapezoidal results for $n=32,48,72,108,162$ two levels to get sixth-order accurate results, and make table of the errors.
+⌨ For the integrals in (a)–(c) of @problem-integration-tests, extrapolate the trapezoidal results for $n=32,48,72,108,162$ two levels to get sixth-order accurate results, and make a table of the errors.
 ``````
 
 ``````{exercise}

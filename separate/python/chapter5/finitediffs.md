@@ -220,7 +220,7 @@ print(f"BD1 is {BD1:.9f} and BD2 is {BD2:.9f}")
 Many applications require the second derivative of a function. It's tempting to use the finite difference of a finite difference. For example, applying {eq}`centerFD12` to $f'$ gives
 
 ```{math}
-f''(0) \approx  \frac{ f'(h) - f'(h) }{2h}.
+f''(0) \approx  \frac{ f'(h) - f'(-h) }{2h}.
 ```
 
 Then applying {eq}`centerFD12` to approximate the appearances of $f'$ leads to

@@ -71,13 +71,13 @@ Let's convert the roots of a quadratic polynomial $f(x)$ to a fixed point proble
 
 ```{code-cell}
 using Polynomials
-p = Polynomial([3.5, -4,1])
+p = Polynomial([3.5, -4, 1])
 r = roots(p)
 rmin, rmax = extrema(r)
 @show rmin, rmax;
 ```
 
-We define $g(x)=x-p(x)$. 
+We define $g(x)=x-f(x)$. 
 
 ```{code-cell}
 g(x) = x - p(x)

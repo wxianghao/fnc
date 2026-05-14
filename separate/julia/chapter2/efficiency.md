@@ -202,6 +202,17 @@ $$
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_sbhsp8ln&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_sdidv6du%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 Suppose that the running time $t$ of an algorithm obeys a function that is $O(n^p)$. For sufficiently large $n$, $t\approx Cn^p$ for a constant $C$ should be a good approximation. Hence
 
 ```{math}
@@ -243,6 +254,17 @@ You can see that while the full story is complicated, the graph is trending to a
 plot!(n, t[end] * (n/n[end]).^2, l=:dash,
     label=L"O(n^2)", legend=:topleft)
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_w4r8q07j&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_2cqnume0%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -359,6 +381,17 @@ scatter(n, t, label="data", legend=:topleft,
     xaxis=(:log10, L"n"), yaxis=(:log10, "elapsed time"))
 plot!(n, t[end ]* (n/n[end]).^3, l=:dash, label=L"O(n^3)")
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_rgriw92o&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_pdkcw6sc%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

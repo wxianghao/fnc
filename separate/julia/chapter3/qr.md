@@ -223,13 +223,13 @@ Julia provides access to both the thin and full forms of the QR factorization.
 
 ```{code-cell}
 A = rand(1.:9., 6, 4)
-@show m,n = size(A);
+@show m, n = size(A);
 ```
 
 Here is a standard call:
 
 ```{code-cell}
-Q,R = qr(A);
+Q, R = qr(A)
 Q
 ```
 

@@ -141,7 +141,7 @@ The `rand` function can select randomly from within the interval $[0,1]$, or fro
 
 ```{code-cell}
 A = rand(float(1:9), 6, 4)
-m,n = size(A)
+m, n = size(A)
 ```
 
 ```{index} Julia; normalize, ! Julia; I

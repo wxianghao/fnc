@@ -34,7 +34,7 @@ rcParams['animation.html'] = "jshtml"  # or try "html5"
 
 Let's think a bit about what must be the easiest math problem you've dealt with in quite some time: adding 1 to a number. Formally, we describe this problem as a function $f(x)=x+1$, where $x$ is any real number.
 
-On a computer, $x$ will be represented by its floating-point counterpart, $\fl(x)$. Given the property {eq}`fpbound`, we have $\fl(x)=x(1+\epsilon)$ for some $\epsilon$ satisfying $|\epsilon| < \macheps/2$.  There is no error in representing the value 1.
+On a computer, $x$ will be represented by its floating-point counterpart, $\fl(x)$. Given the property {eq}`fpboundalt`, we have $\fl(x)=x(1+\epsilon)$ for some $\epsilon$ satisfying $|\epsilon| < \macheps/2$.  There is no error in representing the value 1.
 
 Let's suppose that we are fortunate and that the addition proceeds exactly, with no additional errors. Then the machine result is just
 
@@ -47,8 +47,8 @@ We can derive the relative error in this result:
 
 ```{math}
 :label: plus1relerr
-  \frac{ |{y}-f(x)| }{ | f(x) | } = \frac{ |(x+\epsilon x+1) - (x+1)| }{ | x+1 | }
-  = \frac{ | \epsilon x | }{ | x+1 | } .
+  \frac{ |{y}-f(x)| }{ |f(x)| } = \frac{ |(x+\epsilon x+1) - (x+1)| }{ |x+1| }
+  = \frac{ |\epsilon x| }{ |x+1| } .
 ```
 
 This error could be quite large if the denominator is small. In fact, we can make the relative error as large as we please by taking $x$ very close to $-1$. This is essentially what happened in @demo-float-arithmetic.
@@ -74,7 +74,7 @@ When the problem $f$ is approximated in floating point on a computer, the data $
 
 ```{math}
 :label: condition1
-   \frac{ \vphantom{\dfrac{\bigl|}{\bigl|}}\dfrac{| f(x)-f(\tilde{x})|}{| f(x)|} }{%
+   \frac{ \vphantom{\dfrac{\bigl|}{\bigl|}}\dfrac{|f(x)-f(\tilde{x})|}{|f(x)|} }{%
      \vphantom{\dfrac{\bigl|}{\bigl|}}\dfrac{|x-\tilde{x}|}{|x|} },
 ```
 
@@ -82,7 +82,7 @@ which is the ratio of the relative changes in result and data. We make this expr
 
 ```{math}
 :label: condition2
-   \dfrac{\left| f(x)-f(x+\epsilon x)\right| } {|\epsilon f(x)|}.
+   \dfrac{\left|f(x)-f(x+\epsilon x)\right| } {|\epsilon f(x)|}.
 ```
 
 Finally, we idealize what happens in a perfect computer by taking a limit as $\macheps\to 0$.
@@ -96,7 +96,7 @@ The relative {term}`condition number` of a scalar function $f(x)$ is
 
 ```{math}
 :label: condition
-   \kappa_f(x) = \lim_{\epsilon\to 0} \dfrac{ | f(x)-f(x(1+\epsilon))| }{ |\epsilon f(x)| }.
+   \kappa_f(x) = \lim_{\epsilon\to 0} \dfrac{ |f(x)-f(x(1+\epsilon))| }{ |\epsilon f(x)| }.
 ```
 
 ::::
@@ -115,7 +115,7 @@ Assuming that $f$ has at least one continuous derivative, we can simplify the ex
 \end{split}
 ```
 
-In retrospect, it should come as no surprise that the change in values of $f(x)$ due to small changes in $x$ involves the derivative of $f$. In fact, if we were making measurements of changes in absolute rather than relative terms, the condition number would be simply $| f'(x)|$.
+In retrospect, it should come as no surprise that the change in values of $f(x)$ due to small changes in $x$ involves the derivative of $f$. In fact, if we were making measurements of changes in absolute rather than relative terms, the condition number would be simply $|f'(x)|$.
 
 ````{prf:example}
 Let's return to our "add 1" problem and generalize it slightly to $f(x)=x-c$ for constant $c$. We compute, using {eq}`conditionderiv`,
@@ -199,7 +199,7 @@ If $\kappa_f \approx 1/\macheps$, then we can expect the result to have a relati
 ````{prf:example}
 Consider the problem $f(x)= \cos(x)$. By the table above, $\kappa_f(x) = |x \tan x|$. There are two different ways in which $\kappa$ might become large:
 
-- If $|x|$ is very large, then perturbations that are small relative to $x$ may still be large compared to $1$. Because $| f(x)|\le 1$ for all $x$, this implies that the perturbation will be large relative to the result, too.
+- If $|x|$ is very large, then perturbations that are small relative to $x$ may still be large compared to $1$. Because $|f(x)|\le 1$ for all $x$, this implies that the perturbation will be large relative to the result, too.
 - The condition number grows without bound as $x$ approaches an odd integer multiple of $\pi/2$, where $f(x)=0$. A perturbation which is small relative to a nonzero $x$ may not be small relative to $f(x)$ in such a case.
 ````
 
@@ -294,6 +294,11 @@ print(finfo(float).eps / ep)
 ```
 
 This matches the observation pretty well.
+
+::::
+
+::::{aside}
+
 
 ::::
 

@@ -188,6 +188,11 @@ legend();
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}

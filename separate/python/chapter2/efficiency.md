@@ -186,6 +186,11 @@ $$
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Suppose that the running time $t$ of an algorithm obeys a function that is $O(n^p)$. For sufficiently large $n$, $t\approx Cn^p$ for a constant $C$ should be a good approximation. Hence
 
 ```{math}
@@ -227,6 +232,11 @@ You can see that while the full story is complicated, the graph is trending to a
 ax.loglog(N, t[-1] * (N/N[-1])**2, "--", label="$O(n^2)$")
 ax.legend();  fig
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -338,6 +348,11 @@ xlabel("$n$");
 ylabel("elapsed time (sec)");
 title("Timing of LU factorizations");
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

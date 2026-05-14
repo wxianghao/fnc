@@ -191,6 +191,11 @@ $$
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Suppose that the running time $t$ of an algorithm obeys a function that is $O(n^p)$. For sufficiently large $n$, $t\approx Cn^p$ for a constant $C$ should be a good approximation. Hence
 
 ```{math}
@@ -238,6 +243,11 @@ loglog(n, 0.5 * t(end) * (n / n(end)).^2, 'k--')
 axis tight
 legend('data', 'O(n^2)', 'location', 'southeast')
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -358,6 +368,11 @@ xlabel('size of matrix'), ylabel('time (sec)')
 title('Timing of LU factorization')
 legend('lu','O(n^3)','location','southeast');
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

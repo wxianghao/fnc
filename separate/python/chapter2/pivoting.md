@@ -77,6 +77,11 @@ The next step is `U[1, :] = A[1, :]`, which is also OK. But then we are supposed
 
 ::::
 
+::::{aside}
+
+
+::::
+
 In {numref}`section-linsys-lu` we remarked that LU factorization is equivalent to Gaussian elimination with no row swaps. However, those swaps are necessary in situations like those encountered in @demo-pivoting-fail, in order to avoid division by zero. We will find a modification of the outer product procedure that allows us to do the same thing.
 
 ## Choosing a pivot
@@ -175,6 +180,11 @@ print(L)
 
 ::::
 
+::::{aside}
+
+
+::::
+
 We will return to the loss of triangularity in $\mathbf{L}$ momentarily. First, though, there is a question left to answer: what if at some stage, all the elements of the targeted column are zero, i.e., there are no available pivots? Fortunately that loose end ties up nicely, although a proof is a bit beyond our scope here.
 
 ```{prf:theorem} Row pivoting
@@ -220,6 +230,11 @@ And $\mathbf{L}$ has the same rows as before, but arranged into triangular order
 ```{code-cell}
 print(L)
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -286,6 +301,11 @@ b - A @ x
 
 ::::
 
+::::{aside}
+
+
+::::
+
 While {numref}`Function {number} <function-plufact>` is a serviceable implementation, it is not the gold standard for solving linear systems in practice. Each language offers its own built-in function for PLU factorization.
 
 ::::{prf:example} Built-in PLU factorization
@@ -314,6 +334,11 @@ LU, perm = lu_factor(A)
 for k in range(50): lu_solve((LU, perm), random.rand(500))
 print(f"elapsed time for 50 shortcut solves: {timer() - start}")
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -369,6 +394,11 @@ This effect is not due to ill conditioning of the problem—a solution with PLU 
 from scipy import linalg
 print(linalg.solve(A, b))
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

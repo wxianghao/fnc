@@ -128,7 +128,7 @@ residual = b - A * x
 If the matrix $\mathbf{A}$ is singular, you may get an error.
 
 ```{code-cell} julia
-:tags: raises-exception
+:tags: [raises-exception]
 A = [0 1; 0 0]
 b = [1, -1]
 x = A \ b    # throws an error
@@ -151,6 +151,16 @@ A linear system with a singular matrix might have no solution or infinitely many
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_azwzzdej&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_tjl8d0za%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
 (section-linsys-triangular)=
 
 ## Triangular systems
@@ -310,8 +320,8 @@ The notation `0=>ones(5)` creates a `Pair`. In `diagm`, pairs indicate the posit
 ```
 
 ```{code-cell}
-α = 0.3;
-β = 2.2;
+α = 0.3
+β = 2.2
 U = diagm( 0=>ones(5), 1=>[-1, -1, -1, -1] )
 U[1, [4, 5]] = [ α - β, β ]
 U
@@ -343,6 +353,17 @@ err = x - x_exact
 ```
 
 It's not so good to get 4 digits of accuracy after starting with 16! The source of the error is not hard to track down. Solving for $x_1$ performs $(\alpha-\beta)+\beta$ in the first row. Since $|\alpha|$ is so much smaller than $|\beta|$, this a recipe for losing digits to subtractive cancellation.
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_8d8y53s0&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zejrz4ah%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

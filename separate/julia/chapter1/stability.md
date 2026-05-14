@@ -94,6 +94,17 @@ The instability is easily explained. Since $a=c=1$, we treat them as exact numbe
 Using {eq}`condition-chain`, the chain rule for condition numbers, the conditioning of the entire chain is the product of the individual steps, so there is essentially no growth of relative error here. However, if we use the quadratic formula for the "bad" root, the next-to-last step becomes $u_4=(-u_3) - b$, and now  $\kappa=|u_3|/|u_4|\approx 5\times 10^{11}$. So we can expect to lose 11 digits of accuracy, which is what we observed. The key issue is the subtractive cancellation in this one step.
 ``````
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_4ug49ukm&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_y3pcfiws%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 ```{index} subtractive cancellation
 ```
 
@@ -128,6 +139,17 @@ As you see in this output, Julia often suppresses trailing zeros in a decimal ex
 abs(x₂ - 1e-6) / 1e-6
 ```
 ``````
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_bnng2ukz&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_fgo2o818%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
 
 The algorithms in @demo-stability-quadbad and @demo-stability-quadgood are equivalent when using real numbers and exact arithmetic. When results are perturbed by machine representation at each step, though, the effects may depend dramatically on the specific sequence of operations, thanks to the chain rule {eq}`condition-chain`.
 
@@ -224,6 +246,17 @@ println("Coefficient errors:")
 In summary, even though there are some computed roots relatively far from their correct values, they are nevertheless the roots of a polynomial that is very close to the original.
 ``````
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_y6dxnlam&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_2xcm0icy%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 Small backward error is the best we can hope for in a poorly conditioned problem. Without getting into the formal details, know that if an algorithm always produces small backward errors, then it is stable. But the converse is not always true: some stable algorithms may produce a large backward error.
 
 ::::{prf:example}
@@ -272,7 +305,7 @@ to compute $f(x)$ at $x=10^{-2},10^{-3},10^{-4},\ldots,10^{-11}$.
 
 ```{math}
 :numbered: false
-p(x) = 1 + \frac{1}{2!}x + \frac{1}{3!}x^2 + \cdots + \frac{1}{8!}x^8.
+f(x) \approx p(x) = 1 + \frac{1}{2!}x + \frac{1}{3!}x^2 + \cdots + \frac{1}{8!}x^7.
 ```
 
 Evaluate it at the same values of $x$ as in part (b).

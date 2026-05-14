@@ -96,6 +96,11 @@ The comments at the start of {numref}`Function {number} <function-horner>` are d
 ```
 ``````
 
+::::{aside}
+
+
+::::
+
 ## Writing your own functions
 
 Any collection of statements organized around solving a type of problem should probably be wrapped in a function. One clue is that if you find yourself copying and pasting code, perhaps with small changes in each instance, you should probably be writing a function instead.

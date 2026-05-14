@@ -110,6 +110,17 @@ U
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_kssim3xb&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_h8j007ry%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 ```{index} pivoting
 ```
 
@@ -198,6 +209,17 @@ We have arrived at the desired factorization, which we can validate:
 ```{code-cell}
 opnorm(A₁ - (L * diagm(d) * L'))
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_nht1nazx&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_sjcn4ux7%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -316,7 +338,7 @@ The `cholesky` function computes a Cholesky factorization if possible, or throws
 ```
 
 ```{code-cell}
-:tags: raises-exception
+:tags: [raises-exception]
 cholesky(B)    # throws an error
 ```
 
@@ -338,6 +360,17 @@ Here we validate the factorization:
 ```{code-cell}
 opnorm(R' * R - B) / opnorm(B)
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_vkskhfxz&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_gck9ml7f%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

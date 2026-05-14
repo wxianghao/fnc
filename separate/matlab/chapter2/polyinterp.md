@@ -217,6 +217,11 @@ legend("data", "interpolant", "location", "northwest");
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}

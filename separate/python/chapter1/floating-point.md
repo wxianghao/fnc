@@ -158,6 +158,7 @@ Absolute accuracy has the same units as $x$, while relative accuracy is dimensio
 We often round this value down to an integer, but it does make sense to speak of "almost seven digits" or "ten and a half digits."
 
 (demo-float-accuracy)=
+
 ::::{prf:example} Absolute and relative accuracy
 
 
@@ -209,6 +210,11 @@ The `log` function is for the natural log. For other common bases, use `log10` o
 ```{code-cell} ipython3
 print(f"accurate digits: {-log10(rel_acc):.1f}")
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -299,6 +305,11 @@ int(3.14)
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Our theoretical description of $\float$ did not place limits on the exponent, but in double precision its range is limited to $-1022\le n \le 1023$. Thus, the largest number is just short of $2^{1024}\approx 2\times 10^{308}$, which is enough in most applications. Results that should be larger are said to *overflow* and will actually result in the value `Inf`. Similarly, the smallest positive number is $2^{-1022}\approx 2\times 10^{-308}$, and smaller values are said to *underflow* to zero.[^denormalized]
 
 [^denormalized]: Actually, there are some still-smaller *denormalized* numbers that have less precision, but we won't use that level of detail.
@@ -342,6 +353,11 @@ print(1.0 + (e - 1.0))
 ```
 
 This is now the "correct" result. But we have found a rather shocking breakdown of the associative law of addition!
+
+
+::::
+
+::::{aside}
 
 
 ::::

@@ -119,6 +119,11 @@ Observe above that the lower and upper bandwidths of $\mathbf{A}$ are preserved 
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ```{index} pivoting
 ```
 
@@ -217,6 +222,11 @@ This should be comparable to machine roundoff:
 ```{code-cell}
 print(norm(A_1 - (L @ diag(d) @ L.T), 2) / norm(A_1))
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -355,6 +365,11 @@ The `cholesky` function does *not* check for symmetry. It may give a nonsensical
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}
@@ -457,6 +472,6 @@ What is the ratio of running times for part (a) and (b)?
 
 ``````{exercise}
 :label: problem-structure-ATA
-✍ Prove that if $\mathbf{A}$ is any real invertible square matrix, then $\mathbf{A}^T\mathbf{A}$ is SPD. (Hint: First, check symmetry. Then show that $\mathbf{x}^T\mathbf{A}^T\mathbf{A}\mathbf{x} \ge 0$ for all $\mathbf{x}$. Finally, explain why zero is ruled out if $\mathbf{x}\neq \boldsymbol{0}$.)
+✍ Prove that if $\mathbf{A}$ is any real invertible square matrix, then $\mathbf{A}^T\mathbf{A}$ is SPD. (Hint: First, verify symmetry. Then show that $\mathbf{x}^T\mathbf{A}^T\mathbf{A}\mathbf{x} \ge 0$ for all $\mathbf{x}$. Finally, explain why zero is ruled out if $\mathbf{x}\neq \boldsymbol{0}$.)
 
 ``````

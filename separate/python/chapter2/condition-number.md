@@ -222,6 +222,11 @@ print(f"relative error: {linalg.norm(x - x_exact) / linalg.norm(x_exact):.2e}")
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Residual and backward error
 
 Suppose that $\mathbf{A}\mathbf{x}=\mathbf{b}$ and $\tilde{\mathbf{x}}$ is a computed estimate of the solution $\mathbf{x}$. The most natural quantity to study is the error, $\mathbf{x}-\tilde{\mathbf{x}}$. Normally we can't compute it because we don't know the exact solution. However, we can compute something related.

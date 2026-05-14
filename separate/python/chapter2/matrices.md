@@ -349,6 +349,11 @@ print(cos(pi * x))
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Row and column operations
 
 A critical identity in matrix multiplication is
@@ -398,33 +403,6 @@ Suppose we want to do this operation "in place," meaning replacing the first col
   \end{bmatrix}.
 ```
 
-:::::{tab-set}
-::::{tab-item} Julia
-:sync: julia
-
-```{index} ! Julia; +=
-```
-
-The Julia equivalent is
-
-```julia
-A[:, 1] += 2A[:, 3]
-```
-
-The `+=` operator means to increment the item on the left-hand side. There are similar interpretations for `-=` and `*=`.
-::::
-
-:::{tab-item} MATLAB
-:sync: matlab
-The MATLAB equivalent is
-
-```matlab
-A(:, 1) = A(:, 1) + 2 * A(:, 3)
-```
-
-:::
-:::{tab-item} Python
-:sync: python
 The NumPy equivalent is
 
 ```python
@@ -432,9 +410,6 @@ A[:, 0] += 2 * A[:, 2]
 ```
 
 The `+=` operator means to increment the item on the left-hand side. There are similar interpretations for `-=` and `*=`
-:::
-::::
-
 ````
 
 ## Exercises
@@ -522,7 +497,7 @@ Using block notation, find $\mathbf{C}^2$ and $\mathbf{C}^3$.
 
 ``````{exercise}
 :label: problem-matrices-inverseprod
-✍ Prove that if $\mathbf{A}$ and $\mathbf{B}$ are invertible and the product $\mathbf{A}\mathbf{B}$ is defined, then $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$. (In producing the inverse, it follows that $\mathbf{A}\mathbf{B}$ is invertible as well.)
+✍ Prove that if $\mathbf{A}$ and $\mathbf{B}$ are invertible and have the same size, then $(\mathbf{A}\mathbf{B})^{-1}=\mathbf{B}^{-1}\mathbf{A}^{-1}$. (In producing the inverse, it follows that $\mathbf{A}\mathbf{B}$ is invertible as well.)
 ``````
 
 ``````{exercise}

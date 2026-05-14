@@ -160,6 +160,17 @@ Simply because of the triangular zero structures, only the first outer product c
 
 ::::
 
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_a6y1j6xa&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_nuebdmd1%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 Let the columns of $\mathbf{L}$ be written as $\boldsymbol{\ell}_k$ and the rows of $\mathbf{U}$ be written as $\mathbf{u}_k^T$. Then the first row of $\mathbf{L}\mathbf{U}$ is
 
 ```{math}
@@ -272,8 +283,19 @@ We can verify that we have a correct factorization of the original matrix by com
 A₁ - L * U
 ```
 
-IIn floating point, we cannot expect the difference to be exactly zero as we found in this toy example. Instead, we would be satisfied to see that each element of the difference above is comparable in size to machine precision.
+In floating point, we cannot expect the difference to be exactly zero as we found in this toy example. Instead, we would be satisfied to see that each element of the difference above is comparable in size to machine precision.
 
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_8bvfm90o&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_buhuavfi%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -365,6 +387,17 @@ A check on the residual assures us that we found the solution.
 ```{code-cell}
 b - A*x
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_7gwyvkz4&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_0damacjy%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
