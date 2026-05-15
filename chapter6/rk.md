@@ -141,7 +141,7 @@ A generic $s$-stage RK method takes the form
     &\vdots\\
     k_s &= h f(t_i + c_{s-1}h, u_i + a_{s-1,1}k_1 + \cdots +
     a_{s-1,s-1}k_{s-1}),\\
-    \mathbf{u}_{i+1} &= u_i + b_1k_1 + \cdots + b_s k_s.
+    u_{i+1} &= u_i + b_1k_1 + \cdots + b_s k_s.
   \end{split}
 ```
 
