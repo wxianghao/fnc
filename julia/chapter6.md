@@ -150,11 +150,10 @@ sol = solve(ivp, Tsit5());
 The resulting solution object can be shown using `plot`.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot(sol;
     label="solution", legend=:bottom,
-    xlabel="t",  ylabel=L"u(t)",
-    title=L"u'=\sin((t+u)^2)")
+    xlabel="t",  ylabel=L"u(t)", title=L"u'=\sin((t+u)^2)")
 ```
 
 The solution also acts like any callable function that can be evaluated at different values of $t$.
@@ -192,8 +191,7 @@ The warning message we received can mean that there is a bug in the formulation 
 
 ```{code-cell}
 plot(sol, label="";
-    xlabel=L"t",  yaxis=(:log10, L"u(t)"),
-    title="Finite-time blowup")
+    xlabel=L"t",  yaxis=(:log10, L"u(t)"), title="Finite-time blowup")
 ```
 ``````
 
@@ -203,7 +201,7 @@ plot(sol, label="";
 Consider the ODEs $u'=u$ and $u'=-u$. In each case we compute $\partial f/\partial u = \pm 1$, so the condition number bound from @theorem-depIC is $e^{b-a}$ in both problems. However, they behave quite differently. In the case of exponential growth, $u'=u$, the bound is the actual condition number.
 
 ```{code-cell}
-:tags: remove-input
+:tags: [remove-input]
 t = range(0, 3, length=800)
 u = @. exp(t) * 1
 lower, upper = @. exp(t) * 0.7, @. exp(t) * 1.3
@@ -216,7 +214,7 @@ plot(t, u;
 But with $u'=-u$, solutions actually get closer together with time.
 
 ```{code-cell}
-:tags: remove-input
+:tags: [remove-input]
 u = @. exp(-t) * 1
 lower, upper = @. exp(-t) * 0.7, @. exp(-t) * 1.3
 plot(t, u;
@@ -251,12 +249,11 @@ ivp = ODEProblem(f, u0, tspan)
 Here is the call to {numref}`Function {number} <function-euler>`.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 t, u = FNC.euler(ivp, 20)
 plot(t, u;
     m=2,  label="n=20", 
-    xlabel=L"t",  ylabel=L"u(t)",
-    title="Solution by Euler's method")
+    xlabel=L"t",  ylabel=L"u(t)", title="Solution by Euler's method")
 ```
 
 We could define a different interpolant to get a smoother picture above, but the derivation of Euler's method assumed a piecewise linear interpolant, and that sets the limit of its accuracy. We can instead request more steps to make the interpolant look smoother.
@@ -276,6 +273,7 @@ plot!(u_exact, l=(2, :black), label="reference")
 Now we can perform a convergence study.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = [round(Int, 5 * 10^k) for k in 0:0.5:3]
 err = []
 for n in n
@@ -330,7 +328,7 @@ ivp = ODEProblem(predprey, u₀, tspan, [α, β])
 You can use any `DifferentialEquations` solver on the IVP system.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 sol = solve(ivp, Tsit5());
 plot(sol, label=["prey" "predator"],
     title="Predator-prey solution")
@@ -529,6 +527,7 @@ u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
 Now we perform a convergence study of our two Runge–Kutta implementations.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = [round(Int, 2 * 10^k) for k in 0:0.5:3]
 err = zeros(length(n), 2)
 for (k, n) in enumerate(n)
@@ -544,7 +543,7 @@ pretty_table((n=n, err2=err[:, 1], err4=err[:, 2]);
 The amount of computational work at each time step is assumed to be proportional to the number of stages. Let's compare on an apples-to-apples basis by using the number of $f$-evaluations on the horizontal axis.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot([2n 4n], err;
     m=3, label=["IE2" "RK4"], legend=:bottomleft,
     xaxis=(:log10, "f-evaluations"),  yaxis=(:log10, "inf-norm error"),
@@ -565,13 +564,12 @@ The fourth-order variant is more efficient in this problem over a wide range of 
 Let's run adaptive RK on  $u'=e^{t-u\sin u}$.
 
 ```{code-cell}
-using OrdinaryDiffEq, Plots
+using OrdinaryDiffEq, Plots, LaTeXStrings
 f(u, p, t) = exp(t - u * sin(u))
 ivp = ODEProblem(f, 0, (0.0, 5.0))
 t, u = FNC.rk23(ivp, 1e-5)
 plot(t, u, m=2,
-    xlabel=L"t",  ylabel=L"u(t)", 
-    title="Adaptive IVP solution")
+    xlabel=L"t",  ylabel=L"u(t)", title="Adaptive IVP solution")
 ```
 
 The solution makes a very abrupt change near $t=2.4$. The resulting time steps vary over three orders of magnitude.
@@ -579,8 +577,7 @@ The solution makes a very abrupt change near $t=2.4$. The resulting time steps v
 ```{code-cell}
 Δt = diff(t)
 plot(t[1:end-1], Δt;
-    xaxis=(L"t", (0, 5)), yaxis=(:log10, "step size"),
-    title="Adaptive step sizes")
+    xaxis=(L"t", (0, 5)), yaxis=(:log10, "step size"), title="Adaptive step sizes")
 ```
 
 If we had to run with a uniform step size to get this accuracy, it would be
@@ -624,7 +621,7 @@ annotate!(tf, 1e5, latexstring(@sprintf("t = %.6f ", tf)), :right)
 ```
 ``````
 
-### 6.6 @section-ivp-multistep
+### 6.7 @section-ivp-multistep
 
 (demo-implicit-ab4-julia)=
 ``````{dropdown} @demo-implicit-ab4
@@ -640,6 +637,7 @@ u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
 Now we perform a convergence study of the AB4 code.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = @. [round(Int, 4 * 10^k) for k in 0:0.5:3]
 err = []
 for n in n
@@ -653,7 +651,7 @@ pretty_table((n=n, err=err);
 The method should converge as $O(h^4)$, so a log-log scale is appropriate for the errors.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot(n, err, m=3, 
     label="AB4",  legend=:bottomleft,
     xaxis=(:log10, L"n"),  yaxis=(:log10, "inf-norm error"),
@@ -712,7 +710,7 @@ plt
 So AB4, which is supposed to be _more_ accurate than AM2, actually needs something like 8 times as many steps to get a reasonable-looking answer!
 ``````
 
-### 6.7 @section-ivp-implicit
+### 6.8 @section-ivp-implicit
 
 (demo-zs-LIAF-julia)=
 ``````{dropdown} @demo-zs-LIAF
@@ -720,6 +718,7 @@ So AB4, which is supposed to be _more_ accurate than AM2, actually needs somethi
 We'll measure the error at the time $t=1$.
 
 ```{code-cell}
+using PrettyTables
 du_dt(u, t) = u
 û = exp
 a, b = 0.0, 1.0;
@@ -744,7 +743,7 @@ pretty_table((n=n, h=(b - a) ./ n, err=err);
 The error starts out promisingly, but things explode from there. A graph of the last numerical attempt yields a clue.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot(t, abs.(u);
     m=3,  label="",
     xlabel=L"t",  yaxis=(:log10, L"|u(t)|"), 

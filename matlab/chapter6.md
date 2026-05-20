@@ -627,7 +627,7 @@ text(tf, 1e5, sprintf(" t = %.6f ", tf))
 ```
 ``````
 
-### 6.6 @section-ivp-multistep
+### 6.7 @section-ivp-multistep
 
 (demo-implicit-ab4-matlab)=
 
@@ -720,7 +720,7 @@ legend("AM2, n=200", "AB4, n=1000", "AB4, n=1600", location="northwest");
 So AB4, which is supposed to be *more* accurate than AM2, actually needs something like 8 times as many steps to get a reasonable-looking answer!
 ``````
 
-### 6.7 @section-ivp-implicit
+### 6.8 @section-ivp-implicit
 
 (demo-zs-LIAF-matlab)=
 

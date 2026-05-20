@@ -590,7 +590,7 @@ legend();
 ```
 ``````
 
-### 6.6 @section-ivp-multistep
+### 6.7 @section-ivp-multistep
 (demo-implicit-ab4-python)=
 ``````{dropdown} @demo-implicit-ab4
 :open:
@@ -679,7 +679,7 @@ legend();
 So AB4, which is supposed to be _more_ accurate than AM2, actually needs something like 8 times as many steps to get a reasonable-looking answer!
 ``````
 
-### 6.7 @section-ivp-implicit
+### 6.8 @section-ivp-implicit
 (demo-zs-LIAF-python)=
 ``````{dropdown} @demo-zs-LIAF
 :open:
