@@ -42,7 +42,7 @@ In double precision, all the values are represented to about 16 significant deci
 
 ## Condition numbers
 
-Now we consider problems more generally. As above, we represent a problem as a function $f$ that maps a real data value $x$ to a real result $f(x)$. We abbreviate this situation by the notation $f:\real \mapsto \real$, where $\real$ represents the real number set.
+Now we consider problems more generally. As above, we represent a problem as a function $f$ that maps a real data value $x$ to a real result $f(x)$. We abbreviate this situation by the notation $f:\real \to \real$, where $\real$ represents the real number set.
 
 When the problem $f$ is approximated in floating point on a computer, the data $x$ is represented as a floating-point value $\tilde{x}=\fl(x)$. Ignoring all other sources of error, we define the quantitative measure
 

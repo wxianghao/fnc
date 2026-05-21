@@ -26,7 +26,7 @@ The {term}`singular value decomposition` of an $m\times n$ matrix $\mathbf{A}$ i
 \mathbf{A} = \mathbf{U} \mathbf{S} \mathbf{V}^*,
 ```
 
-where $\mathbf{U}\in\mathbb{C}^{m\times m}$ and $\mathbf{V}\in\mathbb{C}^{n\times n}$ are unitary and $\mathbf{S}\in\mathbb{R}^{m\times n}$ is real and diagonal with nonnegative elements.
+where $\mathbf{U}\in\mathbb{C}^{m\times m}$ and $\mathbf{V}\in\mathbb{C}^{n\times n}$ are unitary and $\mathbf{S}\in\real^{m\times n}$ is real and diagonal with nonnegative elements.
 
 The columns of $\mathbf{U}$ and $\mathbf{V}$ are called **left** and **right singular vectors**, respectively. The diagonal elements of $\mathbf{S}$, written $\sigma_1,\ldots,\sigma_r$, for $r=\min\{m,n\}$, are called the **singular values** of $\mathbf{A}$ and are ordered so that
 
@@ -385,7 +385,7 @@ $\begin{bmatrix}
 
 ``````{exercise}
 :label: problem-svd-pinv
-✍ Let $\mathbf{A}\in\mathbb{R}^{m\times n}$ with $m>n$ have the thin SVD $\mathbf{A}=\hat{\mathbf{U}}\hat{\mathbf{S}}\mathbf{V}^T$, and suppose all the singular values are nonzero. Show that the matrix $\mathbf{A}\mathbf{A}^{+}$ is equal to $\hat{\mathbf{U}}\hat{\mathbf{U}}^T$, where $\mathbf{A}^{+}$ is the {term}`pseudoinverse` of $\mathbf{A}$, as given in @pinv. (You must be careful with matrix sizes in this derivation.)
+✍ Let $\mathbf{A}\in\real^{m\times n}$ with $m>n$ have the thin SVD $\mathbf{A}=\hat{\mathbf{U}}\hat{\mathbf{S}}\mathbf{V}^T$, and suppose all the singular values are nonzero. Show that the matrix $\mathbf{A}\mathbf{A}^{+}$ is equal to $\hat{\mathbf{U}}\hat{\mathbf{U}}^T$, where $\mathbf{A}^{+}$ is the {term}`pseudoinverse` of $\mathbf{A}$, as given in @pinv. (You must be careful with matrix sizes in this derivation.)
 
 ``````
 
@@ -410,7 +410,7 @@ $\begin{bmatrix}
 
 ``````{exercise}
 :label: problem-svd-svdtoevd
-✍ Suppose $\mathbf{A}\in\mathbb{R}^{n \times n}$, and define $\mathbf{C}$ as in {eq}`svdaugment`. 
+✍ Suppose $\mathbf{A}\in\real^{n \times n}$, and define $\mathbf{C}$ as in {eq}`svdaugment`. 
 
 **(a)** Suppose that $\mathbf{v}=\begin{bmatrix} \mathbf{x} \\ \mathbf{y} \end{bmatrix}$, and write the block equation $\mathbf{C}\mathbf{v} = \lambda \mathbf{v}$ as two individual equations involving both $\mathbf{x}$ and $\mathbf{y}$.
 

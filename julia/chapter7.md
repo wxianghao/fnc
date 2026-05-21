@@ -407,7 +407,7 @@ A = @. Float64(Gray(img))
 Gray.(A)
 ```
 
-Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\epsilon_\text{mach}$ times the norm of the matrix) at around $k=45$.
+Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\macheps$ times the norm of the matrix) at around $k=45$.
 
 ```{code-cell}
 U, σ, V = svd(A)

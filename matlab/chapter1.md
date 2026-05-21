@@ -90,7 +90,7 @@ fprintf('1 has type: %s', class(1))
 fprintf('1.0 has type: %s', class(1.0))
 ```
 
-The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \epsilon_\text{mach}$, where $\epsilon_\text{mach}$ is machine epsilon. Its value is predefined as `eps`.
+The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \macheps$, where $\macheps$ is machine epsilon. Its value is predefined as `eps`.
 
 ```{tip}
 :class: dropdown
@@ -122,7 +122,7 @@ x = 161.8 + 0.1*eps(161.8);
 x - 161.8
 ```
 
-A common mistake is to think that $\epsilon_\text{mach}$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the mantissa. The actual range of positive values in double precision is
+A common mistake is to think that $\macheps$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the mantissa. The actual range of positive values in double precision is
 
 ```{code-cell}
 format short e
@@ -135,7 +135,7 @@ format short e
 ``````{dropdown} @demo-float-arithmetic
 :open:
 
-There is no double-precision number between $1$ and $1+\epsilon_\text{mach}$. Thus the following difference is zero despite its appearance.
+There is no double-precision number between $1$ and $1+\macheps$. Thus the following difference is zero despite its appearance.
 
 ```{code-cell}
 ( 1 + eps / 2 ) - 1

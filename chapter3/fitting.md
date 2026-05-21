@@ -150,11 +150,11 @@ Recalling that $\mathbf{r}^T\mathbf{r}=\| \mathbf{r} \|_2^2$, and renaming the v
 
 ````{prf:definition} Linear least-squares problem
 :label: definition-leastsq
-Given $\mathbf{A}\in\mathbb{R}^{m \times n}$ and $\mathbf{b}\in\mathbb{R}^m$, with $m>n$, find
+Given $\mathbf{A}\in\real^{m \times n}$ and $\mathbf{b}\in\real^m$, with $m>n$, find
 
 ```{math}
 :label: linls
-\argmin_{{\mathbf{x}\in \mathbb{R}^n}} \, \twonorm{\mathbf{b}-\mathbf{A} \mathbf{x}}^2.
+\argmin_{{\mathbf{x}\in \real^n}} \, \twonorm{\mathbf{b}-\mathbf{A} \mathbf{x}}^2.
 ```
 ````
 

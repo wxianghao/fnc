@@ -420,7 +420,7 @@ print(f"image of size {A.shape}")
 ```
 
 
-Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\epsilon_\text{mach}$ times the norm of the matrix) at around index $38$.
+Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\macheps$ times the norm of the matrix) at around index $38$.
 
 ```{code-cell}
 from numpy.linalg import svd

@@ -117,7 +117,7 @@ mantissa, exponent = frexp(x / 8)
 print(f"significand: {mantissa * 2}, exponent: {exponent - 1}")
 ```
 
-The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \epsilon_\text{mach}$, where $\epsilon_\text{mach}$ is machine epsilon, given here for double precision:
+The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \macheps$, where $\macheps$ is machine epsilon, given here for double precision:
 
 ```{code-cell} ipython3
 mach_eps = finfo(float).eps
@@ -130,7 +130,7 @@ Because double precision allocates 52 bits to the significand, the default value
 print(f"machine epsilon is 2 to the power {log2(mach_eps)}")
 ```
 
-A common mistake is to think that $\epsilon_\text{mach}$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the significand. The actual range of positive values in double precision is
+A common mistake is to think that $\macheps$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the significand. The actual range of positive values in double precision is
 
 ```{code-cell}
 finf = finfo(float)

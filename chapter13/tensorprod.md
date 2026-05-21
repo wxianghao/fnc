@@ -17,7 +17,7 @@ A {term}`tensor-product domain` is two dimensions is the rectangle
 
 ```{math}
 :label: rectangleTP
-  [a,b] \times [c,d] = \bigl\{ (x,y)\in\mathbb{R}^2 : a\le x \le b,\; c\le y \le d \bigr\}.
+  [a,b] \times [c,d] = \bigl\{ (x,y)\in\real^2 : a\le x \le b,\; c\le y \le d \bigr\}.
 ```
 
 ```{note}

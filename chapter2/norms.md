@@ -248,12 +248,12 @@ Two of the vector norms we have encountered induce matrix norms that are easy to
 
 ```{math}
 :label: mxinfnorm
-\| \mathbf{A} \|_\infty = \max_{1\le \,i \,\le n} \sum_{j=1}^n |A_{ij}|,
+\| \mathbf{A} \|_\infty = \max_{1\le \,i \,\le m} \sum_{j=1}^n |A_{ij}|,
 ```
 
 ```{math}
 :label: mxonenorm
-\| \mathbf{A} \|_1 = \max_{1\le \,j\, \le n} \sum_{i=1}^n |A_{ij}|.
+\| \mathbf{A} \|_1 = \max_{1\le \,j\, \le n} \sum_{i=1}^m |A_{ij}|.
 ```
 
 ::::

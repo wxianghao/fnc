@@ -1133,7 +1133,7 @@ infnorm = opnorm(A, Inf)
  # Sum across columns (2nd matrix dimension):
 maximum( sum(abs.(A), dims=2) )  
 ```
-Next we illustrate a geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\mathbb{R}^2$.
+Next we illustrate a geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\real^2$.
 ```{tip}
 :class: dropdown
 You can use functions as values, e.g., as elements of a vector. 
@@ -1156,7 +1156,7 @@ plot(aspect_ratio=1, layout=(1, 2),
 plot!(x[1, :], x[2, :], subplot=1, title="Unit circle") 
 ```
 
-The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$. We can apply `A` to every column of `x` by using a single matrix multiplication.
+The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\real^2$ to $\real^2$. We can apply `A` to every column of `x` by using a single matrix multiplication.
 
 ```{code-cell}
 Ax = A * x;

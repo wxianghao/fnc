@@ -107,7 +107,7 @@ The boundary conditions {eq}`waveBC` suggest that we should remove both of the e
   u_1(t) \\ \vdots \\ u_{m-1}(t) \\ z_0(t) \\ \vdots \\ z_m(t)
 \end{bmatrix} =  \begin{bmatrix}
   \mathbf{v}(t) \\[1mm] \mathbf{z}(t) 
-\end{bmatrix} \in \mathbb{R}^{2m}.
+\end{bmatrix} \in \real^{2m}.
 ```
 
 When computing $\mathbf{w}'(t)$, we extract the $\mathbf{v}$ and $\mathbf{z}$ components, and we define two helper functions: `extend`, which pads the $\mathbf{v}$ component with the zero end values, and `chop`, which deletes them from $\mathbf{u}$ to give $\mathbf{v}$.

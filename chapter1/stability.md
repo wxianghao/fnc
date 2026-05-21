@@ -219,7 +219,7 @@ Small backward error is the best we can hope for in a poorly conditioned problem
 
 ::::{prf:example}
 :label: example-stability-notbs
-One stable algorithm that is not backward stable is floating-point evaluation for our old friend, $f(x)=x+1$. If $|x|<\epsilon_\text{mach}/2$, then the computed result is $\tilde{f}(x)=1$, since there are no floating-point numbers between $1$ and $1+\epsilon_\text{mach}$. Hence, the only possible choice for a real number $\tilde{x}$ satisfying {eq}`backwarderror` is $\tilde{x}=0$. But then $|\tilde{x}-x|/|x|=1$, which indicates 100% backward error!
+One stable algorithm that is not backward stable is floating-point evaluation for our old friend, $f(x)=x+1$. If $|x|<\macheps/2$, then the computed result is $\tilde{f}(x)=1$, since there are no floating-point numbers between $1$ and $1+\macheps$. Hence, the only possible choice for a real number $\tilde{x}$ satisfying {eq}`backwarderror` is $\tilde{x}=0$. But then $|\tilde{x}-x|/|x|=1$, which indicates 100% backward error!
 ::::
 
 ## Exercises

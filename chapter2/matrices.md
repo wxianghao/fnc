@@ -319,11 +319,11 @@ Using block notation, find $\mathbf{C}^2$ and $\mathbf{C}^3$.
 :label: problem-matrices-elementary
 ✍ Suppose $\mathbf{B}$ is an arbitrary $4\times 3$ matrix. In each part below a matrix $\mathbf{A}$ is described in terms of $\mathbf{B}$. Express $\mathbf{A}$ as a product of $\mathbf{B}$ with one or more other matrices.
 
-**(a)** $\mathbf{A}\in\mathbb{R}^{4 \times 1}$ is the result of adding the first column of $\mathbf{B}$ to $-2$ times the last column of $\mathbf{B}$.
+**(a)** $\mathbf{A}\in\real^{4 \times 1}$ is the result of adding the first column of $\mathbf{B}$ to $-2$ times the last column of $\mathbf{B}$.
 
-**(b)** The rows of $\mathbf{A}\in\mathbb{R}^{4 \times 3}$ are the rows of $\mathbf{B}$ in order 4,3,2,1.
+**(b)** The rows of $\mathbf{A}\in\real^{4 \times 3}$ are the rows of $\mathbf{B}$ in order 4,3,2,1.
 
-**(c)** The first column of $\mathbf{A}\in\mathbb{R}^{4 \times 3}$ is $1$ times the first column of $\mathbf{B}$, the second column of $\mathbf{A}$ is $2$ times the second column of $\mathbf{B}$,
+**(c)** The first column of $\mathbf{A}\in\real^{4 \times 3}$ is $1$ times the first column of $\mathbf{B}$, the second column of $\mathbf{A}$ is $2$ times the second column of $\mathbf{B}$,
 and the third column of $\mathbf{A}$ is $3$ times the third column of $\mathbf{B}$.
 
 **(d)** $A$ is the scalar sum of all elements of $\mathbf{B}$.

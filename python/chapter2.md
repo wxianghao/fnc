@@ -1061,14 +1061,14 @@ print(norm(A, inf))
 print(max( sum(abs(A), axis=1)) )  # sum across columns 
 ```
 
-Here we illustrate the geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\mathbb{R}^2$. 
+Here we illustrate the geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\real^2$. 
 
 ```{code-cell} 
 theta = linspace(0, 2*pi, 601)
 x = vstack([cos(theta), sin(theta)])  # 601 unit columns
 ```
 
-The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$. We can apply `A` to every column of `x` simply by using a matrix multiplication.
+The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\real^2$ to $\real^2$. We can apply `A` to every column of `x` simply by using a matrix multiplication.
 
 ```{code-cell} 
 y = A @ x
