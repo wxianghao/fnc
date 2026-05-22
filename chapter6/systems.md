@@ -29,8 +29,8 @@ We can pack the two dependent variables $y$ and $z$ into a vector-valued functio
 
 ```{math}
 \begin{split}
-  u_1'(t) &= f_1(t,\mathbf{u}) =  u_1(1-au_1) - \frac{u_1 u_2}{1+bu_1},\\
-  u_2'(t) &= f_2(t,\mathbf{u}) = -u_2 + \frac{u_1 u_2}{1+bu_1},
+  u_1'(t) &= f_1(t,\mathbf{u}) =  u_1(1 - \alpha u_1) - \frac{u_1 u_2}{1+ \beta u_1},\\
+  u_2'(t) &= f_2(t,\mathbf{u}) = -u_2 + \frac{u_1 u_2}{1 + \beta u_1},
 \end{split}
 ```
 

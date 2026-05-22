@@ -230,8 +230,7 @@ Suppose that $f(x)$ has a continuous second derivative in $[a,b]$ (often express
   
 ```{math}
 :label: placcuracy
-\bigl\| f - p_n \bigr\|_\infty = \max_{x \in [a,b]}
-|f(x)-p(x)| \le M h^2,
+\bigl\| f - p_n \bigr\|_\infty = \max_{x \in [a,b]} |f(x)-p_n(x)| \le M h^2,
 ```
 
 where $M = \bigl\| f'' \bigr\|_\infty$.

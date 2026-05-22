@@ -87,10 +87,10 @@ Typically, we use both relative and absolute error, stopping when either one is 
 
 ```{math}
 :label: absreltolerance
-  |E| < \delta_a + \delta_r |S_f(n)|,
+  |E| < \delta_a + \delta_r |S|,
 ```
 
-where $\delta_a$ and $\delta_r$ are given absolute and relative error tolerances, respectively.
+where $S$ is an integral estimate and $\delta_a$ and $\delta_r$ are given absolute and relative error tolerances, respectively.
 
 When $|E|$ fails to meet {eq}`absreltolerance`, we bisect the interval $[a,b]$ to exploit the identity
 

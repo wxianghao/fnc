@@ -89,13 +89,13 @@ The eigenvalues of $\mathbf{A}^*\mathbf{A}$ are real and nonnegative, and the $\
 ::::{prf:proof}
 :enumerated: false
 
-Let $\mathbf{A}=\mathbf{U}\mathbf{S}\mathbf{V}^*$ be $m\times n$, and compute the square hermitian matrix $\mathbf{B}=\mathbf{A}^*\mathbf{A}$:
+Let $\mathbf{A}=\mathbf{U}\mathbf{S}\mathbf{V}^*$ be $m\times n$. Because $\mathbf{S}$ is real, $\mathbf{S}^* = \mathbf{S}^T$. We express the square hermitian matrix $\mathbf{B}=\mathbf{A}^*\mathbf{A}$ as
 
 ```{math}
-\mathbf{B} = (\mathbf{V}\mathbf{S}^*\mathbf{U}^*) (\mathbf{U}\mathbf{S}\mathbf{V}^*) = \mathbf{V}\mathbf{S}^*\mathbf{S}\mathbf{V}^* = \mathbf{V}(\mathbf{S}^T\mathbf{S})\mathbf{V}^{-1}.
+\mathbf{B} = (\mathbf{V}\mathbf{S}^*\mathbf{U}^*) (\mathbf{U}\mathbf{S}\mathbf{V}^*) = \mathbf{V}\mathbf{S}^*\mathbf{S}\mathbf{V}^* = \mathbf{V}(\mathbf{S}^T\mathbf{S})\mathbf{V}^{-1},
 ```
 
-Note that $\mathbf{S}^T\mathbf{S}$ is a diagonal $n \times n$ matrix. There are two cases to consider. If $m \ge n$, then
+where we have used the fact that $\mathbf{V}$ is unitary. Note that $\mathbf{S}^T\mathbf{S}$ is a diagonal $n \times n$ matrix. There are two cases to consider. If $m \ge n$, then
 
 $$
 \mathbf{S}^T\mathbf{S} =
@@ -133,7 +133,7 @@ Another close connection between EVD and SVD comes via the $(m+n)\times (m+n)$ m
 \end{bmatrix}.
 ```
 
-If $\sigma$ is a singular value of $\mathbf{B}$, then $\sigma$ and $-\sigma$ are eigenvalues of $\mathbf{C}$, and the associated eigenvector immediately reveals a left and a right singular vector (see @problem-svd-svdtoevd). This connection is implicitly exploited by software to compute the SVD.
+If $\sigma$ is a singular value of $\mathbf{A}$, then $\sigma$ and $-\sigma$ are eigenvalues of $\mathbf{C}$, and the associated eigenvector immediately reveals a left and a right singular vector (see @problem-svd-svdtoevd). This connection is implicitly exploited by software to compute the SVD.
 
 ## Interpreting the SVD
 

@@ -15,15 +15,15 @@ In response, we will employ the basic strategy of {numref}`section-localapprox-a
 
 ## Step size prediction
 
-Suppose that, starting from a given value $u_i$ and using a step size $h$, we run one step of two different RK methods simultaneously: one method with order $p$, producing $u_{i+1}$, and the other method with order $p+1$, producing $\tilde{u}_{i+1}$. In most circumstances, we can expect that $\tilde{\mathbf{u}}_{i+1}$ is a much better approximation to the solution than $\mathbf{u}_{i+1}$ is. So it seems reasonable to use
+Suppose that, starting from a given value $u_i$ and using a step size $h$, we run one step of two different RK methods simultaneously: one method with order $p$, producing $u_{i+1}$, and the other method with order $p+1$, producing $\tilde{u}_{i+1}$. In most circumstances, we can expect that $\tilde{u}_{i+1}$ is a much better approximation to the solution than $u_{i+1}$ is. So it seems reasonable to use
 
-$$E_i(h)=|\tilde{\mathbf{u}}_{i+1} - \mathbf{u}_{i+1}|$$
+$$E_i(h)=|\tilde{u}_{i+1} - u_{i+1}|$$
 
 as an estimate of the actual local error made by the $p$th-order method. For a vector IVP, we would use a norm rather than an absolute value.
 
 <!-- If the goal is to keep global error less than some predetermined value, we could decide to accept the new solution value if $E_i$ small enough, and otherwise reject it.[^extrap]
 
-[^extrap]: Even though the estimate $E_i$ is meant to go with the *less* accurate proposed value $\mathbf{u}_{i+1}$, it's hard to resist the temptation to keep the more accurate value instead, and this is common in practice. -->
+[^extrap]: Even though the estimate $E_i$ is meant to go with the *less* accurate proposed value $u_{i+1}$, it's hard to resist the temptation to keep the more accurate value instead, and this is common in practice. -->
 
 Now we ask: looking back, what step size *should* we have taken to meet an error target of size $\epsilon$? Let's speculate, given the behavior of local truncation error as $h\rightarrow 0$, that $E_i(h)\approx C h^{p+1}$ for an unknown constant $C$. If we had used a step size $q h$ for some $q>0$, then trivially, we would expect
 
@@ -64,7 +64,7 @@ Many details remain unspecified at this point, but we first address step 1.
 
 ## Embedded formulas
 
-Suppose, for example, we choose to use a pair of second- and third-order RK methods to get the $\mathbf{u}_{i+1}$ and $\tilde{\mathbf{u}}_{i+1}$ needed in {numref}`Algorithm {number} <algorithm-adaptive-adapt>`. Then we seem to need at least $2+3=5$ evaluations of $f(t,u)$ for each attempted time step. This is more than double the computational work needed by the second-order method without adaptivity.
+Suppose, for example, we choose to use a pair of second- and third-order RK methods to get the $u_{i+1}$ and $\tilde{u}_{i+1}$ needed in {numref}`Algorithm {number} <algorithm-adaptive-adapt>`. Then we seem to need at least $2+3=5$ evaluations of $f(t,u)$ for each attempted time step. This is more than double the computational work needed by the second-order method without adaptivity.
 
 Fortunately, the marginal cost of adaptivity can be substantially reduced by using **embedded Runge–Kutta** formulas. Embedded RK formulas are a pair of RK methods whose stages share the same internal $f$ evaluations, combining them differently in order to get estimates of two different orders of accuracy.
 
@@ -82,7 +82,7 @@ A good example of an embedded method is the **Bogacki–Shampine** (BS23) formul
 \end{array}
 ```
 
-The top part of the table describes four stages in the usual RK fashion. The last two rows describe how to construct a third-order estimate $\tilde{\mathbf{u}}_{i+1}$ and a second-order estimate $\mathbf{u}_{i+1}$ by taking different combinations of those stages.
+The top part of the table describes four stages in the usual RK fashion. The last two rows describe how to construct a third-order estimate $\tilde{u}_{i+1}$ and a second-order estimate $u_{i+1}$ by taking different combinations of those stages.
 
 ## Implementation
 
