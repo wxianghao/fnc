@@ -743,7 +743,7 @@ tol = array([1 / 10**d for d in arange(5, 14, 0.5)])
 err = zeros((tol.size, 2))
 length = zeros((tol.size, 2))
 for k in range(tol.size):
-    I1, x1 = FNC.intadapt(f, (tol[k]/20)**2, 1, tol[k])
+    I1, x1 = FNC.intadapt(f, (5 * tol[k])**2, 1, tol[k])
     I2, x2 = FNC.intsing(f, tol[k])
     err[k] = abs(exact - array([I1, I2]))
     length[k] = [x1.size, x2.size]

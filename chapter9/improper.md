@@ -245,7 +245,7 @@ $$
 \int_0^{1} \frac{1}{10\sqrt{s}}\, ds = 0.2.
 $$
 
-In order to use {numref}`Function {number} <function-intadapt>`, we must truncate on the left to avoid evaluation at zero, where $f$ is infinite. Since the integral from $0$ to $\delta$ is $20\sqrt{\delta}$, we use $\delta=(\epsilon/20)^2$ to achieve error tolerance $\epsilon$.
+In order to use {numref}`Function {number} <function-intadapt>`, we must truncate on the left to avoid evaluation at zero, where $f$ is infinite. Since the integral from $0$ to $\delta$ is $\tfrac{1}{5} \sqrt{\delta}$, we use $\delta=(5 \epsilon)^2$ to achieve error tolerance $\epsilon$.
 
 `````{tab-set}
 ````{tab-item} Julia

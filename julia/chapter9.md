@@ -720,7 +720,7 @@ tol = [1 / 10^d for d in 5:0.5:14]
 err = zeros(length(tol), 2)
 len = zeros(Int, length(tol), 2)
 for (i, tol) in enumerate(tol)
-    I1, x1 = FNC.intadapt(f, (tol/20)^2, 1, tol)
+    I1, x1 = FNC.intadapt(f, (5tol)^2, 1, tol)
     I2, x2 = FNC.intsing(f, tol)
     @. err[i, :] = abs(0.2 - [I1, I2])
     @. len[i, :] = length([x1, x2])

@@ -70,7 +70,7 @@ numbering:
 :tags: [remove-cell]
 cd  /Users/driscoll/Documents/GitHub/fnc/matlab
 FNC_init;
-1+1;
+1+10;
 ```
 
 ### 9.1 @section-globalapprox-polynomial
@@ -669,7 +669,7 @@ tol = 1 ./ 10.^(5:0.5:14);
 err = zeros(length(tol), 2);
 len = zeros(length(tol), 2);
 for k = 1:length(tol)
-    [I1, x1] = intadapt(f, (tol(k)/20)^2, 1, tol(k));
+    [I1, x1] = intadapt(f, (5 * tol(k))^2, 1, tol(k));
     [I2, x2] = intsing(f, tol(k));
     err(k, :) = abs(0.2 - [I1, I2]);
     len(k, :) = [length(x1), length(x2)];
