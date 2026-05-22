@@ -157,8 +157,8 @@ and the resultant identities
 Specifically, we have
 
 ```{math}
-c_k = \begin{cases} \frac{a_0}{2}, & k=0, \\[1mm] 
-\frac{1}{2}(a_k + i b_k), & k> 0, \\[1mm]
+c_k = \begin{cases} \frac{1}{2} a_0, & k=0, \\[1mm] 
+\frac{1}{2}(a_k - i b_k), & k> 0, \\[1mm]
 \overline{c_{-k}}, & k < 0. 
 \end{cases}
 ```

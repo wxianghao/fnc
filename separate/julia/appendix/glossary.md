@@ -341,7 +341,7 @@ similar matrices
 : Matrices that are linked by a {term}`similarity transformation`, thus sharing the same set of eigenvalues. (@definition-similar)
 
 similarity transformation
-: Mapping $\mathbf{A} \mapsto \mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ for an invertible $\mathbf{S}$. The transformation leaves eigenvalues, but not eigenvectors, unchanged. (@definition-similar)
+: Mapping $\mathbf{A} \to \mathbf{S}\mathbf{A}\mathbf{S}^{-1}$ for an invertible $\mathbf{S}$. The transformation leaves eigenvalues, but not eigenvectors, unchanged. (@definition-similar)
 
 simple root
 : Root of a function at which the derivative of the function is nonzero; i.e., a root of multiplicity 1. (@definition-rootproblem-simple)
@@ -401,7 +401,7 @@ truncation error
 : Difference between an exact value and an approximation, such as one that truncates an infinite series. (@definition-truncationfd, @definition-truncationint, @definition-eulerlte)
 
 unit triangular matrix
-: Triangular matrix that has a 1 in every position on the main diagonal. (@definition-unittraiangular)
+: Triangular matrix that has a 1 in every position on the main diagonal. (@definition-unittriangular)
 
 unit vector
 : A vector whose norm equals 1. (@definition-unitvector)

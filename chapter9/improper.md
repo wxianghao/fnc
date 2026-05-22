@@ -98,7 +98,7 @@ $$
 yielding a product that is roughly
 
 $$
-2 \exp\left( -\frac{1}{2} e^t  \right).
+2 \exp\left( t -\frac{1}{2} e^t  \right).
 $$
 
 The total integrand in {eq}`DEquadchain1` therefore has double exponential decay in $t$, essentially because of the squaring of $x$ in the denominator of $f$. The same result holds as $t\to-\infty$.

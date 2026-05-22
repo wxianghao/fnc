@@ -84,7 +84,7 @@ $$
 $$
 
 $$
- m  \ge  2 \lceil \frac{3}{\log_{10}(29/31)} \rceil = 208.
+m  \ge  2 \lceil \frac{3}{\log_{10}(31/29)} \rceil = 208.
 $$
 
 Because the theorem gives an upper bound, MINRES may converge faster. All we can say is that 208 is certain to be enough iterations.
@@ -137,7 +137,7 @@ which is nonnegative and zero only when $\mathbf{u}=\boldsymbol{0}$, provided $\
 
 :::{prf:definition} Method of conjugate gradients (CG)
 :label: definition-cg
-For each $m=1,2,3,\ldots$, minimize $\|\mathbf{x}_m-\mathbf{x}\|_{\mathbf{A}}$ for $\mathbf{x}$ in the Krylov subspace $\mathcal{K}_m$.
+For each $m=1,2,3,\ldots$, minimize $\|\mathbf{u}-\mathbf{x}\|_{\mathbf{A}}$ for $\mathbf{u}$ in the Krylov subspace $\mathcal{K}_m$ to get $\mathbf{x}_m$.
 :::
 
 ## Convergence
@@ -189,7 +189,7 @@ With the Taylor expansion $\log(1+x) = x - (x^2/2) + \cdots$, we finally conclud
 
 ```{math}
 \begin{gather*}
-  2 m \kappa^{-1/2} \approx \log\Bigl( \frac{\epsilon}{2} \Bigr),
+  2 m \kappa^{-1/2} \approx -\log\Bigl( \frac{\epsilon}{2} \Bigr),
   \text{ or }
   m = O(\sqrt{\kappa}),
 \end{gather*}
