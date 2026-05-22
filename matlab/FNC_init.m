@@ -5,5 +5,5 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
 addpath FNC-matlab
