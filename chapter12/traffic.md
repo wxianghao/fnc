@@ -72,7 +72,7 @@ where $c$ is constant.
 
 The advection equation is the archetype of a **hyperbolic PDE**, which is a separate class from the parabolic PDEs.
 
-It's surprisingly easy to produce a solution of {eq}`advectpde`. Let $u(t,x)=\psi(x-c t)$, where $\psi$ is any differentiable function of one variable. Then the chain rule says that
+It's surprisingly easy to produce a solution of {eq}`advectpde`. Let $u(x, t)=\psi(x-c t)$, where $\psi$ is any differentiable function of one variable. Then the chain rule says that
 
 $$
 u_t + cu_x = \psi'(x-c t)\cdot(-c)  + c [\psi'(x-c t)] = 0,
@@ -94,7 +94,7 @@ if there are no boundary conditions.
 The form of @eq-advectsol tells us that $u$ remains constant along any path on which $x-c t$ is constant, i.e., $x=a + c t$ for a constant $a$. Thus, if $c>0$, a fixed value of $u$ moves rightward with speed $|c|$, and if $c<0$, it moves leftward with speed $|c|$.  
 
 ::::{prf:observation}
-Solutions to the advection equation propagates with constant speed and fixed shape.
+Solutions to the advection equation propagate with constant speed and fixed shape.
 ::::
 
 ```{note}

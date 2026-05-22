@@ -5,7 +5,7 @@ numbering:
 (section-advection-wave)=
 # The wave equation
 
-A close cousin of the advection equation is the {term}`wave equation`.
+A close cousin of the advection equation is the {term}`wave equation`,
 
 ```{index} ! wave equation
 ```
@@ -112,10 +112,12 @@ The boundary conditions {eq}`waveBC` suggest that we should remove both of the e
 
 When computing $\mathbf{w}'(t)$, we extract the $\mathbf{v}$ and $\mathbf{z}$ components, and we define two helper functions: `extend`, which pads the $\mathbf{v}$ component with the zero end values, and `chop`, which deletes them from $\mathbf{u}$ to give $\mathbf{v}$.
 
+<!-- FIXME: These next 2 examples should be with x in [0,1], not [-1,1], and move the discontinuity to x=0.5 -->
+
 ::::{prf:example} Wave equation with boundaries
 :label: demo-wave-boundaries
 
-We solve the wave equation {eq}`wavefirst2` with speed $c=2$, subject to {eq}`waveBC` and initial conditions {eq}`waveIC2`.
+We solve the wave equation {eq}`wavefirst2` for $x \in [-1,1]$ with speed $c=2$, subject to {eq}`waveBC` and initial conditions {eq}`waveIC2`.
 
 `````{tab-set}
 ````{tab-item} Julia
@@ -146,7 +148,7 @@ An interesting situation is when the wave speed $c$ in @wavepde changes disconti
 ::::{prf:example} Wave equation with variable speed
 :label: demo-wave-speed
 
-We now use a wave speed that is discontinuous at $x=0$; to the left, $c=1$, and to the right, $c=2$.
+We repeat @demo-wave-boundaries but with a wave speed that is discontinuous at $x=0$: to the left, $c=1$, and to the right, $c=2$.
 
 `````{tab-set}
 ````{tab-item} Julia
@@ -195,7 +197,7 @@ We now use a wave speed that is discontinuous at $x=0$; to the left, $c=1$, and 
 
 ``````{exercise}
 :label: problem-wave-dalembert
-✍ Show that the following is a solution to the wave equation $u_{tt}=c^2u_{xx}$ with initial and boundary conditions {eq}`waveBC` and {eq}`waveIC`:
+✍ Show that the following is a solution to the wave equation $u_{tt}=c^2u_{xx}$ with initial conditions {eq}`waveIC`:
 
 $$
 u(x,t) = \frac{1}{2} \left[ f(x-ct)+f(x+ct)\right] + \frac{1}{2c} \int_{x-ct}^{x+ct} g(\xi) \, d\xi

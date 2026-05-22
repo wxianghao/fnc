@@ -198,7 +198,7 @@ The matrix $\mathbf{D}_{xx}$ occurring in {eq}`heatMOL` for semidiscretization o
 \lambda_j =  -4m^2 \sin^2 \left( \frac{j\pi}{m} \right), \qquad j = 0,\ldots,m-1.   
 ```
 
-This result agrees with the observation in @demo-absstab-regions that the eigenvalues are real and negative. Furthermore, they lie within the interval $[-4m^2,0]$. In Euler time integration, this implies that $-4\tau m^2\ge -2$, or $\tau\ge 1/(2m^2)=O(m^{-2})$. For backward Euler, there is no time step restriction, and we say that backward Euler is unconditionally stable for this problem.
+This result agrees with the observation in @demo-absstab-regions that the eigenvalues are real and negative. Furthermore, they lie within the interval $[-4m^2,0]$. In Euler time integration, this implies that $-4\tau m^2\ge -2$, or $\tau\le 1/(2m^2)=O(m^{-2})$. For backward Euler, there is no time step restriction, and we say that backward Euler is unconditionally stable for this problem.
 
 In summary, three things happen as $h\to 0$:
 

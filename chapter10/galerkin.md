@@ -58,7 +58,7 @@ Every solution of {eq}`strongbvp` (what we might now call the strong form of the
 
 ## Galerkin conditions
 
-Our goal is to solve a finite-dimensional problem that approximates the weak form of the BVP. Let $\phi_0,\phi_1,\ldots,\phi_m$ be linearly independent functions satisfying $\phi_i(a)=\phi_i(b)=0$. If we require
+Our goal is to solve a finite-dimensional problem that approximates the weak form of the BVP. Let $\phi_1,\ldots,\phi_m$ be linearly independent functions satisfying $\phi_i(a)=\phi_i(b)=0$. If we require
 
 $$
 \psi(x) = \sum_{i=1}^m z_i \phi_i(x),
@@ -68,7 +68,7 @@ then {eq}`weakbvp` becomes, after some rearrangement,
 
 $$
 \begin{split}
-  \sum_{i=1}^m z_i \left[ \int_a^b  \bigl[ c(x)u'(x)\phi_i'(x)\,dx  + s(x)u(x)\phi_i(x) - f(x) \phi_i(x)\bigr] \, d x \right] = 0.
+  \sum_{i=1}^m z_i \left[ \int_a^b  \bigl[ c(x)u'(x)\phi_i'(x)  + s(x)u(x)\phi_i(x) - f(x) \phi_i(x)\bigr] \, d x \right] = 0.
 \end{split}
 $$
 
@@ -113,10 +113,10 @@ The conditions {eq}`galerkin` are a linear system of equations for the unknown c
 ```{math}
 :label: galerkinsystem
 \begin{split}
-    K_{ij} &= \int_a^b c(x)\phi_i'(x)\phi_j'(x) \,dx, \quad i,j=0,\ldots,m,\\
+    K_{ij} &= \int_a^b c(x)\phi_i'(x)\phi_j'(x) \,dx, \quad i,j=1,\ldots,m,\\
     M_{ij} &= \int_a^b s(x)\phi_i(x)\phi_j(x) \,dx,
-    \quad i,j=0,\ldots,m,   \\
-    f_i &= \int_a^b f(x)\phi_i(x) \,dx \quad i=0,\ldots,m. 
+    \quad i,j=1,\ldots,m,   \\
+    f_i &= \int_a^b f(x)\phi_i(x) \,dx \quad i=1,\ldots,m. 
 \end{split}
 ```
 
@@ -338,7 +338,7 @@ We solve the equation
 
 ```{math}
 :numbered: false
-  -(x^2u')' + 4 y = \sin(\pi x), \qquad u(0)=u(1)=0,
+  -(x^2u')' + 4 u = \sin(\pi x), \qquad u(0)=u(1)=0,
 ```
 
 in which

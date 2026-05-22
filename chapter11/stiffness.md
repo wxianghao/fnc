@@ -259,7 +259,7 @@ The equation $u'=u^2-u^3$ is a simple model for combustion of a flame ball in mi
 
 ``````{exercise}
 :label: problem-stiffness-vanderpol
-The [van der Pol equation*](wiki:Van_der_Pol_oscillator) is a much-studied nonlinear oscillator given by
+The [van der Pol equation](wiki:Van_der_Pol_oscillator) is a much-studied nonlinear oscillator given by
 
 ```{math}
 :label: vanderpol

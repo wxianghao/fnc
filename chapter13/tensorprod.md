@@ -13,7 +13,7 @@ As you learned when starting double integration in vector calculus, the simplest
 
 ```{prf:definition} Tensor-product domain
 :label: definition-tensordomain
-A {term}`tensor-product domain` is two dimensions is the rectangle
+A {term}`tensor-product domain` in two dimensions is the rectangle
 
 ```{math}
 :label: rectangleTP

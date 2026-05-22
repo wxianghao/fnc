@@ -49,7 +49,7 @@ for the exact solution $\hat{u}$ at any value of $i$.
 Next we define a vector $\mathbf{u}$ by
 
 $$
-\mathbf{u}(t) = \begin{bmatrix} u_0(t) \\ u_1(t) \\ \vdots \\ u_n(t) \end{bmatrix}.
+\mathbf{u}(t) = \begin{bmatrix} u_0(t) \\ u_1(t) \\ \vdots \\ u_{m-1}(t) \end{bmatrix}.
 $$
 
 This step is called **semidiscretization**, since space is discretized but time is not. As in [Chapter 10](../bvp/overview.md), we will replace $u_{xx}$ with multiplication of $\mathbf{u}$ by a differentiation matrix $\mathbf{D}_{xx}$. The canonical choice is the three-point finite-difference formula {eq}`centerFD22`, which in light of the periodicity {eq}`periodicmod` leads to
@@ -282,7 +282,7 @@ where $\lambda = \tau/h^2>0$.
 **(b)** Taylor series of the exact solution $\hat{u}$ imply that
 
 \begin{align*}
-\hat{u}_{i,j+1} &= u_{i,j} + \frac{\partial \hat{u}}{\partial t} (x_i,t_j) \tau + O(\tau^2),\\
+\hat{u}_{i,j+1} &= \hat{u}_{i,j} + \frac{\partial \hat{u}}{\partial t} (x_i,t_j) \tau + O(\tau^2),\\
 % \frac{\partial^2 u}{\partial t^2} (x_i,\bar{t}) \frac{\tau^2}{2}
 \hat{u}_{i\pm1,j} &= \hat{u}_{i,j} \pm \frac{\partial \hat{u}}{\partial x} (x_i,t_j) h + \frac{\partial^2 \hat{u}}{\partial x^2} (x_i,t_j)
 \frac{h^2}{2} \pm \frac{\partial^3 \hat{u}}{\partial x^3} (x_i,t_j)

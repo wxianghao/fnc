@@ -143,7 +143,7 @@ For the vec operation defined in {numref}`Definition {number} <definition-diffad
     \vdots &  & \vdots \\
     (A_{n1} Z_{11} + \cdots +  A_{n n}Z_{n1})\mathbf{I}_n & \cdots & (A_{n1} Z_{1n} + \cdots +  A_{n n}Z_{n n})\mathbf{I}_n
     \end{bmatrix} \\[1ex] 
-    & = (\mathbf{A}\mathbf{Z}) \otimes \mathbf{I}_n \\ & = \mathbf{I}_{2n}.
+    & = (\mathbf{A}\mathbf{Z}) \otimes \mathbf{I}_n \\ & = \mathbf{I}_{n^2}.
 \end{split}
 ```
 
@@ -171,7 +171,7 @@ This is in the form of a standard linear system in $(m+1)(n+1)$ variables.
 
 Boundary conditions of the PDE must yet be applied to modify {eq}`poiskronpde`. As has been our practice for one-dimensional boundary-value problems, we replace the collocation equation for the PDE at each boundary point with an equation that assigns that boundary point its prescribed value. The details are a bit harder to express algebraically in the two-dimensional geometry, though, than in the 1D case.
 
-Say that $N=(m+1)(n+1)$ is the number of entries in the unknown $\mathbf{U}$, and let $B$ be a subset of $\{1,\dots,N\}$ such that $i\in B$ if and only if $(x_i,y_i)$ is on the boundary. Then for each $i\in B$, we want to replace row $i$ of the system $\mathbf{L}\mathbf{u}=\mathbf{f}$ with the equation
+Say that $N=(m+1)(n+1)$ is the number of entries in the unknown $\mathbf{U}$, and let $B$ be a subset of $\{1,\dots,N\}$ such that $i\in B$ if and only if the $i$th grid point (in the vec-stacked ordering) is on the boundary. Then for each $i\in B$, we want to replace row $i$ of the system $\mathbf{L}\mathbf{u}=\mathbf{f}$ with the equation
 
 $$
   %:label: pois2bcrep
@@ -301,7 +301,7 @@ For the specific problem of Poisson's equation on a rectangle, there are special
 
 ``````{exercise}
 :label: problem-laplace-symmetry
-✍ Prove that the matrix $\mathbf{A}$ defined in {eq}`poiskronpde` is symmetric if $\mathbf{D}_{xx}$ and $\mathbf{D}_{yy}$ are symmetric.
+✍ Prove that the matrix $\mathbf{L}$ defined in {eq}`poiskronpde` is symmetric if $\mathbf{D}_{xx}$ and $\mathbf{D}_{yy}$ are symmetric.
 ``````
 
 ``````{exercise}
@@ -314,7 +314,7 @@ Solution: $u(x,y) = x^4(1-x)y(1-y)$.
 
 **(b)** $u_{xx}+u_{yy} = \left(16 x^2 + (1-4 y)^2\right) \sinh (4 x y-x)$,  with $u=\sinh(4xy-x)$ on the boundary.
 
-Solution: $u(x,y) = \sin(4\pi x)$.
+Solution: $u(x,y) = \sinh(4xy - x)$.
 
 **(c)** $u_{xx}+u_{yy} = -(20\pi^2) \sin (4\pi x) \cos (2\pi y)$, with $u = \sin (4\pi x) \cos (2\pi y)$ on the boundary.
 

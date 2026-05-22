@@ -328,7 +328,7 @@ Solution: $u(x) = \sin x$
 Solution: $u(x) = x^2 \log x$
 
 **(c)**
-$u'' - \left(x+\frac{1}{2}\right)^{-1}\, u' + 2\left(x+\frac{1}{2}\right)^{-2}\, u = 10\left(x+\frac{1}{2}\right)^{-4}, \quad u\left(x+\frac{1}{2}\right)=1,\; u\left(x+\frac{5}{2}\right) = \frac{1}{9}$
+$u'' - \left(x+\frac{1}{2}\right)^{-1}\, u' + 2\left(x+\frac{1}{2}\right)^{-2}\, u = 10\left(x+\frac{1}{2}\right)^{-4}, \quad u\left(\frac{1}{2}\right)=1,\; u\left(\frac{5}{2}\right) = \frac{1}{9}$
 
 Solution: $u(x) = \left(x+\frac{1}{2}\right)^{-2}$
 ``````
@@ -351,7 +351,7 @@ Solution: $u(x) = \left(x+\frac{1}{2}\right)^{-2}$
  ⌨ Use {numref}`Function {number} <function-bvplin>` to solve *Bessel's equation*,
 
 $$
-x^2 u'' + x u' + x^2 y = 0, \quad u(0.5)=1,\; u(8) = 0.
+x^2 u'' + x u' + x^2 u = 0, \quad u(0.5)=1,\; u(8) = 0.
 $$
 
 Plot the solution for $n=100$.
