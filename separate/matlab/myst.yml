@@ -6,10 +6,10 @@ project:
   short_title: FNC
   description: Online textbook for computational mathematics
   # keywords: 
-  authors:
-    - name: Tobin A. Driscoll
-      email: driscoll@udel.edu
-    - name: Richard J. Braun 
+  # authors:
+  #   - name: Tobin A. Driscoll
+  #     email: driscoll@udel.edu
+  #   - name: Richard J. Braun 
   github: https://github.com/fncbook/fnc-matlab
   # To autogenerate a Table of Contents, run 'myst init --write-toc'
   thebe: false    # don't try in-browser execution
