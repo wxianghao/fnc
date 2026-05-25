@@ -18,7 +18,7 @@ kernelspec:
   language: matlab
   name: jupyter_matlab_kernel
 """
-        init = replace.(readlines(joinpath(REPO_ROOT, "matlab", "FNC_init.m")), "FNC-matlab/" => "../FNC_matlab/")
+        init = replace.(readlines(joinpath(REPO_ROOT, "matlab", "FNC_init.m")), "FNC-matlab" => "../FNC_matlab")
     elseif lang == "julia"
         yaml = """
         kernelspec:
@@ -106,7 +106,7 @@ function transfer_content(dir, new_dir, chap, lang; only_files=nothing)
     elseif lang == "matlab"
         cp(joinpath(REPO_ROOT, "matlab", "FNC-matlab"), joinpath(REPO_ROOT, "separate", "matlab", "FNC_matlab"); force=true)
         for (key, val) in pairs(blocks)
-            blocks[key] = replace.(val, "FNC-matlab/" => "../FNC_matlab/")
+            blocks[key] = replace.(val, "FNC-matlab" => "../FNC_matlab")
         end
     end
 

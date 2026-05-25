@@ -39,33 +39,37 @@ function find_objects(data, key="output_type", value="execute_result")
 end
 
 # Validate that HTML build files have output content.
-# root = "separate/python"
-root = "."
-root = joinpath(root, "_build", "html")
-# last_in_chapter = ["stability", "structure", "house", "nlsq", "adaptive", "zerostability", "dimreduce", "precond", "improper", "galerkin", "boundaries", "wave", "nonlinear-1"]
+
+# number of intentional errors in some files
+intended = Dict("matrices.json" => 3, "structure.json" => 3, "linear-systems.json" => 2)
+
+println("Top level repo: ")
+
+root = joinpath("_build", "html")
 found = Dict()
-for fname in filter(endswith(".json"), readdir(root))
-    println("Checking $fname...")
+files = filter(endswith(".json"), readdir(root))
+println("Checking $(length(files)) files...")
+for fname in files
     json = JSON.parsefile(joinpath(root, fname))
     for lang in ["julia", "python", "matlab"]
         for obj in find_objects(json, "sync", lang)
-            for er in find_objects(obj, "output_type", "error")  # for python and julia
+            for er in find_objects(obj, "output_type", "error")
                 get!(found, fname, Dict())[lang] = er["evalue"]
             end
-            for er in find_objects(obj, "name", "stderr")  # for matlab
-                if startswith(get!(er, "text", "") , "Error")
-                    get!(found, fname, Dict())[lang] = er["text"]
-                end
+        end
+    end
+    for obj in find_objects(json, "sync", "matlab")
+        for er in find_objects(obj, "name", "stderr")
+            if !contains(er["text"], "Warning:")  # ignore warnings
+                get!(found, fname, Dict())["matlab"] = er["text"]
             end
         end
     end
 end
 
-intended = Dict("matrices.json" => 3, "structure.json" => 3, "linear-systems.json" => 2)
-
-println("\n\nREPORT\n------")
+println("------")
 for (key, value) in found
-    println("File: $key")
+    println("\n- File: $key")
     if haskey(intended, key)
         if length(value) == intended[key]
             println("  Found expected number of errors: $(length(value))")
@@ -76,4 +80,31 @@ for (key, value) in found
         println("  $lang error: $err")
     end
     println()
+end
+
+
+println("\nSeparate trees:")
+
+for lang in ["julia", "python", "matlab"]
+    local root = joinpath("separate", lang, "_build", "html")
+    local found = Dict()
+    local files = filter(endswith(".json"), readdir(root))
+    println("\n$lang\n------")
+    for fname in files
+        json = JSON.parsefile(joinpath(root, fname))
+        for er in find_objects(json, "output_type", "error")  # for python and julia
+            push!(get!(found, fname, []), er["evalue"])
+        end
+        (lang == "matlab") || continue
+        for er in find_objects(json, "name", "stderr")  # for matlab
+            if !contains(er["text"], "Warning:")  # ignore warnings
+                push!(get!(found, fname, []), er["text"])
+            end
+        end
+    end
+
+    for (key, value) in found
+        println("\n- File: $key")
+        foreach(println, value)
+    end
 end
