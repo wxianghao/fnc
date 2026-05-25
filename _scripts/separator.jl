@@ -210,7 +210,7 @@ for lang in ["julia", "matlab", "python"]
 
     dir = REPO_ROOT
     new_dir = joinpath(REPO_ROOT, "separate", lang)
-    for fn in ["home.md", "genindex.md", "refs.md", "FNC.bib", "_static", "frontmatter"]
+    for fn in ["genindex.md", "refs.md", "FNC.bib", "_static", "frontmatter"]
         cp(joinpath(dir, fn), joinpath(new_dir, fn); force=true)
     end
     cp(joinpath(dir, lang, "setup.md"), joinpath(new_dir, "setup.md"); force=true)
