@@ -155,7 +155,7 @@ A generic $s$-stage RK method takes the form
     &\vdots\\
     k_s &= h f(t_i + c_{s-1}h, u_i + a_{s-1,1}k_1 + \cdots +
     a_{s-1,s-1}k_{s-1}),\\
-    \mathbf{u}_{i+1} &= u_i + b_1k_1 + \cdots + b_s k_s.
+    u_{i+1} &= u_i + b_1k_1 + \cdots + b_s k_s.
   \end{split}
 ```
 
@@ -272,6 +272,7 @@ u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
 Now we perform a convergence study of our two Runge–Kutta implementations.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = [round(Int, 2 * 10^k) for k in 0:0.5:3]
 err = zeros(length(n), 2)
 for (k, n) in enumerate(n)
@@ -287,7 +288,7 @@ pretty_table((n=n, err2=err[:, 1], err4=err[:, 2]);
 The amount of computational work at each time step is assumed to be proportional to the number of stages. Let's compare on an apples-to-apples basis by using the number of $f$-evaluations on the horizontal axis.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot([2n 4n], err;
     m=3, label=["IE2" "RK4"], legend=:bottomleft,
     xaxis=(:log10, "f-evaluations"),  yaxis=(:log10, "inf-norm error"),

@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-bvp-nonlinear)=
@@ -323,7 +323,7 @@ $$
 ⌨ (Adapted from {cite}`ascherComputerMethods1998`.) Use {numref}`Function {number} <function-bvp>` twice with $n=200$ to solve 
 
 $$
-u'' +  e^{u+0.5} = 0, \quad y(0) = y(1) = 0,
+u'' +  e^{u+0.5} = 0, \quad u(0) = u(1) = 0,
 $$
 
 with initializations $7 \sin(x)$ and $\frac{1}{4} \sin(x)$. Plot the solutions together on one graph.

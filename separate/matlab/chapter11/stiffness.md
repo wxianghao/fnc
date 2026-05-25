@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-diffusion-stiffness)=
@@ -196,11 +196,7 @@ num_steps_ode15s = length(sol.x) - 1
 But if we apply {numref}`Function {number} <function-rk23>` to the problem, the step size will be made small enough to cope with the large negative eigenvalue. 
 
 ```{code-cell}
-ivp.ODEFcn = @(t, u, p) f(t, u);
-ivp.InitialTime = 0;
-ivp.InitialValue = [1; 2; 3];
-ivp.Parameters = [];
-tic, [t, u] = rk23(ivp, 0, 26, 1e-5);
+tic, [t, u] = rk23(f, [0, 26], [1; 2; 3], 1e-5);
 time_rk23 = toc
 num_steps_rk23 = length(t) - 1
 ```
@@ -211,7 +207,7 @@ Starting from the eigenvalues of the Jacobian matrix, we can find an effective $
 :tags: hide-input
 zeta = zeros(length(t) - 1, 3);
 for j = 1:length(t)-1
-    lambda = eig(J(u(:, j)));
+    lambda = eig(J(u(j, :)));
     zeta(j, :) = (t(j+1) - t(j)) * lambda;
 end
 plot(zeta, 'o')
@@ -309,7 +305,7 @@ The equation $u'=u^2-u^3$ is a simple model for combustion of a flame ball in mi
 
 ``````{exercise}
 :label: problem-stiffness-vanderpol
-The [van der Pol equation*](wiki:Van_der_Pol_oscillator) is a much-studied nonlinear oscillator given by
+The [van der Pol equation](wiki:Van_der_Pol_oscillator) is a much-studied nonlinear oscillator given by
 
 ```{math}
 :label: vanderpol

@@ -192,7 +192,7 @@ The observations above hint that we might find success by having more nodes near
  t_k = - \cos\left(\frac{k \pi}{n}\right), \qquad k=0,\ldots,n.
 ```
 
-These are the projections onto the $x$-axis of $n$ equally spaced points on a unit circle. They are densely clustered near the ends of $[-1,1]$, and this feature turns out to overcome the Runge phenomenon.
+These are the projections onto the $x$-axis of $n+1$ equally spaced points on a unit circle. They are densely clustered near the ends of $[-1,1]$, and this feature turns out to overcome the Runge phenomenon.
 
 ::::{prf:example} Error indicator function for Chebyshev nodes
 :label: demo-stability-errcheb

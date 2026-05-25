@@ -55,8 +55,8 @@ We can pack the two dependent variables $y$ and $z$ into a vector-valued functio
 
 ```{math}
 \begin{split}
-  u_1'(t) &= f_1(t,\mathbf{u}) =  u_1(1-au_1) - \frac{u_1 u_2}{1+bu_1},\\
-  u_2'(t) &= f_2(t,\mathbf{u}) = -u_2 + \frac{u_1 u_2}{1+bu_1},
+  u_1'(t) &= f_1(t,\mathbf{u}) =  u_1(1 - \alpha u_1) - \frac{u_1 u_2}{1+ \beta u_1},\\
+  u_2'(t) &= f_2(t,\mathbf{u}) = -u_2 + \frac{u_1 u_2}{1 + \beta u_1},
 \end{split}
 ```
 
@@ -125,7 +125,7 @@ ivp = ODEProblem(predprey, u₀, tspan, [α, β])
 You can use any `DifferentialEquations` solver on the IVP system.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 sol = solve(ivp, Tsit5());
 plot(sol, label=["prey" "predator"],
     title="Predator-prey solution")

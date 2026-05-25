@@ -284,7 +284,7 @@ x = x / 8
 @show sign(x), exponent(x), significand(x);
 ```
 
-The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \epsilon_\text{mach}$, where $\epsilon_\text{mach}$ is machine epsilon. You can get its value from the `eps` function in Julia. By default, it returns the value for double precision.
+The spacing between floating-point values in $[2^n,2^{n+1})$ is $2^n \macheps$, where $\macheps$ is machine epsilon. You can get its value from the `eps` function in Julia. By default, it returns the value for double precision.
 
 ```{tip}
 :class: dropdown
@@ -319,7 +319,7 @@ nextfloat(161.8)
 ans - 161.8
 ```
 
-A common mistake is to think that $\epsilon_\text{mach}$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the mantissa. The actual range of positive values in double precision is
+A common mistake is to think that $\macheps$ is the smallest floating-point number. It's only the smallest *relative to 1*. The correct perspective is that the scaling of values is limited by the exponent, not the mantissa. The actual range of positive values in double precision is
 
 ```{code-cell}
 @show floatmin(), floatmax();
@@ -387,7 +387,7 @@ Hence, the relative error in arithmetic is essentially the same as for the float
 :label: demo-float-arithmetic
 
 
-There is no double-precision number between $1$ and $1+\epsilon_\text{mach}$. Thus the following difference is zero despite its appearance.
+There is no double-precision number between $1$ and $1+\macheps$. Thus the following difference is zero despite its appearance.
 
 ```{code-cell}
 e = eps()/2

@@ -66,7 +66,7 @@ The {term}`adjoint` or *hermitian* of a matrix $\mathbf{A}$ is denoted $\mathbf{
 
 The **2-norm** of a complex vector $\mathbf{u}$ is $\sqrt{\mathbf{u}^*\mathbf{u}}$. Other vector norms, and all matrix norms, are as defined in {numref}`section-linsys-norms`.
 
-Complex vectors $\mathbf{u}$ and $\mathbf{v}$ of the same dimension are {term}`orthogonal vectors` if $\mathbf{u}^*\mathbf{v}=0$ and are {term}`Orthonormal vectors` if both also have unit 2-norm. A {term}`unitary matrix` is a square matrix with orthonormal columns, or, equivalently, a matrix satisfying $\mathbf{A}^* = \mathbf{A}^{-1}$.
+Complex vectors $\mathbf{u}$ and $\mathbf{v}$ of the same dimension are {term}`orthogonal vectors` if $\mathbf{u}^*\mathbf{v}=0$ and are {term}`orthonormal vectors` if both also have unit 2-norm. A {term}`unitary matrix` is a square matrix with orthonormal columns, or, equivalently, a matrix satisfying $\mathbf{A}^* = \mathbf{A}^{-1}$.
 ::::
 
 For the most part, "adjoint" replaces "transpose," "hermitian" replaces "symmetric," and "unitary matrix" replaces "orthogonal matrix" when applying our previous results to complex matrices.
@@ -289,7 +289,9 @@ p(\mathbf{A}) & = c_0\mathbf{V}\mathbf{V}^{-1}  +c_1 \mathbf{V}\mathbf{D}\mathbf
 \end{split}
 ```
 
-Finally, given the convergence of Taylor polynomials to common functions, we are able to apply a function $f$ to a square matrix by replacing $p$ with $f$ in {eq}`matrixpolyevd`.
+Finally, given the convergence of Taylor polynomials to common functions, we are able to apply a function $f$ to a square matrix by replacing $p$ with $f$ in {eq}`matrixpolyevd`, provided the series converges[^converge].
+
+[^converge]: The technical requirement is that the eigenvalues of the matrix lie within the domain of convergence of the scalar Taylor series.
 
 ## Conditioning of eigenvalues
 

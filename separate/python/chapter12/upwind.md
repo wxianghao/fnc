@@ -227,7 +227,7 @@ If PDE and a numerical method have different upwinding directions, the method ca
 
 ```{note}
 It probably seems like one should always use a centered difference scheme, so that upwinding is not an issue. However, at a shock front, this requires differencing across a jump in the solution, which causes its own set of difficulties.
-````
+```
 
 ## Inflow boundary condition
 

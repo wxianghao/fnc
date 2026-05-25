@@ -39,14 +39,14 @@ Sets of vectors satisfying a certain property are useful both theoretically and 
 
 ::::{prf:definition} Orthogonal vectors
 :label: definition-orthogonalvectors
-Two vectors $\mathbf{u}$ and $\mathbf{v}$ in $\mathbb{R}^n$ are {term}`orthogonal vectors` if $\mathbf{u}^T\mathbf{v}=0$. We say that a collection of vectors $\mathbf{q}_1,\ldots,\mathbf{q}_k$ is orthogonal if
+Two vectors $\mathbf{u}$ and $\mathbf{v}$ in $\real^n$ are {term}`orthogonal vectors` if $\mathbf{u}^T\mathbf{v}=0$. We say that a collection of vectors $\mathbf{q}_1,\ldots,\mathbf{q}_k$ is orthogonal if
 
 ```{math}
 :label: orthogonality
 i \neq j \quad \Rightarrow \quad \mathbf{q}_i^T\mathbf{q}_j = 0.
 ```
 
-If {eq}`orthogonality` applies and also $\mathbf{q}_i^T\mathbf{q}_i=1$ for all $i=1,\ldots,n$, we say they are {term}`orthonormal vectors`.
+If {eq}`orthogonality` applies and also $\mathbf{q}_i^T\mathbf{q}_i=1$ for all $i=1,\ldots,k$, we say they are {term}`orthonormal vectors`.
 ::::
 
 ```{index} inner product

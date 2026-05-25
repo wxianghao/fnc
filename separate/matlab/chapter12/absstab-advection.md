@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-advection-absstab)=
@@ -145,13 +145,13 @@ In a nonlinear problem, the eigenvalues come from the linearization about an exa
 
 ## Boundary effects
 
-Boundary conditions can have a dramatic effect on the eigenvalues of the semidiscretization. For instance, @demo-upwind-direction solves linear advection $u_t=u_x$ on $[0,1]$ with the homogeneous inflow condition $u(0,t)=0$. Exclusion of the boundary node from the semidiscretization $\mathbf{u}$ to get the interior vector $\mathbf{v}$ is equivalent to
+Boundary conditions can have a dramatic effect on the eigenvalues of the semidiscretization. For instance, @demo-upwind-direction solves linear advection $u_t=u_x$ on $[0,1]$ with the homogeneous inflow condition $u(1,t)=0$. Exclusion of the boundary node from the semidiscretization $\mathbf{u}$ to get the interior vector $\mathbf{v}$ is equivalent to
 
 $$
 \mathbf{v} = \mathbf{E} \mathbf{u}, \quad   \mathbf{u} = \begin{bmatrix}  \mathbf{v} \\ 0 \end{bmatrix} = \mathbf{E}^T \mathbf{v},
 $$
 
-where $\mathbf{E}$ is the $(m+1)\times (m+1)$ identity with the last row deleted. The ODE on the interior nodes is
+where $\mathbf{E}$ is obtained by deleting the last row of an $(m+1)\times (m+1)$ identity matrix. The ODE on the interior nodes is
 
 $$
 \frac{d\mathbf{v}}{dt} = \mathbf{E} \left( \mathbf{D}_x \mathbf{u} \right) = \mathbf{E} \mathbf{D}_x \mathbf{E}^T \mathbf{v}.
@@ -214,7 +214,7 @@ $$
 
 ``````{exercise}
 :label: problem-absstab-advdiff
-⌨ In @demo-absstab-advdiff we saw that the eigenvalues of the semidiscretization of @advectioncc for periodic end conditions lie in the left half of the complex plane. Suppose we want to apply the Euler time stepping formula. For a given eigenvalue $\lambda$, there is a value of $\tau$ such that $\zeta=\tau \lambda$ lies on the boudnary of the stability region.
+⌨ In @demo-absstab-advdiff we saw that the eigenvalues of the semidiscretization of @eq-advectiondiffusion for periodic end conditions lie in the left half of the complex plane. Suppose we want to apply the Euler time stepping formula. For a given eigenvalue $\lambda$, there is a value of $\tau$ such that $\zeta=\tau \lambda$ lies on the boundary of the stability region.
 
 **(a)** ✍ Show that if $\lambda = x + iy$ and $|\zeta + 1|^2 = 1$, then  
 ```{math}

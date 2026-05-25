@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-leastsq-house)=
@@ -283,7 +283,7 @@ The flop count quoted in @theorem-house-flops dominates the running time for lea
 
 **(a)** Find an asymptotic flop count for this procedure, and compare it to the LU factorization algorithm.
 
-**(b)** Show that $\kappa_2(\mathbf{A}) = \kappa_2(\mathbf{R})$.
+**(b)** Show that $\kappa(\mathbf{A}) = \kappa(\mathbf{R})$ in the 2-norm.
 ``````
 
 ``````{exercise}

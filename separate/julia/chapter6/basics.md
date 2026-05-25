@@ -130,11 +130,10 @@ sol = solve(ivp, Tsit5());
 The resulting solution object can be shown using `plot`.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot(sol;
     label="solution", legend=:bottom,
-    xlabel="t",  ylabel=L"u(t)",
-    title=L"u'=\sin((t+u)^2)")
+    xlabel="t",  ylabel=L"u(t)", title=L"u'=\sin((t+u)^2)")
 ```
 
 The solution also acts like any callable function that can be evaluated at different values of $t$.
@@ -177,8 +176,7 @@ The warning message we received can mean that there is a bug in the formulation 
 
 ```{code-cell}
 plot(sol, label="";
-    xlabel=L"t",  yaxis=(:log10, L"u(t)"),
-    title="Finite-time blowup")
+    xlabel=L"t",  yaxis=(:log10, L"u(t)"), title="Finite-time blowup")
 ```
 
 ::::
@@ -206,7 +204,7 @@ In a numerical context we have to be concerned about the conditioning of the IVP
 
 ````{prf:theorem} Dependence on initial value
 :label: theorem-depIC
-If the derivative $\frac{\partial f}{\partial u}$ exists and $\left|\frac{\partial f}{\partial u}\right|$ is bounded by a constant $L$ for all $a\le t \le b$ and all $u$, then the solution $u(t;u_0+\delta)$ of $u'=f(t,u)$ with initial condition $u(0)=u_0+\delta$ satisfies
+If the derivative $\frac{\partial f}{\partial u}$ exists and $\left|\frac{\partial f}{\partial u}\right|$ is bounded by a constant $L$ for all $a\le t \le b$ and all $u$, then the solution $u(t;u_0+\delta)$ of $u'=f(t,u)$ with initial condition $u(a)=u_0+\delta$ satisfies
   
 ```{math}
 :label: depIC
@@ -224,7 +222,7 @@ Numerical solutions of IVPs have errors, and those errors can be seen as perturb
 Consider the ODEs $u'=u$ and $u'=-u$. In each case we compute $\partial f/\partial u = \pm 1$, so the condition number bound from @theorem-depIC is $e^{b-a}$ in both problems. However, they behave quite differently. In the case of exponential growth, $u'=u$, the bound is the actual condition number.
 
 ```{code-cell}
-:tags: remove-input
+:tags: [remove-input]
 t = range(0, 3, length=800)
 u = @. exp(t) * 1
 lower, upper = @. exp(t) * 0.7, @. exp(t) * 1.3
@@ -237,7 +235,7 @@ plot(t, u;
 But with $u'=-u$, solutions actually get closer together with time.
 
 ```{code-cell}
-:tags: remove-input
+:tags: [remove-input]
 u = @. exp(-t) * 1
 lower, upper = @. exp(-t) * 0.7, @. exp(-t) * 1.3
 plot(t, u;

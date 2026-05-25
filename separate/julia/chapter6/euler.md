@@ -296,12 +296,11 @@ ivp = ODEProblem(f, u0, tspan)
 Here is the call to {numref}`Function {number} <function-euler>`.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 t, u = FNC.euler(ivp, 20)
 plot(t, u;
     m=2,  label="n=20", 
-    xlabel=L"t",  ylabel=L"u(t)",
-    title="Solution by Euler's method")
+    xlabel=L"t",  ylabel=L"u(t)", title="Solution by Euler's method")
 ```
 
 We could define a different interpolant to get a smoother picture above, but the derivation of Euler's method assumed a piecewise linear interpolant, and that sets the limit of its accuracy. We can instead request more steps to make the interpolant look smoother.
@@ -321,6 +320,7 @@ plot!(u_exact, l=(2, :black), label="reference")
 Now we can perform a convergence study.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = [round(Int, 5 * 10^k) for k in 0:0.5:3]
 err = []
 for n in n

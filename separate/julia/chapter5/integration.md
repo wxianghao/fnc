@@ -110,7 +110,7 @@ A straightforward way to derive integration formulas is to mimic the approach ta
 One of the most important integration formulas results from integration of the piecewise linear interpolant (see {numref}`section-localapprox-pwlin`). Using the cardinal basis form of the interpolant in {eq}`plbasis`, we have
 
 ```{math}
-\int_a^b f(x) \, dx \approx \int_a^b \sum_{i=0}^n f(t_i) H_i(x)\, dx = \sum_{i=0}^n f(t_i) \left[ \int_a^b H_i(x)\right]\, dx.
+\int_a^b f(x) \, dx \approx \int_a^b \sum_{i=0}^n f(t_i) H_i(x)\, dx = \sum_{i=0}^n f(t_i) \left[ \int_a^b H_i(x)\, dx \right].
 ```
 
 Thus, we can identify the weights as $w_i = h^{-1} \int_a^b H_i(x)\, dx$. Using areas of triangles, it's trivial to derive that
@@ -206,7 +206,7 @@ A more thorough statement of the truncation error is known as the **Euler–Macl
 ```{math}
 :label: eulermaclaurin
 \begin{split}
-\int_a^b f(x)\, dx &= T_f(n) - \frac{h^2}{12} \left[ f'(b)-f'(a) \right] + \frac{h^4}{740} \left[ f'''(b)-f'''(a) \right] + O(h^6) \\
+\int_a^b f(x)\, dx &= T_f(n) - \frac{h^2}{12} \left[ f'(b)-f'(a) \right] + \frac{h^4}{720} \left[ f'''(b)-f'''(a) \right] + O(h^6) \\
     &= T_f(n) - \sum_{k=1}^\infty \frac{B_{2k}h^{2k}}{(2k)!}  \left[ f^{(2k-1)}(b)-f^{(2k-1)}(a) \right],
 \end{split}
 ```
@@ -364,7 +364,7 @@ Specifically, we have
   T_f(2m) & = \frac{1}{2m} \left[  \frac{1}{2} f(a) + \frac{1}{2} f(b) + \sum_{i=1}^{2m-1}  f\Bigl( a + \frac{i}{2m} \Bigr) \right]\\[1mm]
   & = \frac{1}{2m} \left[  \frac{1}{2} f(a) + \frac{1}{2} f(b)\right] + \frac{1}{2m} \sum_{k=1}^{m-1}  f\Bigl( a+\frac{2k}{2m} \Bigr)  + \frac{1}{2m} \sum_{k=1}^{m} f\Bigl( a+\frac{2k-1}{2m} \Bigr) \\[1mm]
   &=  \frac{1}{2m} \left[  \frac{1}{2} f(a) + \frac{1}{2} f(b) + \sum_{k=1}^{m-1} f\Bigl( a+\frac{k}{m} \Bigr) \right] + \frac{1}{2m} \sum_{k=1}^{m}  f\Bigl( a+\frac{2k-1}{2m} \Bigr)  \\[1mm]
-  &= \frac{1}{2} T_f(m) + \frac{1}{2m} \sum_{k=1}^{m-1}  f\left(t_{2k-1} \right),
+  &= \frac{1}{2} T_f(m) + \frac{1}{2m} \sum_{k=1}^m  f\left(t_{2k-1} \right),
 \end{split}
 ```
 
@@ -468,7 +468,7 @@ If we consider the computational time to be dominated by evaluations of $f$, the
 
 ``````{exercise}
 :label: problem-integration-gregory
-✍ The Euler–Maclaurin error expansion {eq}`eulermaclaurin` for the trapezoid formula implies that if we could cancel out the term due to $f'(b)-f'(a)$, we would obtain fourth-order accuracy. We should not assume that $f'$ is available, but approximating it with finite differences can achieve the same goal. Suppose the forward difference formula {eq}`forwardFD21` is used for $f'(a)$, and its reflected backward difference is used for $f'(b)$. Show that the resulting modified trapezoid formula is
+✍ The Euler–Maclaurin error expansion {eq}`eulermaclaurin` for the trapezoid formula implies that if we could cancel out the term due to $f'(b)-f'(a)$, we would obtain fourth-order accuracy. We should not assume that $f'$ is available, but approximating it with finite differences can achieve the same goal. Suppose the 3-point forward difference formula in the second row of @table-fdforward is used for $f'(a)$, and its reflected backward difference is used for $f'(b)$. Show that the resulting modified trapezoid formula is
 
 ```{math}
 :label: gregory

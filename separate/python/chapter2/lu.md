@@ -187,7 +187,7 @@ These two calculations are enough to derive one of the most important algorithms
 Our goal is to factor a given $n\times n$ matrix $\mathbf{A}$ as the triangular product $\mathbf{A}=\mathbf{L}\mathbf{U}$. It turns out that we have $n^2+n$ total nonzero unknowns in the two triangular matrices, so we choose $n$ of them arbitrarily as follows.
 
 ```{prf:definition} Unit triangular matrix
-:label: definition-unittraiangular
+:label: definition-unittriangular
 A {term}`unit triangular matrix` $\mathbf{T}$ of size $n\times n$ is triangular and satisfies $T_{11}=\cdots = T_{nn}=1$. 
 ```
 
@@ -281,6 +281,12 @@ In floating point, we cannot expect the difference to be exactly zero as we foun
 
 ::::{aside}
 
+:::{div}
+:width: 100%
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_8bvfm90o&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_buhuavfi%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

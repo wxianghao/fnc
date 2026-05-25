@@ -213,8 +213,8 @@ and the resultant identities
 Specifically, we have
 
 ```{math}
-c_k = \begin{cases} \frac{a_0}{2}, & k=0, \\[1mm] 
-\frac{1}{2}(a_k + i b_k), & k> 0, \\[1mm]
+c_k = \begin{cases} \frac{1}{2} a_0, & k=0, \\[1mm] 
+\frac{1}{2}(a_k - i b_k), & k> 0, \\[1mm]
 \overline{c_{-k}}, & k < 0. 
 \end{cases}
 ```
@@ -335,7 +335,7 @@ The theoretical and computational aspects of Fourier analysis are vast and far-r
 :label: problem-trig-gibbs
 ⌨ Spectral convergence is predicated on having infinitely many continuous derivatives. At the other extreme is a function with a jump discontinuity. Trigonometric interpolation across a jump leads to a lack of convergence altogether, a fact famously known as the *Gibbs phenomenon*.
 
-**(a)** Define `f(x) = sign(x+eps())`. This function jumps from $-1$ to $1$ at $x=-\epsilon_\text{mach}$. Plot the function over $-0.05\le x \le 0.15$.
+**(a)** Define `f(x) = sign(x+eps())`. This function jumps from $-1$ to $1$ at $x=-\macheps$. Plot the function over $-0.05\le x \le 0.15$.
 
 **(b)** Let $n=30$ and $N=2n+1$. Using {numref}`Function {number} <function-triginterp>`, add a plot of the trigonometric interpolant to $f$ to the graph from part (a).
 

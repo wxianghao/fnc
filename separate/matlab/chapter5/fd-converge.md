@@ -16,8 +16,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-localapprox-fd-converge)=
@@ -167,26 +167,26 @@ As $h\to 0$, the numerator approaches zero even though the values $f(x+h)$ and $
 \kappa(h) = \frac{ \max\{\,|f(x+h)|,|f(x)|\,\} }{ |f(x+h)-f(x) | },
 ```
 
-implying a relative error of size $\kappa(h) \epsilon_\text{mach}$ in its computation. Hence, the numerical value we actually compute for $\delta$ is
+implying a relative error of size $\kappa(h) \macheps$ in its computation. Hence, the numerical value we actually compute for $\delta$ is
 
 ```{math}
 \begin{split}
-\tilde{\delta}(h) &= \frac{f(x+h)-f(x)}{h}\, (1+\kappa(h)\epsilon_\text{mach}) \\
-&= \delta(h) + \frac{ \max\{\,|f(x+h)|,|f(x)|\,\} }{ |f(x+h)-f(x) | }\cdot \frac{f(x+h)-f(x)}{h} \cdot \epsilon_\text{mach}.
+\tilde{\delta}(h) &= \frac{f(x+h)-f(x)}{h}\, (1+\kappa(h)\macheps) \\
+&= \delta(h) + \frac{ \max\{\,|f(x+h)|,|f(x)|\,\} }{ |f(x+h)-f(x) | }\cdot \frac{f(x+h)-f(x)}{h} \cdot \macheps.
 \end{split}
 ```
 
 Hence, as $h\to 0$,
 
 ```{math}
-\bigl| \tilde{\delta}(h) - \delta(h) \bigr| = \frac{ \max\{\,|f(x+h)|,|f(x)|\,\} }{ h}\,\epsilon_\text{mach} \sim  |f(x)|\, \epsilon_\text{mach}\cdot h^{-1}.
+\bigl| \tilde{\delta}(h) - \delta(h) \bigr| = \frac{ \max\{\,|f(x+h)|,|f(x)|\,\} }{ h}\,\macheps \sim  |f(x)|\, \macheps\cdot h^{-1}.
 ```
 
 Combining the truncation error and the roundoff error leads to
 
 ```{math}
 :label: FDround
-\bigl|  f'(x) - \tilde{\delta}(h) \bigr| \le \bigl| \tau_f(h) \bigr| + \bigl|f(x) \bigr|\, \epsilon_\text{mach} \, h^{-1}.
+\bigl|  f'(x) - \tilde{\delta}(h) \bigr| \le \bigl| \tau_f(h) \bigr| + \bigl|f(x) \bigr|\, \macheps \, h^{-1}.
 ```
 
 ```{index} subtractive cancellation
@@ -195,10 +195,10 @@ Combining the truncation error and the roundoff error leads to
 Equation {eq}`FDround` indicates that while the truncation error $\tau$ vanishes as $h$ decreases, the roundoff error actually *increases* thanks to the subtractive cancellation. At some value of $h$ the two error contributions will be of roughly equal size. This occurs when
 
 ```{math}
-\bigl|f(x)\bigr|\, \epsilon_\text{mach}\, h^{-1} \approx C h, \quad \text{or} \quad h \approx K \sqrt{\rule[0.05em]{0mm}{0.4em}\epsilon_\text{mach}},
+\bigl|f(x)\bigr|\, \macheps\, h^{-1} \approx C h, \quad \text{or} \quad h \approx K \sqrt{\rule[0.05em]{0mm}{0.4em}\macheps},
 ```
 
-for a constant $K$ that depends on $x$ and $f$, but not $h$. In summary, for a first-order finite-difference method, the optimum spacing between nodes is proportional to $\epsilon_\text{mach}^{\,\,1/2}$. (This observation explains the choice of `δ` in {numref}`Function {number} <function-fdjac>`.)
+for a constant $K$ that depends on $x$ and $f$, but not $h$. In summary, for a first-order finite-difference method, the optimum spacing between nodes is proportional to $\macheps^{\,\,1/2}$. (This observation explains the choice of `δ` in {numref}`Function {number} <function-fdjac>`.)
 
 For a method of truncation order $m$, the details of the subtractive cancellation are a bit different, but the conclusion generalizes.
 
@@ -207,10 +207,10 @@ For computing with a finite-difference method of order $m$ in the presence of ro
 
 ```{math}
 :label: FDtruncbalance
-h_\text{opt} \approx \epsilon_\text{mach}^{\,\,1/(m+1)},
+h_\text{opt} \approx \macheps^{\,\,1/(m+1)},
 ```
 
-and the optimum total error is roughly $\epsilon_\text{mach}^{\,\, m/(m+1)}$.
+and the optimum total error is roughly $\macheps^{\,\, m/(m+1)}$.
 ::::
 
 A different statement of the conclusion is that for a first-order formula, at most we can expect accuracy in only about half of the available machine digits. As $m$ increases, we get ever closer to using the full accuracy available. Higher-order finite-difference methods are both more efficient and less vulnerable to roundoff than low-order methods.

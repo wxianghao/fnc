@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-twodim-tensorprod)=
@@ -30,11 +30,11 @@ As you learned when starting double integration in vector calculus, the simplest
 
 ```{prf:definition} Tensor-product domain
 :label: definition-tensordomain
-A {term}`tensor-product domain` is two dimensions is the rectangle
+A {term}`tensor-product domain` in two dimensions is the rectangle
 
 ```{math}
 :label: rectangleTP
-  [a,b] \times [c,d] = \bigl\{ (x,y)\in\mathbb{R}^2 : a\le x \le b,\; c\le y \le d \bigr\}.
+  [a,b] \times [c,d] = \bigl\{ (x,y)\in\real^2 : a\le x \le b,\; c\le y \le d \bigr\}.
 ```
 
 ```{note}

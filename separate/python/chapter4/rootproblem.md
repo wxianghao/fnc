@@ -225,7 +225,7 @@ Another useful characterization of multiplicity $m$ is that $f(x)=(x-r)^m q(x)$ 
 
 When $r$ is a multiple root, the condition number {eq}`rootcondnum` is effectively infinite.[^infcond] However, even if $r$ is simple, we should expect difficulty in rootfinding if the condition number is very large. This occurs when $|f'(r)|$ is very small, which means that the quotient $q$ satisfies $q(r)\approx 0$ and another root of $f$ is very close to $r$. We made the same observation about polynomial roots all the way back in @demo-stability-roots.
 
-[^infcond]: Based on our definitions, this means that the relative change to the root when $f$ is changed by a perturbation of size $\epsilon$ is not $O(\epsilon)$ as $\epsilon\to 0$.
+[^infcond]: Based on our definitions, this means that the change to the root when $f$ is changed by a perturbation of size $\epsilon$ is not $O(\epsilon)$ as $\epsilon\to 0$.
 
 ## Exercises
 

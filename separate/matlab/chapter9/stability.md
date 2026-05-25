@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-globalapprox-stability)=
@@ -174,7 +174,7 @@ The observations above hint that we might find success by having more nodes near
  t_k = - \cos\left(\frac{k \pi}{n}\right), \qquad k=0,\ldots,n.
 ```
 
-These are the projections onto the $x$-axis of $n$ equally spaced points on a unit circle. They are densely clustered near the ends of $[-1,1]$, and this feature turns out to overcome the Runge phenomenon.
+These are the projections onto the $x$-axis of $n+1$ equally spaced points on a unit circle. They are densely clustered near the ends of $[-1,1]$, and this feature turns out to overcome the Runge phenomenon.
 
 ::::{prf:example} Error indicator function for Chebyshev nodes
 :label: demo-stability-errcheb

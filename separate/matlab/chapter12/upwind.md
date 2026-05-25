@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-advection-upwind)=
@@ -163,7 +163,7 @@ In the space-time plot above, you can see the initial hump traveling rightward a
 If we cut $h$ by a factor of 2 (i.e., double $m$), then the CFL condition suggests that the time step should be cut by a factor of 2 also.
 
 ```{code-cell}
-num_steps_400 = length(sol.Time) - 1
+num_steps_400 = length(sol.x) - 1
 
 [x, Dx] = diffper(800, [0, 1]);
 odefun = @(t, u) -c * (Dx*u);
@@ -219,7 +219,7 @@ If PDE and a numerical method have different upwinding directions, the method ca
 
 ```{note}
 It probably seems like one should always use a centered difference scheme, so that upwinding is not an issue. However, at a shock front, this requires differencing across a jump in the solution, which causes its own set of difficulties.
-````
+```
 
 ## Inflow boundary condition
 

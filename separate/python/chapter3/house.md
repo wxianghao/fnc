@@ -295,7 +295,7 @@ The flop count quoted in @theorem-house-flops dominates the running time for lea
 
 **(a)** Find an asymptotic flop count for this procedure, and compare it to the LU factorization algorithm.
 
-**(b)** Show that $\kappa_2(\mathbf{A}) = \kappa_2(\mathbf{R})$.
+**(b)** Show that $\kappa(\mathbf{A}) = \kappa(\mathbf{R})$ in the 2-norm.
 ``````
 
 ``````{exercise}

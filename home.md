@@ -9,15 +9,16 @@ site:
 
 ## Fundamentals of Numerical Computation
 
-This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by Tobin A. Driscoll and Richard J. Braun. 
+This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by [Tobin A. Driscoll](https://tobydriscoll.net) and Richard J. Braun.
+
+## Choose your programming language
 
 +++ { "kind": "centered", "class": "col-body"}
-
-**Choose your programming language:**
 
 `````{grid}
 ````{card}
 :header: [Julia version](julia/usage)
+:url: julia/usage
 ```{image} _static/julia-logo-color.*
 :class: dark:hidden
 :alt: Julia
@@ -35,6 +36,7 @@ Julia edition
 
 ````{card}
 :header: [MATLAB version](matlab/usage)
+:url: matlab/usage
 ```{image} _static/logo-matlab.*
 :alt: MATLAB
 :height: 100px
@@ -44,6 +46,7 @@ MATLAB[^trademark] edition
 
 ````{card}
 :header: [Python version](python/usage)
+:url: python/usage
 ```{image} _static/logo-python.*
 :alt: Python
 :height: 100px

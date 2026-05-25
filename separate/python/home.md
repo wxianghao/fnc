@@ -7,50 +7,15 @@ site:
   hide_footer: true
 ---
 
-## Fundamentals of Numerical Computation
+## FNC: Python edition
 
-This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by Tobin A. Driscoll and Richard J. Braun. 
+This is the Python edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by [Tobin A. Driscoll](https://tobydriscoll.net) and Richard J. Braun.
 
-+++ { "kind": "centered", "class": "col-body"}
+{button}`Get started! <usage.md>`
 
-**Choose your programming language:**
+Use these links if you want to use one of the other editions:
 
-`````{grid}
-````{card}
-:header: [Julia version](julia/usage)
-```{image} _static/julia-logo-color.*
-:class: dark:hidden
-:alt: Julia
-:height: 100px
-Julia edition
-``` 
-
-```{image} _static/julia-logo-dark.*
-:class: hidden dark:block
-:alt: Julia
-:height: 100px
-Julia edition
-``` 
-````
-
-````{card}
-:header: [MATLAB version](matlab/usage)
-```{image} _static/logo-matlab.*
-:alt: MATLAB
-:height: 100px
-MATLAB[^trademark] edition
-``` 
-````
-
-````{card}
-:header: [Python version](python/usage)
-```{image} _static/logo-python.*
-:alt: Python
-:height: 100px
-Python support
-```
-```` 
-
-`````
+- [Julia edition](../julia)
+- [MATLAB edition](../matlab)[^trademark]
 
 [^trademark]: MATLAB and Simulink are registered trademarks of The MathWorks, Inc. See mathworks.com/trademarks for a list of additional trademarks.

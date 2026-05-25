@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-linsys-efficiency)=
@@ -60,7 +60,7 @@ Since $a_1/a_2$ is a constant, $f(n) = O(g(n))$; if $a_1=a_2$, then $f \sim g$.
 f(n) = \frac{1}{n} - \cos(1/\xi)\frac{1}{6 n^3},
 ```
 
-where $n<\xi<\infty$.  But
+where $0 < 1 / \xi < 1/n$, or, more simply, $\xi > n$.  But
   
 ```{math}
 \lim_{n\to \infty} \frac{f}{g} = \lim_{n\to \infty} 1-\cos(1/\xi)\frac{1}{6 n^2} = 1,

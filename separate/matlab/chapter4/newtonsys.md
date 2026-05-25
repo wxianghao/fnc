@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-nonlineqn-newtonsys)=
@@ -30,7 +30,7 @@ The rootfinding problem becomes much more difficult when multiple variables and 
 
 ````{prf:definition} Multidimensional rootfinding problem
 :label: definition-vectorroot
-Given a continuous vector-valued function $\mathbf{f}$ mapping from $\mathbb{R}^n$ into $\mathbb{R}^n$, find a vector $\mathbf{r}$ such that
+Given a continuous vector-valued function $\mathbf{f}$ mapping from $\real^n$ into $\real^n$, find a vector $\mathbf{r}$ such that
 
 ```{math}
 :label: rootvector

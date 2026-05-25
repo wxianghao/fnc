@@ -64,10 +64,10 @@ The converse of {numref}`Theorem {number} <theorem-symm-eig-spectral>` is also t
 For a hermitian matrix, the EVD
 
 $$
-\mathbf{A}=\mathbf{V}\mathbf{D}\mathbf{V}^{-1}=\mathbf{V} \mathbf{D} \mathbf{V}^*
+\mathbf{A}=\mathbf{V}\mathbf{D}\mathbf{V}^{-1}=\mathbf{V} \mathbf{D} \mathbf{V}^*,
 $$
 
-is almost an SVD.
+in which we already know that $\mathbf{D}$ is real, is almost an SVD.
 
 ```{index} unitary matrix
 ```
@@ -80,7 +80,7 @@ If $\mathbf{A}^*=\mathbf{A}$ and $\mathbf{A}=\mathbf{V}\mathbf{D}\mathbf{V}^{-1}
 \mathbf{A} = (\mathbf{V}\mathbf{T})\cdot |\mathbf{D}|\cdot \mathbf{V}^*
 ```
 
-is an SVD, where $|\mathbf{D}|$ is the elementwise absolute value and $\mathbf{T}$ is diagonal with $|T_{ii}|=1$ for all $i$. In particular, the absolute values of the eigenvalues of $\mathbf{A}$ are the singular values of $\mathbf{A}$.
+is an SVD, where $|\mathbf{D}|$ is the elementwise absolute value and $\mathbf{T}$ is diagonal with $T_{ii}=\pm 1$ for all $i$. In particular, the absolute values of the eigenvalues of $\mathbf{A}$ are the singular values of $\mathbf{A}$.
 ````
 
 ::::{prf:proof}
@@ -91,6 +91,8 @@ Let $T_{ii}=\operatorname{sign}(D_{ii})$ for all $i$. Then $\mathbf{T}^2=\mathbf
 $$
 \mathbf{A}=\mathbf{V} \mathbf{D} \mathbf{V}^*=\mathbf{V} \mathbf{T}^2 \mathbf{D} \mathbf{V}^*=(\mathbf{V} \mathbf{T}) (\mathbf{T} \mathbf{D}) \mathbf{V}^*.
 $$
+
+Since also $\mathbf{T}^* = \mathbf{T}$, we know that $\mathbf{T}$ is unitary, so $\mathbf{V}\mathbf{T}$ is unitary.
 ::::
 
 ## Rayleigh quotient
@@ -244,7 +246,7 @@ $$
 Hence, item 2 is true. Conversely, suppose item 2 is known. Then we can write the EVD as $\mathbf{A}=\mathbf{V}\mathbf{S}^2\mathbf{V}^*$, where the $S_{ii}$ are positive square roots of the eigenvalues. Hence
 
 $$
-\mathbf{x}^*\mathbf{A}\mathbf{x} = \mathbf{x}^*\mathbf{V}\mathbf{S}^2\mathbf{V}^*\mathbf{x} = \|\mathbf{S}\mathbf{V}^*\mathbf{x}\|^2 > 0,
+\mathbf{x}^*\mathbf{A}\mathbf{x} = \mathbf{x}^*\mathbf{V}\mathbf{S}^2\mathbf{V}^*\mathbf{x} = \twonorm{\mathbf{S}\mathbf{V}^*\mathbf{x}}^2 > 0,
 $$
 
 as both $\mathbf{S}$ and $\mathbf{V}$ are invertible. Thus, item 1 is true.

@@ -195,7 +195,7 @@ These two calculations are enough to derive one of the most important algorithms
 Our goal is to factor a given $n\times n$ matrix $\mathbf{A}$ as the triangular product $\mathbf{A}=\mathbf{L}\mathbf{U}$. It turns out that we have $n^2+n$ total nonzero unknowns in the two triangular matrices, so we choose $n$ of them arbitrarily as follows.
 
 ```{prf:definition} Unit triangular matrix
-:label: definition-unittraiangular
+:label: definition-unittriangular
 A {term}`unit triangular matrix` $\mathbf{T}$ of size $n\times n$ is triangular and satisfies $T_{11}=\cdots = T_{nn}=1$. 
 ```
 

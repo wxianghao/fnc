@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-nonlineqn-quasinewton)=
@@ -60,7 +60,7 @@ In the system case, replacing the Jacobian evaluation is more complicated: deriv
 ```{index} machine epsilon
 ```
 
-For reasons explained in Chapter 5, $\delta$ is usually chosen close to $\sqrt{\epsilon}$, where $\epsilon$ represents the expected noise or uncertainty level in evaluation of $\mathbf{f}$. If the only source of noise is floating-point roundoff, then $\delta \approx \sqrt{\epsilon_\text{mach}}$.
+For reasons explained in Chapter 5, $\delta$ is usually chosen close to $\sqrt{\epsilon}$, where $\epsilon$ represents the expected noise or uncertainty level in evaluation of $\mathbf{f}$. If the only source of noise is floating-point roundoff, then $\delta \approx \sqrt{\macheps}$.
 
 The finite-difference formula {eq}`jacobianfd` is implemented by {numref}`Function {number} <function-fdjac>`.
 
@@ -159,7 +159,7 @@ Some justification of {eq}`levenberg` comes from considering extreme cases for $
   \mathbf{A}_k^T \mathbf{A}_k \mathbf{s}_k = -\mathbf{A}_k^T \mathbf{f}_k,
 ```
 
-which is equivalent to the definition of the usual linear model (i.e., Newton or quasi-Newton) step {eq}`quasinewton-step`. On the other hand, as $\lambda\to\infty$, Equation {eq}`levenberg` approaches
+which is equivalent in the square case to the definition of the usual linear model (i.e., Newton or quasi-Newton) step {eq}`quasinewton-step`. On the other hand, as $\lambda\to\infty$, Equation {eq}`levenberg` approaches
 
 ```{math}
 :label: steepest
@@ -242,7 +242,7 @@ log10( abs(x(1, 1:end-1) - r(1)) )'
 
 **(b)** ⌨ Use {numref}`Function {number} <function-levenberg>` to find an intersection point starting from $u=1$, $v=0.1$.
 
-**(d)** ⌨ Use {numref}`Function {number} <function-levenberg>` to find an intersection point starting from $u=0.1$, $v=1$.
+**(c)** ⌨ Use {numref}`Function {number} <function-levenberg>` to find an intersection point starting from $u=0.1$, $v=1$.
 ``````
 
 ``````{exercise}

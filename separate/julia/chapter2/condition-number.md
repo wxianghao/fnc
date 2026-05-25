@@ -121,7 +121,7 @@ Note that for any induced matrix norm,
   1 = \| \mathbf{I} \| = \| \mathbf{A} \mathbf{A}^{-1} \| \le \| \mathbf{A} \|\, \| \mathbf{A}^{-1} \| = \kappa(\mathbf{A}).
 ```
 
-A condition number of 1 is the best we can hope for—in that case, the relative perturbation of the solution has the same size as that of the data.  A condition number of size $10^t$ indicates that in floating-point arithmetic, roughly $t$ digits are lost (i.e., become incorrect) in computing the solution $\mathbf{x}$. And if $\kappa(\mathbf{A}) > \epsilon_\text{mach}^{-1}$, then for computational purposes the matrix is effectively singular.
+A condition number of 1 is the best we can hope for—in that case, the relative perturbation of the solution has the same size as that of the data.  A condition number of size $10^t$ indicates that in floating-point arithmetic, roughly $t$ digits are lost (i.e., become incorrect) in computing the solution $\mathbf{x}$. And if $\kappa(\mathbf{A}) > \macheps^{-1}$, then for computational purposes the matrix is effectively singular.
 
 ::::{prf:example} Matrix condition number
 :label: demo-condition-bound
@@ -278,7 +278,7 @@ When solving a linear system, all that can be expected is that the backward erro
 
 ```{math}
 :numbered: false
-\frac{\| \mathbf{x}-\tilde{\mathbf{x} \|}}{\| \mathbf{x} \|} \le \kappa(\mathbf{A})
+\frac{\| \mathbf{x}-\tilde{\mathbf{x}} \|}{\| \mathbf{x} \|} \le \kappa(\mathbf{A})
 \frac{\| \mathbf{h} \|}{\| \mathbf{b} \|}.
 ```
 

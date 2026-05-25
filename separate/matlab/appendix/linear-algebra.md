@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-appendix-linear-algebra)=
@@ -24,9 +24,9 @@ addpath FNC-matlab
 
 ## Terminology
 
-An ordinary number in $\mathbb{R}$ or $\mathbb{C}$ may be called a **scalar**. An $m\times n$ matrix $\mathbf{A}$ is a rectangular $m$-by-$n$ array of numbers called **elements** or *entries*.  The numbers $m$ and $n$ are called the **row dimension** and the **column dimension**, respectively; collectively they describe the **size** or *shape* of $\mathbf{A}$. We say $\mathbf{A}$ belongs to the set $\mathbb{R}^{m\times n}$ if its entries are real, or $\mathbb{C}^{m\times n}$ if they are complex-valued.  A **square** matrix has equal row and column dimensions. A **row vector** has dimension $1\times n$, while a **column vector** has dimension $m \times 1$. 
+An ordinary number in $\real$ or $\mathbb{C}$ may be called a **scalar**. An $m\times n$ matrix $\mathbf{A}$ is a rectangular $m$-by-$n$ array of numbers called **elements** or *entries*.  The numbers $m$ and $n$ are called the **row dimension** and the **column dimension**, respectively; collectively they describe the **size** or *shape* of $\mathbf{A}$. We say $\mathbf{A}$ belongs to the set $\real^{m\times n}$ if its entries are real, or $\mathbb{C}^{m\times n}$ if they are complex-valued.  A **square** matrix has equal row and column dimensions. A **row vector** has dimension $1\times n$, while a **column vector** has dimension $m \times 1$. 
 
-In this text, *all vectors are column vectors*, and we use $\mathbb{R}^n$ or $\mathbb{C}^n$ to denote spaces of these vectors. When a row vector is needed, it is given an explicit transpose symbol (see below).
+In this text, *all vectors are column vectors*, and we use $\real^n$ or $\mathbb{C}^n$ to denote spaces of these vectors. When a row vector is needed, it is given an explicit transpose symbol (see below).
 
 We use capital letters in bold to refer to matrices, and lowercase bold letters for vectors. The bold symbol $\boldsymbol{0}$ may refer to a vector of all zeros or to a zero matrix, depending on context; we use $0$ as the scalar zero only.
 
@@ -77,7 +77,7 @@ The **transpose** of $\mathbf{A}\in\mathbb{C}^{m\times n}$ is the matrix $\mathb
 ```{index} ! adjoint of a matrix, ! hermitian matrix
 ```
 
-The **adjoint** or **hermitian** of a matrix $\mathbf{A}$ is given by $\mathbf{A}^*=\overline{\mathbf{A}^T}$, where the bar denotes taking a complex conjugate elementwise.[^conj] If $\mathbf{A}$ is real, then $\mathbf{A}^*=\mathbf{A}^T$. A square matrix is **symmetric** if $\mathbf{A}^T=\mathbf{A}$ and **hermitian** if $\mathbf{A}^*=\mathbf{A}$.
+The **adjoint** (or **hermitian adjoint**) of a matrix $\mathbf{A}$ is given by $\mathbf{A}^*=\overline{\mathbf{A}^T}$, where the bar denotes taking a complex conjugate elementwise.[^conj] If $\mathbf{A}$ is real, then $\mathbf{A}^*=\mathbf{A}^T$. A square matrix is **symmetric** if $\mathbf{A}^T=\mathbf{A}$ and **hermitian** if $\mathbf{A}^*=\mathbf{A}$.
 
 [^conj]: The conjugate of a complex number is found by  replacing all references to the imaginary unit $i$ by $-i$. We do not use complex numbers until the second half of the book.
 
@@ -183,7 +183,7 @@ We say that $\mathbf{A}\mathbf{v}$ is a **linear combination** of the columns of
 Multiplying a matrix on the right by a column vector produces a linear combination of the columns of the matrix.
 ::::
 
-There is a similar interpretation of multiplying $\mathbf{A}$ on the left by a row vector. Keeping to our convention that boldface letters represent column vectors, we write, for $\mathbf{v}\in\mathbb{R}^m$,
+There is a similar interpretation of multiplying $\mathbf{A}$ on the left by a row vector. Keeping to our convention that boldface letters represent column vectors, we write, for $\mathbf{v}\in\real^m$,
 
 ```{math}
 :label: mvrow
@@ -220,7 +220,7 @@ These two observations extend to more general matrix-matrix multiplications. One
     \mathbf{b}_1 & \mathbf{b}_2 & \cdots & \mathbf{b}_n
   \end{bmatrix}
   = \begin{bmatrix}
-    \mathbf{A}\mathbf{b}_1 & \mathbf{A}\mathbf{b}_2 & \cdots & A\mathbf{b}_n
+    \mathbf{A}\mathbf{b}_1 & \mathbf{A}\mathbf{b}_2 & \cdots & \mathbf{A} \mathbf{b}_n
   \end{bmatrix}.
 ```
 
@@ -348,10 +348,10 @@ Given a square, $n\times n$ matrix $\mathbf{A}$ and  $n$-vectors $\mathbf{x}$ an
 
 ```{math}
 \begin{split}
-  a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n &= b_1 \\
-  a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n &= b_2 \\
+  A_{11}x_1 + A_{12}x_2 + \cdots + A_{1n}x_n &= b_1 \\
+  A_{21}x_1 + A_{22}x_2 + \cdots + A_{2n}x_n &= b_2 \\
   \vdots  \\
-  a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n &= b_n.
+  A_{n1}x_1 + A_{n2}x_2 + \cdots + A_{nn}x_n &= b_n.
 \end{split}
 ```
 
@@ -362,10 +362,12 @@ The following facts are usually proved in any elementary text on linear algebra.
 The following statements are equivalent:
 
 1. $\mathbf{A}$ is nonsingular.
-2. $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$.
+2. The dimension of the column space of $\mathbf{A}$ is equal to the number of columns.
 3. $\mathbf{A}\mathbf{x}=\boldsymbol{0}$ implies that $\mathbf{x}=\boldsymbol{0}$.
 4. $\mathbf{A}\mathbf{x}=\mathbf{b}$ has a unique solution, $\mathbf{x}=\mathbf{A}^{-1}\mathbf{b}$, for any $n$-vector $\mathbf{b}$.
 ````
+
+Note that if $\mathbf{A}$ is nonsingular, then $(\mathbf{A}^{-1})^{-1} = \mathbf{A}$.
 
 ## Change of basis
 
@@ -410,14 +412,14 @@ where the $x_i$ are the components of $\mathbf{v}$ in the new basis. This is jus
 :label: obs-basis
 Multiplication of vector $\mathbf{v}$ on the left by $\mathbf{U}^{-1}$ changes the representation of $\mathbf{v}$ from the standard basis to the basis defined by the columns of $\mathbf{U}$.
 
-Conversely, multiplication on the left by $\mathbf{U}$ changes a representation from the $U$-basis to the standard basis.
+Conversely, multiplication on the left by $\mathbf{U}$ changes a representation from the $\mathbf{U}$-basis to the standard basis.
 :::
 
 ## Exercises
 
 ``````{exercise}
 :label: problem-linalg-markov
-✍ In racquetball, the winner of a rally serves the next rally. Generally, the server has an advantage. Suppose that when Ashley and Barbara are playing racquetball, Ashley wins 60\% of the rallies she serves and Barbara wins 70\% of the rallies she serves. If $\mathbf{x}\in\mathbb{R}^2$ is such that $x_1$ is the probability that Ashley serves first and $x_2=1-x_1$ is the probability that Barbara serves first, define a matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{x}$ is a vector of the probabilities that Ashley and Barbara each serve the second rally. What is the meaning of $\mathbf{A}^{10}\mathbf{x}$?
+✍ In racquetball, the winner of a rally serves the next rally. Generally, the server has an advantage. Suppose that when Ashley and Barbara are playing racquetball, Ashley wins 60\% of the rallies she serves and Barbara wins 70\% of the rallies she serves. If $\mathbf{x}\in\real^2$ is such that $x_1$ is the probability that Ashley serves first and $x_2=1-x_1$ is the probability that Barbara serves first, define a matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{x}$ is a vector of the probabilities that Ashley and Barbara each serve the second rally. What is the meaning of $\mathbf{A}^{10}\mathbf{x}$?
 ``````
 
 ``````{exercise}

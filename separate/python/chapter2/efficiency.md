@@ -69,7 +69,7 @@ Since $a_1/a_2$ is a constant, $f(n) = O(g(n))$; if $a_1=a_2$, then $f \sim g$.
 f(n) = \frac{1}{n} - \cos(1/\xi)\frac{1}{6 n^3},
 ```
 
-where $n<\xi<\infty$.  But
+where $0 < 1 / \xi < 1/n$, or, more simply, $\xi > n$.  But
   
 ```{math}
 \lim_{n\to \infty} \frac{f}{g} = \lim_{n\to \infty} 1-\cos(1/\xi)\frac{1}{6 n^2} = 1,
@@ -255,7 +255,7 @@ Take `forwardsub`, for instance. Line 11 computes
 s = L[i, :i] @ x[:i]
 ```
 
-This is the inner product between the first $i$ elements of the $i$th row of `L` and the first $i$ elements of `x`, requiring $i$ multiplications and $(i-1)$ additions. Line 212 adds two more flops, for a total of $2i+1$ in each pass through the loop. In this loop, $i$ ranges from $0$ to $n-1,$ so the total count is
+This is the inner product between the first $i$ elements of the $i$th row of `L` and the first $i$ elements of `x`, requiring $i$ multiplications and $(i-1)$ additions. Line 12 adds two more flops, for a total of $2i+1$ in each pass through the loop. In this loop, $i$ ranges from $0$ to $n-1,$ so the total count is
 
 ```{math}
 :numbered: false

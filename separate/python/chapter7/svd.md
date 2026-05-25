@@ -52,7 +52,7 @@ The {term}`singular value decomposition` of an $m\times n$ matrix $\mathbf{A}$ i
 \mathbf{A} = \mathbf{U} \mathbf{S} \mathbf{V}^*,
 ```
 
-where $\mathbf{U}\in\mathbb{C}^{m\times m}$ and $\mathbf{V}\in\mathbb{C}^{n\times n}$ are unitary and $\mathbf{S}\in\mathbb{R}^{m\times n}$ is real and diagonal with nonnegative elements.
+where $\mathbf{U}\in\mathbb{C}^{m\times m}$ and $\mathbf{V}\in\mathbb{C}^{n\times n}$ are unitary and $\mathbf{S}\in\real^{m\times n}$ is real and diagonal with nonnegative elements.
 
 The columns of $\mathbf{U}$ and $\mathbf{V}$ are called **left** and **right singular vectors**, respectively. The diagonal elements of $\mathbf{S}$, written $\sigma_1,\ldots,\sigma_r$, for $r=\min\{m,n\}$, are called the **singular values** of $\mathbf{A}$ and are ordered so that
 
@@ -115,13 +115,13 @@ The eigenvalues of $\mathbf{A}^*\mathbf{A}$ are real and nonnegative, and the $\
 ::::{prf:proof}
 :enumerated: false
 
-Let $\mathbf{A}=\mathbf{U}\mathbf{S}\mathbf{V}^*$ be $m\times n$, and compute the square hermitian matrix $\mathbf{B}=\mathbf{A}^*\mathbf{A}$:
+Let $\mathbf{A}=\mathbf{U}\mathbf{S}\mathbf{V}^*$ be $m\times n$. Because $\mathbf{S}$ is real, $\mathbf{S}^* = \mathbf{S}^T$. We express the square hermitian matrix $\mathbf{B}=\mathbf{A}^*\mathbf{A}$ as
 
 ```{math}
-\mathbf{B} = (\mathbf{V}\mathbf{S}^*\mathbf{U}^*) (\mathbf{U}\mathbf{S}\mathbf{V}^*) = \mathbf{V}\mathbf{S}^*\mathbf{S}\mathbf{V}^* = \mathbf{V}(\mathbf{S}^T\mathbf{S})\mathbf{V}^{-1}.
+\mathbf{B} = (\mathbf{V}\mathbf{S}^*\mathbf{U}^*) (\mathbf{U}\mathbf{S}\mathbf{V}^*) = \mathbf{V}\mathbf{S}^*\mathbf{S}\mathbf{V}^* = \mathbf{V}(\mathbf{S}^T\mathbf{S})\mathbf{V}^{-1},
 ```
 
-Note that $\mathbf{S}^T\mathbf{S}$ is a diagonal $n \times n$ matrix. There are two cases to consider. If $m \ge n$, then
+where we have used the fact that $\mathbf{V}$ is unitary. Note that $\mathbf{S}^T\mathbf{S}$ is a diagonal $n \times n$ matrix. There are two cases to consider. If $m \ge n$, then
 
 $$
 \mathbf{S}^T\mathbf{S} =
@@ -159,7 +159,7 @@ Another close connection between EVD and SVD comes via the $(m+n)\times (m+n)$ m
 \end{bmatrix}.
 ```
 
-If $\sigma$ is a singular value of $\mathbf{B}$, then $\sigma$ and $-\sigma$ are eigenvalues of $\mathbf{C}$, and the associated eigenvector immediately reveals a left and a right singular vector (see @problem-svd-svdtoevd). This connection is implicitly exploited by software to compute the SVD.
+If $\sigma$ is a singular value of $\mathbf{A}$, then $\sigma$ and $-\sigma$ are eigenvalues of $\mathbf{C}$, and the associated eigenvector immediately reveals a left and a right singular vector (see @problem-svd-svdtoevd). This connection is implicitly exploited by software to compute the SVD.
 
 ## Interpreting the SVD
 
@@ -452,7 +452,7 @@ $\begin{bmatrix}
 
 ``````{exercise}
 :label: problem-svd-pinv
-✍ Let $\mathbf{A}\in\mathbb{R}^{m\times n}$ with $m>n$ have the thin SVD $\mathbf{A}=\hat{\mathbf{U}}\hat{\mathbf{S}}\mathbf{V}^T$, and suppose all the singular values are nonzero. Show that the matrix $\mathbf{A}\mathbf{A}^{+}$ is equal to $\hat{\mathbf{U}}\hat{\mathbf{U}}^T$, where $\mathbf{A}^{+}$ is the {term}`pseudoinverse` of $\mathbf{A}$, as given in @pinv. (You must be careful with matrix sizes in this derivation.)
+✍ Let $\mathbf{A}\in\real^{m\times n}$ with $m>n$ have the thin SVD $\mathbf{A}=\hat{\mathbf{U}}\hat{\mathbf{S}}\mathbf{V}^T$, and suppose all the singular values are nonzero. Show that the matrix $\mathbf{A}\mathbf{A}^{+}$ is equal to $\hat{\mathbf{U}}\hat{\mathbf{U}}^T$, where $\mathbf{A}^{+}$ is the {term}`pseudoinverse` of $\mathbf{A}$, as given in @pinv. (You must be careful with matrix sizes in this derivation.)
 
 ``````
 
@@ -477,7 +477,7 @@ $\begin{bmatrix}
 
 ``````{exercise}
 :label: problem-svd-svdtoevd
-✍ Suppose $\mathbf{A}\in\mathbb{R}^{n \times n}$, and define $\mathbf{C}$ as in {eq}`svdaugment`. 
+✍ Suppose $\mathbf{A}\in\real^{n \times n}$, and define $\mathbf{C}$ as in {eq}`svdaugment`. 
 
 **(a)** Suppose that $\mathbf{v}=\begin{bmatrix} \mathbf{x} \\ \mathbf{y} \end{bmatrix}$, and write the block equation $\mathbf{C}\mathbf{v} = \lambda \mathbf{v}$ as two individual equations involving both $\mathbf{x}$ and $\mathbf{y}$.
 

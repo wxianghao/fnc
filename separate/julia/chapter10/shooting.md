@@ -207,7 +207,7 @@ The cause is readily explained. The solution to the ODE with $u(0)=-1$ and $u'(0
 If $x$ is a fixed value in $[0,1]$, we compute that the absolute condition number of {eq}`shootinstabshoot` with respect to $s_2$ is the magnitude of the partial derivative,
 
 $$
-  \left| \frac{\sinh\lambda x}{\lambda} \right|,
+  \left| \frac{\sinh (\lambda x)}{\lambda} \right|,
 $$
 
 which grows rapidly with $\lambda$ near $x=1$. With the IVP solution so sensitive to $s_2$, a numerical approach to find $s_2$ approximately is doomed.
@@ -272,7 +272,7 @@ $$
 By differentiating the IVP with respect to $s_1$, show that $z$ satisfies the IVP
 
 $$
-z'' = p(x)z' + q(x)z, \quad z(0)=1, \; z'(0)=0.
+z'' = p(x)z' + q(x)z, \quad z(a)=1, \; z'(a)=0.
 $$
 
 It follows that $z(x)$ is independent of $s_1$, and therefore $u(x)$ is a linear function of $s_1$ at each fixed $x$. Use the same type of argument to show that $u(x)$ is also a linear function of $s_2$, and explain why the residual function $\mathbf{v}$ in {eq}`shoot-resid` is a linear function of $\mathbf{s}$.

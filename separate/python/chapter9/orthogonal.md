@@ -190,7 +190,7 @@ Let $\mathbf{F} = \bigl[ \,\underline{\cos(\pi x)} \quad \underline{\sin(\pi x)}
 
 $$
 \begin{split}
-\mathbf{F} \begin{bmatrix} -2 \\ 1 \end{bmatrix} &= -2\cos(x) + \sin(x), \\
+\mathbf{F} \begin{bmatrix} -2 \\ 1 \end{bmatrix} &= -2\cos(\pi x) + \sin(\pi x), \\
 \mathbf{F}^T x & = \begin{bmatrix} \int_{-1}^1 x\cos(\pi x)\, dx \\  \int_{-1}^1 x\sin(\pi x)\, dx\end{bmatrix} = \begin{bmatrix} 0 \\ 2/\pi \end{bmatrix}, \\
 \mathbf{F}^T\mathbf{F} &= \begin{bmatrix} \int_{-1}^1 \cos^2(\pi x)\, dx & \int_{-1}^1 \cos(\pi x)\sin(\pi x)\, dx \\
 \int_{-1}^1 \cos(\pi x)\sin(\pi x)\, dx & \int_{-1}^1 \sin^2(\pi x)\, dx \end{bmatrix} = \mathbf{I}.

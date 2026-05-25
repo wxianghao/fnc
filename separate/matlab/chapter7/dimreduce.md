@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-matrixanaly-dimreduce)=
@@ -87,7 +87,7 @@ Suppose $\mathbf{A}$ has rank $r$ and let $\mathbf{A}=\mathbf{U}\mathbf{S}\mathb
 \mathbf{A} - \mathbf{A}_k = \mathbf{U}(\mathbf{S}-\hat{\mathbf{S}})\mathbf{V}^T,
 ```
 
-where $\hat{\mathbf{S}}$ has those same values of $\sigma_i$ replaced by zero. But that makes the above an SVD of $\mathbf{A} - \mathbf{A}_k$, with singular values $0,\ldots,0,\sigma_{k+1},\ldots,\sigma_r$, the largest of which is $\sigma_{k+1}$. That proves the first claim.
+where the diagonal of $\mathbf{S}-\hat{\mathbf{S}}$ becomes $0,\ldots,0,\sigma_{k+1},\ldots,\sigma_r$. That makes the above (after an unimportant permutation for reordering) an SVD of $\mathbf{A} - \mathbf{A}_k$, with the largest singular value equal to $\sigma_{k+1}$. This proves the first claim.
 ::::
 
 ## Compression
@@ -114,7 +114,7 @@ A = double(im2gray(A));
 size_A = size(A)
 ```
 
-Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\epsilon_\text{mach}$ times the norm of the matrix) at around $k=100$.
+Next we show that the singular values decrease until they reach zero (more precisely, until they are about $\macheps$ times the norm of the matrix) at around $k=100$.
 
 ```{code-cell}
 [U, S, V] = svd(A);

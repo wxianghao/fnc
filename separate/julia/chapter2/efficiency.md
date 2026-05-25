@@ -69,7 +69,7 @@ Since $a_1/a_2$ is a constant, $f(n) = O(g(n))$; if $a_1=a_2$, then $f \sim g$.
 f(n) = \frac{1}{n} - \cos(1/\xi)\frac{1}{6 n^3},
 ```
 
-where $n<\xi<\infty$.  But
+where $0 < 1 / \xi < 1/n$, or, more simply, $\xi > n$.  But
   
 ```{math}
 \lim_{n\to \infty} \frac{f}{g} = \lim_{n\to \infty} 1-\cos(1/\xi)\frac{1}{6 n^2} = 1,
@@ -285,7 +285,7 @@ Take `forwardsub`, for instance. It has a single flop in line 10.  Line 12 compu
 sum(L[i, j] * x[j] for j in 1:i-1)
 ```
 
-This line requires $i-1$ multiplications and $(i-2)$ additions, for a total of $2i-3$ flops. Line 13 adds two more flops, to make that $2n-1$. These lines are performed within a loop as $i$ ranges from 2 to $n$, so the total count is
+This line requires $i-1$ multiplications and $(i-2)$ additions, for a total of $2i-3$ flops. Line 13 adds two more flops, to make that $2i-1$. These lines are performed within a loop as $i$ ranges from 2 to $n$, so the total count is
 
 ```{math}
 :numbered: false

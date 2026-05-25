@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-intro-conditioning)=
@@ -59,7 +59,7 @@ In double precision, all the values are represented to about 16 significant deci
 
 ## Condition numbers
 
-Now we consider problems more generally. As above, we represent a problem as a function $f$ that maps a real data value $x$ to a real result $f(x)$. We abbreviate this situation by the notation $f:\real \mapsto \real$, where $\real$ represents the real number set.
+Now we consider problems more generally. As above, we represent a problem as a function $f$ that maps a real data value $x$ to a real result $f(x)$. We abbreviate this situation by the notation $f:\real \to \real$, where $\real$ represents the real number set.
 
 When the problem $f$ is approximated in floating point on a computer, the data $x$ is represented as a floating-point value $\tilde{x}=\fl(x)$. Ignoring all other sources of error, we define the quantitative measure
 

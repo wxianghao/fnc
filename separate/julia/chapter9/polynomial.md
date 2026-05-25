@@ -164,7 +164,7 @@ We construct the Lagrange interpolating polynomials of degrees $n=1$ and 2 to in
 
 This is the unique linear function passing through $(0,0)$ and $(\pi/3,\sqrt{3})$.
 
-For $n=2$, we use $t_0= 0$, $_1 = \pi/6$ and $t_2 = \pi/3$. We now have
+For $n=2$, we use $t_0= 0$, $t_1 = \pi/6$ and $t_2 = \pi/3$. We now have
 
 ```{math}
 :numbered: false
@@ -261,7 +261,7 @@ The error is zero at the nodes, by the definition of interpolation. The error bo
 
 ::::
 
-For equispaced nodes, @theorem-polyinterp has an immediate consequence.
+For equispaced nodes, @theorem-polynomial-interperror has an immediate consequence.
 
 ::::{prf:corollary}
 :label: theorem-polyequi
@@ -269,7 +269,7 @@ Suppose $t_i=i h$ for constant step size $h$ and all $i=0,1,\ldots,n$, and that 
   
 ```{math}
 :label: equisperror
-|f(x) - p(x)| \le C f^{(n+1)}(\xi) h^{n+1}.
+|f(x) - p(x)| \le C \bigl|f^{(n+1)}(\xi)\bigr| h^{n+1}.
 ```
 
 In particular, $|f(x)-p(x)|=O(h^{n+1})$ as $h\to 0$.

@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-linsys-norms)=
@@ -242,12 +242,12 @@ Two of the vector norms we have encountered induce matrix norms that are easy to
 
 ```{math}
 :label: mxinfnorm
-\| \mathbf{A} \|_\infty = \max_{1\le \,i \,\le n} \sum_{j=1}^n |A_{ij}|,
+\| \mathbf{A} \|_\infty = \max_{1\le \,i \,\le m} \sum_{j=1}^n |A_{ij}|,
 ```
 
 ```{math}
 :label: mxonenorm
-\| \mathbf{A} \|_1 = \max_{1\le \,j\, \le n} \sum_{i=1}^n |A_{ij}|.
+\| \mathbf{A} \|_1 = \max_{1\le \,j\, \le n} \sum_{i=1}^m |A_{ij}|.
 ```
 
 ::::
@@ -314,7 +314,7 @@ infnorm = norm(A, Inf)
 % Sum across columns (2nd matrix dimension):
 max( sum(abs(A), 2) )  
 ```
-Next we illustrate a geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\mathbb{R}^2$.
+Next we illustrate a geometric interpretation of the 2-norm. First, we will sample a lot of vectors on the unit circle in $\real^2$.
 ```{tip}
 :class: dropdown
 You can use functions as values, e.g., as elements of a vector. 
@@ -334,7 +334,7 @@ xlabel('x_1')
 ylabel(('x_2'));
 ```
 
-The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\mathbb{R}^2$ to $\mathbb{R}^2$. We can apply `A` to every column of `x` by using a single matrix multiplication.
+The linear function $\mathbf{f}(\mathbf{x}) = \mathbf{A}\mathbf{x}$ defines a mapping from $\real^2$ to $\real^2$. We can apply `A` to every column of `x` by using a single matrix multiplication.
 
 ```{code-cell}
 Ax = A * x;

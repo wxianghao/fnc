@@ -81,6 +81,7 @@ u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
 Now we perform a convergence study of the AB4 code.
 
 ```{code-cell}
+using LinearAlgebra, PrettyTables
 n = @. [round(Int, 4 * 10^k) for k in 0:0.5:3]
 err = []
 for n in n
@@ -94,7 +95,7 @@ pretty_table((n=n, err=err);
 The method should converge as $O(h^4)$, so a log-log scale is appropriate for the errors.
 
 ```{code-cell}
-using Plots
+using Plots, LaTeXStrings
 plot(n, err, m=3, 
     label="AB4",  legend=:bottomleft,
     xaxis=(:log10, L"n"),  yaxis=(:log10, "inf-norm error"),
@@ -114,7 +115,7 @@ The implementation of an implicit multistep method is more difficult. Consider t
 
 ```{math}
 :label: AM2solve
-  \mathbf{z} - \tfrac{1}{2} h f(t_{i+1},\mathbf{z})  = \mathbf{u}_i + \tfrac{1}{2} h \mathbf{f}(t_i,\mathbf{u}_i)
+  \mathbf{z} - \tfrac{1}{2} h \mathbf{f}(t_{i+1},\mathbf{z})  = \mathbf{u}_i + \tfrac{1}{2} h \mathbf{f}(t_i,\mathbf{u}_i)
 ```
 
 for $\mathbf{z}$. This equation can be written as $\mathbf{g}(\mathbf{z})=\boldsymbol{0}$, so the rootfinding methods of Chapter 4 can be used. The new value $\mathbf{u}_{i+1}$ is equal to the root of this equation.  

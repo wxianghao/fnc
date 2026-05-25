@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-linsys-structure)=
@@ -216,7 +216,7 @@ Just as pivoting is necessary to stabilize LU factorization, the LDL$^T$ factori
 
 ## Symmetric positive definite matrices
 
-Suppose that $\mathbf{A}$ is $n\times n$ and $\mathbf{x}\in\mathbb{R}^n$. Observe that $\mathbf{x}^T\mathbf{A}\mathbf{x}$ is the product of $1\times n$, $n\times n$, and $n\times 1$ matrices, so it is a scalar, sometimes referred to as a **quadratic form**. It can be expressed as
+Suppose that $\mathbf{A}$ is $n\times n$ and $\mathbf{x}\in\real^n$. Observe that $\mathbf{x}^T\mathbf{A}\mathbf{x}$ is the product of $1\times n$, $n\times n$, and $n\times 1$ matrices, so it is a scalar, sometimes referred to as a **quadratic form**. It can be expressed as
 
 ```{math}
 :label: quadratic-form
@@ -238,7 +238,7 @@ An {term}`SPD matrix`, or *symmetric positive definite matrix*, is a real $n\tim
   \mathbf{x}^T \mathbf{A} \mathbf{x} > 0
 ```
 
-for all nonzero $\mathbf{x}\in\mathbb{R}^n$.
+for all nonzero $\mathbf{x}\in\real^n$.
 
 ::::
 

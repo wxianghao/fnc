@@ -206,7 +206,7 @@ In a numerical context we have to be concerned about the conditioning of the IVP
 
 ````{prf:theorem} Dependence on initial value
 :label: theorem-depIC
-If the derivative $\frac{\partial f}{\partial u}$ exists and $\left|\frac{\partial f}{\partial u}\right|$ is bounded by a constant $L$ for all $a\le t \le b$ and all $u$, then the solution $u(t;u_0+\delta)$ of $u'=f(t,u)$ with initial condition $u(0)=u_0+\delta$ satisfies
+If the derivative $\frac{\partial f}{\partial u}$ exists and $\left|\frac{\partial f}{\partial u}\right|$ is bounded by a constant $L$ for all $a\le t \le b$ and all $u$, then the solution $u(t;u_0+\delta)$ of $u'=f(t,u)$ with initial condition $u(a)=u_0+\delta$ satisfies
   
 ```{math}
 :label: depIC

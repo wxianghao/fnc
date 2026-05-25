@@ -67,7 +67,7 @@ x_i=a + i h, \quad  i=0,\ldots,n, \qquad h=\frac{b-a}{n}.
 Note again that our node indexing scheme starts at zero. Our goal is to find a vector $\mathbf{g}$ such that $g_i \approx f'(x_i)$ for $i=0,\ldots,n$. Our first try is the forward difference formula {eq}`forwardFD11`,
 
 $$
-g_i = \frac{f_{i+1}-f_i}{h}, \qquad t=0,\ldots,n-1.
+g_i = \frac{f_{i+1}-f_i}{h}, \qquad i=0,\ldots,n-1.
 $$
 
 However, this leaves $g_n$ undefined, because the formula would refer to the unavailable value $f_{n+1}$. For $g_n$ we could resort to the backward difference

@@ -304,7 +304,7 @@ Can't do NaK with only 3 nodes!
 
 **(b)** $\cos(\pi^2 x^2), \: \mathbf{t} = [0,\tfrac{1}{2},\tfrac{3}{4},1]$
 
-**(c)** $\ln(x), \:  \mathbf{t} = [0,1,2,3]$
+**(c)** $\ln(x), \:  \mathbf{t} = [1,2,3,4]$
 
 **(d)** $\sin(x^2),\:  \mathbf{t} = [-1,0,1,2]$
 ``````

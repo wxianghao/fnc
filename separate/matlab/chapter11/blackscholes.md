@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-diffusion-blackscholes)=
@@ -319,7 +319,10 @@ Everything in @demo-blackscholes-solve seems to go smoothly. However, trouble lu
 Let's try to do everything the same as in @demo-blackscholes-solve, but extending the simulation time to $T=8$.
 
 ```{code-cell}
-T = 8;
+Smax = 8;  T = 8;
+K = 3;  sigma = 0.06;  r = 0.08;
+m = 200;  h = Smax / m;
+x = h * (0:m)';
 n = 1000;  tau = T / n;
 t = tau*(0:n)';
 lambda = tau / h^2;  mu = tau / h;

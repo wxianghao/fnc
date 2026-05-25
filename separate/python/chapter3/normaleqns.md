@@ -35,7 +35,7 @@ rcParams['animation.html'] = "jshtml"  # or try "html5"
 ```{index} linear least-squares problem
 ```
 
-We now solve the general linear least-squares problem in {numref}`Definition {number} <definition-leastsq>`. That is, given $\mathbf{A}\in\mathbb{R}^{m \times n}$ and $\mathbf{b}\in\mathbb{R}^m$, with $m>n$, find the $\mathbf{x}\in\mathbb{R}^n$ that minimizes $\| \mathbf{b} - \mathbf{A}\mathbf{x} \|_2$.
+We now solve the general linear least-squares problem in {numref}`Definition {number} <definition-leastsq>`. That is, given $\mathbf{A}\in\real^{m \times n}$ and $\mathbf{b}\in\real^m$, with $m>n$, find the $\mathbf{x}\in\real^n$ that minimizes $\| \mathbf{b} - \mathbf{A}\mathbf{x} \|_2$.
 
 There is a concise explicit solution. In the following proof we make use of the elementary algebraic fact that for two vectors $\mathbf{u}$ and $\mathbf{v}$,
 
@@ -57,7 +57,7 @@ If $\mathbf{x}$ satisfies $\mathbf{A}^T(\mathbf{A}\mathbf{x}-\mathbf{b})=\boldsy
 :enumerated: false
 
 
-Let $\mathbf{y}\in \mathbb{R}^n$ be any vector. Then
+Let $\mathbf{y}\in \real^n$ be any vector. Then
   $\mathbf{A}(\mathbf{x}+\mathbf{y})-\mathbf{b}=\mathbf{A}\mathbf{x}-\mathbf{b}+\mathbf{A}\mathbf{y}$, and
   
 ```{math}
@@ -75,11 +75,11 @@ Let $\mathbf{y}\in \mathbb{R}^n$ be any vector. Then
 
 ::::{prf:definition} Normal equations
 :label: definition-normaleqns
-Given $\mathbf{A}\in \real^{m\times n}$ and $\mathbf{b}\in \real^{m}$, the {term}`normal equations` for the linear least-squares problem $\operatorname{argmin}\| \mathbf{b}- \mathbf{A} \mathbf{x}\|$ are $\mathbf{A}^T(\mathbf{A}\mathbf{x}-\mathbf{b})=\boldsymbol{0}$, or equivalently,
+Given $\mathbf{A}\in \real^{m\times n}$ and $\mathbf{b}\in \real^{m}$, the {term}`normal equations` for the linear least-squares problem $\operatorname{argmin}\| \mathbf{b}- \mathbf{A} \mathbf{x}\|_2$ are $\mathbf{A}^T(\mathbf{A}\mathbf{x}-\mathbf{b})=\boldsymbol{0}$, or equivalently,
 
 ```{math}
 :label: normaleqns
-\mathbf{A}^T\mathbf{A}\mathbf{x}=\mathbf{A}^T\mathbf{b}.
+\mathbf{A}^T\mathbf{A}\mathbf{x} = \mathbf{A}^T\mathbf{b}.
 ```
 
 ::::
@@ -100,7 +100,7 @@ If we associate the left-hand side of the normal equations as $(\mathbf{A}^T\mat
 
 ::::{prf:definition} Pseudoinverse
 :label: definition-pseudoinverse
-If $\mathbf{A}\in\real^{m\times n}$ with $m>n$, its {term}`pseudoinverse` is the $n\times m$ matrix
+If $\mathbf{A}\in\real^{m\times n}$ with $m>n$ has rank equal to $n$, its {term}`pseudoinverse` is the $n\times m$ matrix
 
 ```{math}
 :label: pinv
@@ -202,7 +202,7 @@ If $\mathbf{A}$ is $m\times n$ with $m > n$, then its condition number is define
 If the rank of $ \mathbf{A}$ is less than $n$ (i.e., if it has linearly dependent columns), then $\kappa(\mathbf{A})=\infty$.
 ````
 
-Provided that the minimum residual norm $\|\mathbf{b}-\mathbf{A}\mathbf{x}\|$ is relatively small, the conditioning of the linear least-squares problem is close to $\kappa(\mathbf{A})$.
+Provided that the minimum residual norm $\|\mathbf{b}-\mathbf{A}\mathbf{x}\|_2$ is relatively small, the conditioning of the linear least-squares problem is close to $\kappa(\mathbf{A})$.
 
 As an algorithm, the normal equations begin by computing the data for the $n\times n$ system $(\mathbf{A}^T\mathbf{A})\mathbf{x} = \mathbf{A}^T \mathbf{b}$. When these equations are solved, perturbations to the data can be amplified by a factor $\kappa(\mathbf{A}^T\mathbf{A})$.
 
@@ -316,7 +316,7 @@ print(f"accurate digits: {-log10(relative_err):.2f}")
 
 ``````{exercise}
 :label: problem-normaleqns-flops
-✍ Show that the flop count for @function-lsnormal is asymptotically $\sim 2m n^2 + \tfrac{1}{3}n^3$. (In finding the asymptotic count, you can ignore terms like $m n$ whose total degree is less than 3.)
+✍ Show that the flop count for @function-lsnormal is asymptotically $\sim m n^2 + \tfrac{1}{3}n^3$. (Note that computing $\mathbf{A}^T \mathbf{A}$ can exploit symmetry to reduce the cost from a standard matrix multiplication. In finding the asymptotic count, you can ignore terms like $m n$ whose total degree is less than 3.)
 ``````
 
 ``````{exercise}

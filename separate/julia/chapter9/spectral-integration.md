@@ -106,7 +106,7 @@ Having specified the nodes in {eq}`globalquad`, all that remains is to find the 
 
 ```{math}
 :numbered: false
-p(x) = \sum_{k=0}^{n} f(x_k) \ell_k(x).
+p(x) = \sum_{k=0}^{n} f(t_k) \ell_k(x).
 ```
 
 From this,
@@ -114,8 +114,8 @@ From this,
 ```{math}
 :numbered: false
 \begin{align*}
-  I = \int_{-1}^1 f(x)\, dx \approx \int_{-1}^1 p(x) \, d x &= \int_{-1}^1 \sum_{k=0}^n f(x_k) \ell_k(x) \, d x\\
-    &= \sum_{k=0}^n f(x_k) \int_{-1}^1 \ell_k(x) \, d x = \sum_{k=0}^n w_k f(x_k),
+  I = \int_{-1}^1 f(x)\, dx \approx \int_{-1}^1 p(x) \, d x &= \int_{-1}^1 \sum_{k=0}^n f(t_k) \ell_k(x) \, d x\\
+    &= \sum_{k=0}^n f(t_k) \int_{-1}^1 \ell_k(x) \, d x = \sum_{k=0}^n w_k f(t_k),
 \end{align*}
 ```
 
@@ -430,7 +430,7 @@ Use {numref}`Function {number} <function-trapezoid>` to find the period of the m
 ✍ Prove the claim about linearity of the Gauss–Legendre integration formula alluded to in the derivation of @theorem-specint-gaussquad. Namely, show that condition {eq}`gqoptimality` is true if and only if
 
 $$
-\int_{-1}^1 x^j\,dx = \sum_{k=1}^n w_k x_k^j
+\int_{-1}^1 x^j\,dx = \sum_{k=1}^n w_k t_k^j
 $$
 
 for all $j=0,\ldots,2n-1$.

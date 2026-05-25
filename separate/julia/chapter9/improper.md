@@ -124,7 +124,7 @@ $$
 yielding a product that is roughly
 
 $$
-2 \exp\left( -\frac{1}{2} e^t  \right).
+2 \exp\left( t -\frac{1}{2} e^t  \right).
 $$
 
 The total integrand in {eq}`DEquadchain1` therefore has double exponential decay in $t$, essentially because of the squaring of $x$ in the denominator of $f$. The same result holds as $t\to-\infty$.
@@ -262,7 +262,7 @@ $$
 \int_0^{1} \frac{1}{10\sqrt{s}}\, ds = 0.2.
 $$
 
-In order to use {numref}`Function {number} <function-intadapt>`, we must truncate on the left to avoid evaluation at zero, where $f$ is infinite. Since the integral from $0$ to $\delta$ is $20\sqrt{\delta}$, we use $\delta=(\epsilon/20)^2$ to achieve error tolerance $\epsilon$.
+In order to use {numref}`Function {number} <function-intadapt>`, we must truncate on the left to avoid evaluation at zero, where $f$ is infinite. Since the integral from $0$ to $\delta$ is $\tfrac{1}{5} \sqrt{\delta}$, we use $\delta=(5 \epsilon)^2$ to achieve error tolerance $\epsilon$.
 
 
 ```{code-cell}
@@ -272,7 +272,7 @@ tol = [1 / 10^d for d in 5:0.5:14]
 err = zeros(length(tol), 2)
 len = zeros(Int, length(tol), 2)
 for (i, tol) in enumerate(tol)
-    I1, x1 = FNC.intadapt(f, (tol/20)^2, 1, tol)
+    I1, x1 = FNC.intadapt(f, (5tol)^2, 1, tol)
     I2, x2 = FNC.intsing(f, tol)
     @. err[i, :] = abs(0.2 - [I1, I2])
     @. len[i, :] = length([x1, x2])

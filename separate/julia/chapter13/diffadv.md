@@ -249,7 +249,7 @@ $$
 
 is $(m-1)\times (m+1)$, and $\mathbf{E}_y$ is analogous but of size $(n-1)\times (n+1)$. The left multiplication in @tensorprod-chop deletes the first and last row of $\mathbf{U}$, and the right multiplication deletes its first and last column.
 
-The extension operator is a bit more awkward to write out. It stars with appending rows and columns of zeros around the border of a matrix $\mathbf{W}$ of interior values:
+The extension operator is a bit more awkward to write out. It starts with appending rows and columns of zeros around the border of a matrix $\mathbf{W}$ of interior values:
 
 ```{math}
 :label: tensorprod-extend

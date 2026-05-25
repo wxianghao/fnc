@@ -146,7 +146,7 @@ If $\mathbf{A}$ is diagonalizable and has a dominant eigenvalue $\lambda_1$, the
 ```
 
 :::{attention}
-For algorithmic purposes, it is important to interpret $\mathbf{A}^k\mathbf{x}$ as $\mathbf{A}\bigl( \cdots\bigl( \mathbf{A} (\mathbf{A}\mathbf{x})\bigl) \cdots\bigl)$, i.e., as repeated applications of $\mathbf{A}$ to a vector. Doing so allows us to fully exploit sparsity of $\mathbf{A}$, something which is not preserved by taking a matrix power $\mathbf{A}^k$ explicitly before the multiplication with $\mathbf{x}$ (see @demo-structure-fill).
+For algorithmic purposes, it is important to interpret $\mathbf{A}^k\mathbf{x}$ as $\mathbf{A}\bigl( \cdots \mathbf{A} (\mathbf{A}\mathbf{x}) \cdots\bigr)$, i.e., as repeated applications of $\mathbf{A}$ to a vector. Doing so allows us to fully exploit sparsity of $\mathbf{A}$, something which is not preserved by taking a matrix power $\mathbf{A}^k$ explicitly before the multiplication with $\mathbf{x}$ (see @demo-structure-fill).
 :::
 
 ## Algorithm
@@ -162,7 +162,7 @@ This issue is resolved by alternating matrix–vector multiplications with renor
 :label:  definition-poweriteration
 Given matrix $\mathbf{A}$:
 
-1. Choose $\mathbf{x}_1$ such that $\twonorm{\mathbf{y}_k}=1$.
+1. Choose $\mathbf{x}_1$ such that $\twonorm{\mathbf{x}_k}=1$.
 2. For $k=1,2,\ldots$,
 
     a. Set $\mathbf{y}_k = \mathbf{A} \mathbf{x}_k$.

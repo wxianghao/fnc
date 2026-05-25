@@ -195,8 +195,8 @@ Recall that linear convergence is identifiable by trending toward a straight lin
 ```{math}
 :label: quadratictest
 \begin{split}
-  \log |\epsilon_{k+1}| & \approx 2 \log |\epsilon_{k}| + L,\\
-    \frac{\log |\epsilon_{k+1}|}{\log |\epsilon_{k}|} &\approx 2 + \frac{L}{\log |\epsilon_{k}|} \to 2. 
+  \log |\epsilon_{k+1}| & \approx 2 \log |\epsilon_{k}| + \log K,\\
+    \frac{\log |\epsilon_{k+1}|}{\log |\epsilon_{k}|} &\approx 2 + \frac{\log K}{\log |\epsilon_{k}|} \to 2. 
 \end{split}
 ```
 

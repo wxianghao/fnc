@@ -16,8 +16,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-localapprox-finitediffs)=
@@ -355,7 +355,7 @@ fdweights(0:3, 1)
 
 ``````{exercise}
 :label: problem-finitediffs-table
-⌨ In the manner of @demo-finitediffs-fd-weights`, use {numref}`Function {number} <function-fdweights on centered node vectors of length 3, 5, 7, and 9 to produce a table analogous to {numref}`table-FDcenter` for the second derivative $f''(0)$. (You do not need to show the orders of accuracy, just the weights.)
+⌨ In the manner of @demo-finitediffs-fd-weights, use {numref}`Function {number} <function-fdweights>` on centered node vectors of length 3, 5, 7, and 9 to produce a table analogous to {numref}`table-FDcenter` for the second derivative $f''(0)$. (You do not need to show the orders of accuracy, just the weights.)
 ``````
 
 ``````{exercise}

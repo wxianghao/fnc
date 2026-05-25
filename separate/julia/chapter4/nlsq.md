@@ -83,7 +83,7 @@ Surprisingly, {numref}`Function {number} <function-newtonsys>` and {numref}`Func
 
 In the multidimensional Newton method for a nonlinear system, we expect quadratic convergence to a solution in the typical case. For the Gauss–Newton method, the picture is more complicated.
 
-As always in least-squares problems, the residual $\mathbf{f}(\mathbf{x})$ will not necessarily be zero when $\|\mathbf{f}\|$ is minimized. Suppose that the minimum value of $\|\mathbf{f}\|$ is $R>0$. In general, we might observe quadratic-like convergence until the iterate $\|\mathbf{x}_k\|$ is within distance $R$ of a true minimizer, and linear convergence thereafter. When $R$ is not sufficiently small, the convergence can be quite slow.
+As always in least-squares problems, the residual $\mathbf{f}(\mathbf{x})$ will not necessarily be zero when $\|\mathbf{f}\|$ is minimized. Suppose that the minimum value of $\|\mathbf{f}\|$ is $R>0$. In general, we might observe quadratic-like convergence until the iterate $\mathbf{x}_k$ is within distance $R$ of a true minimizer, and linear convergence thereafter. When $R$ is not sufficiently small, the convergence can be quite slow.
 
 ::::{prf:example} Convergence of nonlinear least squares
 :label: demo-nlsq-converge
@@ -135,26 +135,26 @@ Suppose that $(t_i,y_i)$ for $i=1,\ldots,m$ are given points. We wish to model t
 
 ```{math}
 :label: nlsq-misfit
-\mathbf{f}(\mathbf{x}) = \left[\, g(t_i,\mathbf{x})-y_i  \, \right]_{\,i=1,\ldots,m}.
+\mathbf{f}(\mathbf{x}) = \Bigl[\, g(t_i,\mathbf{x})-y_i  \, \Bigr]_{\,i=1,\ldots,m}.
 ```
 
-We call $\mathbf{f}$ a **misfit** function. By minimizing $\bigl\| \mathbf{f}(\mathbf{c}) \bigr\|^2$, we get the best possible fit to the data. If an explicit Jacobian matrix is desired for the minimization, we can compute
+We call $\mathbf{f}$ a **misfit** function. By minimizing $\bigl\| \mathbf{f}(\mathbf{x}) \bigr\|^2$, we get the best possible fit to the data. If an explicit Jacobian matrix is desired for the minimization, we can compute
 
 ```{math}
-\mathbf{f}{\,}'(\mathbf{x}) = \left[ \frac{\partial}{\partial x_j} g(t_i,\mathbf{x}) \right]_{\,i=1,\ldots,m;\,j=1,\ldots,n.}
+\mathbf{f}{\,}'(\mathbf{x}) = \left[ \frac{\partial}{\partial x_j} g(t_i,\mathbf{x}) \right]_{\,i=1,\ldots,m;\;j=1,\ldots,n.}
 ```
 
-The form of $g$ is up to the modeler. There may be compelling theoretical choices, or you may just be looking for enough algebraic power to express the data well. Naturally, in the special case where the dependence on $\mathbf{c}$ is linear, i.e.,
+The form of $g$ is up to the modeler. There may be compelling theoretical choices, or you may just be looking for enough algebraic power to express the data well. Naturally, in the special case where the dependence on $\mathbf{x}$ is linear, i.e.,
 
 ```{math}
-  g(t,\mathbf{c}) = c_1 g_1(t) + c_2 g_2(t) + \cdots + c_m g_m(t),
+  g(t,\mathbf{x}) = x_1 g_1(t) + x_2 g_2(t) + \cdots + x_n g_n(t),
 ```
 
-then the misfit function is also linear in $\mathbf{c}$ and the fitting problem reduces to linear least squares.
+then the misfit function is also linear in $\mathbf{x}$ and the fitting problem reduces to linear least squares.
 
 ::::{prf:example} Nonlinear data fitting
 :label: demo-nlsq-MM
-Inhibited enzyme reactions often follow what are known as *Michaelis–Menten_ kinetics, in which a reaction rate $w$ follows a law of the form
+Inhibited enzyme reactions often follow what are known as *Michaelis–Menten* kinetics, in which a reaction rate $w$ follows a law of the form
 
 $$w(s) = \frac{V s}{K_m + s},$$
 

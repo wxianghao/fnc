@@ -15,8 +15,8 @@ set(0, 'defaultlinelinewidth', 1.5)
 set(0, 'defaultFunctionLinelinewidth', 1.5)
 set(0, 'defaultscattermarkerfacecolor', 'flat')
 gcf;
-set(gcf, 'Position', [0 0 600 350])
-addpath FNC-matlab
+set(gcf, 'Position', [0 0 600 350], 'Theme', 'light')
+addpath ../FNC_matlab
 ```
 
 (section-ivp-zerostability)=
@@ -34,7 +34,7 @@ It is straightforward to check that the two-step method LIAF, defined by
 
 ```{math}
 :label: LIAF
-  \mathbf{u}_{i+1} = -4u_i + 5u_{i-1} + h(4f_i + 2f_{i-1}),
+  u_{i+1} = -4u_i + 5u_{i-1} + h(4f_i + 2f_{i-1}),
 ```
 
 is third-order accurate. Let's apply it to the ridiculously simple IVP $u'=u$, $u(0)=1$, whose solution is $e^t$.
@@ -108,7 +108,7 @@ Hence, {eq}`LIAFshiftzero` becomes
   z^2 + 4z - 5 = 0.
 ```
 
-Therefore, as $h\to 0$, the two roots of $z^2+4z+5$ will each correspond to an approximate solution in the form {eq}`zsansatz` of the LIAF method. These roots are $z=1$ and $z=-5$, and the growth curve at the end of @demo-zs-LIAF is approximately $|(-5)^i|$.
+Therefore, as $h\to 0$, the two roots of $z^2+4z-5$ will each correspond to an approximate solution in the form {eq}`zsansatz` of the LIAF method. These roots are $z=1$ and $z=-5$, and the growth curve at the end of @demo-zs-LIAF is approximately $|(-5)^i|$.
 
 ## Zero-stability
 
@@ -137,7 +137,7 @@ A linear multistep method is zero-stable if and only if every root $r$ of the ge
 ````{prf:proof}
 :enumerated: false
 
-(Partial proof, when all roots of $\rho$ are simple.) As explained above, the values produced by the numerical method approach solutions of the difference equation $\rho(\mathcal{Z})u_{i-k+1}=0$. We consider only the case where the roots $r_1,\ldots,r_k$ of $\rho(z)$. Then $u_i=(r_j)^i$ is a solution of $\rho(\mathcal{Z})u_i=0$ for each $j=1,\ldots,k$. By linearity,
+(Partial proof, omitting repeated roots.) As explained above, the values produced by the numerical method approach solutions of the difference equation $\rho(\mathcal{Z})u_{i-k+1}=0$. We consider only the case where the roots $r_1,\ldots,r_k$ of $\rho(z)$ are simple. Then $u_i=(r_j)^i$ is a solution of $\rho(\mathcal{Z})u_i=0$ for each $j=1,\ldots,k$. By linearity,
 
 ```{math}
   u_i = c_1 (r_1)^i + c_2 (r_2)^i + \cdots + c_k (r_k)^i
