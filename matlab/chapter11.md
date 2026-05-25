@@ -132,7 +132,10 @@ The results are easy to interpret, recalling that the time variable really means
 Let's try to do everything the same as in @demo-blackscholes-solve, but extending the simulation time to $T=8$.
 
 ```{code-cell}
-T = 8;
+Smax = 8;  T = 8;
+K = 3;  sigma = 0.06;  r = 0.08;
+m = 200;  h = Smax / m;
+x = h * (0:m)';
 n = 1000;  tau = T / n;
 t = tau*(0:n)';
 lambda = tau / h^2;  mu = tau / h;
@@ -483,11 +486,7 @@ num_steps_ode15s = length(sol.x) - 1
 But if we apply {numref}`Function {number} <function-rk23>` to the problem, the step size will be made small enough to cope with the large negative eigenvalue. 
 
 ```{code-cell}
-ivp.ODEFcn = @(t, u, p) f(t, u);
-ivp.InitialTime = 0;
-ivp.InitialValue = [1; 2; 3];
-ivp.Parameters = [];
-tic, [t, u] = rk23(ivp, 0, 26, 1e-5);
+tic, [t, u] = rk23(f, [0, 26], [1; 2; 3], 1e-5);
 time_rk23 = toc
 num_steps_rk23 = length(t) - 1
 ```
@@ -498,7 +497,7 @@ Starting from the eigenvalues of the Jacobian matrix, we can find an effective $
 :tags: hide-input
 zeta = zeros(length(t) - 1, 3);
 for j = 1:length(t)-1
-    lambda = eig(J(u(:, j)));
+    lambda = eig(J(u(j, :)));
     zeta(j, :) = (t(j+1) - t(j)) * lambda;
 end
 plot(zeta, 'o')

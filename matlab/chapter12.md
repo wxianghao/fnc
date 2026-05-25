@@ -220,7 +220,7 @@ In the space-time plot above, you can see the initial hump traveling rightward a
 If we cut $h$ by a factor of 2 (i.e., double $m$), then the CFL condition suggests that the time step should be cut by a factor of 2 also.
 
 ```{code-cell}
-num_steps_400 = length(sol.Time) - 1
+num_steps_400 = length(sol.x) - 1
 
 [x, Dx] = diffper(800, [0, 1]);
 odefun = @(t, u) -c * (Dx*u);
