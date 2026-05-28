@@ -131,14 +131,14 @@ Backslash solves overdetermined linear systems in a least-squares sense.
 ```
 
 ```{code-cell}
-t = (year - 1955) / 10;    % better matrix conditioning later
+t = (year - 1950) / 10;    % better matrix conditioning later
 V = [ t.^0 t ];            % Vandermonde-ish matrix
 size(V)
 ```
 
 ```{code-cell}
 c = V \ y;
-f = @(year) polyval(c(end:-1:1), (year - 1955) / 10);
+f = @(year) polyval(c(end:-1:1), (year - 1950) / 10);
 ```
 
 ```{code-cell}
@@ -164,7 +164,7 @@ The definition of `f` above is in terms of `c`. When `c` is changed, then `f` ha
 
 ```{code-cell}
 c = V \ y;
-f = @(year) polyval(c(end:-1:1), (year - 1955) / 10);
+f = @(year) polyval(c(end:-1:1), (year - 1950) / 10);
 fplot(f, [1955, 2000]) 
 legend('data', 'linear', 'cubic', 'Location', 'northwest');
 ```

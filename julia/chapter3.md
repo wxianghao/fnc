@@ -133,7 +133,7 @@ p = Polynomial(c)
 ```
 
 ```{code-cell}
-f = yr -> p((yr - 1955) / 10)
+f = yr -> p((yr - 1950) / 10)
 scatter(year, temp, label="data",
     xlabel="year", ylabel="anomaly (degrees C)", leg=:bottomright)
 plot!(f, 1955, 2000, label="linear fit")
@@ -170,8 +170,7 @@ s = cumsum(a)        # cumulative summation
 p = @. sqrt(6*s)
 
 scatter(1:100, p;
-    title="Sequence convergence",
-    xlabel=L"k",  ylabel=L"p_k")
+    title="Sequence convergence", xlabel=L"k",  ylabel=L"p_k")
 ```
 
 This graph suggests that maybe $p_k\to \pi$, but it's far from clear how close the sequence gets. It's more informative to plot the sequence of errors, $\epsilon_k= |\pi-p_k|$. By plotting the error sequence on a log-log scale, we can see a nearly linear relationship.
@@ -179,8 +178,7 @@ This graph suggests that maybe $p_k\to \pi$, but it's far from clear how close t
 ```{code-cell}
 ϵ = @. abs(π - p)    # error sequence
 scatter(1:100, ϵ;
-    title="Convergence of errors",
-    xaxis=(:log10, L"k"),  yaxis=(:log10, "error"))
+    title="Convergence of errors", xaxis=(:log10, L"k"),  yaxis=(:log10, L"\epsilon_k"))
 ```
 
 The straight line on the log-log scale suggests a power-law relationship where $\epsilon_k\approx a k^b$, or $\log \epsilon_k \approx b (\log k) + \log a$.

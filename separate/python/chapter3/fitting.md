@@ -338,7 +338,7 @@ It's tempting to conjecture that the slope $b\to -1$ asymptotically. Here is how
 loglog(range(100), ep, "o", label="sequence")
 k = arange(1,100)
 plot(k, a*k**b, "--", label="power fit")
-xlabel("$k$");  ylabel("error"); 
+xlabel("$k$");  ylabel("$\epsilon_k$"); 
 legend(); title("Sequence convergence");
 ```
 
