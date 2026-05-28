@@ -7,7 +7,7 @@ site:
   hide_footer: true
 ---
 
-## FNC: Julia edition
+# FNC: Julia edition
 
 This is the Julia edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by [Tobin A. Driscoll](https://tobydriscoll.net) and Richard J. Braun.
 
@@ -15,7 +15,7 @@ This is the Julia edition of the textbook [Fundamentals of Numerical Computation
 
 Use these links if you want to use one of the other editions:
 
-- [MATLAB edition](../matlab)[^trademark]
-- [Python edition](../python)
+- [MATLAB edition](https://fncbook.com/matlab)[^trademark]
+- [Python edition](https://fncbook.com/python)
 
 [^trademark]: MATLAB and Simulink are registered trademarks of The MathWorks, Inc. See mathworks.com/trademarks for a list of additional trademarks.

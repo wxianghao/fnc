@@ -264,6 +264,13 @@ project:
 site:
   title: Fundamentals of Numerical Computation
   template: book-theme
+  nav:
+    - title: Julia
+      url: /julia
+    - title: MATLAB
+      url: /matlab
+    - title: Python
+      url: /python
   actions:
     - title: Support us
       url: https://buymeacoffee.com/tobydriscoll
