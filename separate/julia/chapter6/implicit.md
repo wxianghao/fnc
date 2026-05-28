@@ -75,7 +75,7 @@ We study the convergence of AB4 using the IVP $u'=\sin[(u+t)^2]$ over $0\le t \l
 ```{code-cell}
 using OrdinaryDiffEq
 ivp = ODEProblem((u, p, t) -> sin((t + u)^2), -1.0, (0.0, 4.0))
-u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
+u_ref = solve(ivp, reltol=1e-14, abstol=1e-14);
 ```
 
 Now we perform a convergence study of the AB4 code.

@@ -313,7 +313,7 @@ plot!(t, u, m=2, label="n=50")
 Increasing $n$ changed the solution noticeably. Since we know that interpolants and finite differences become more accurate as $h\to 0$, we should anticipate the same behavior from Euler's method. We don't have an exact solution to compare to, so we will use a `DifferentialEquations` solver to construct an accurate reference solution.
 
 ```{code-cell}
-u_exact = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14)
+u_exact = solve(ivp, reltol=1e-14, abstol=1e-14)
 plot!(u_exact, l=(2, :black), label="reference")
 ```
 

@@ -266,7 +266,7 @@ ivp = ODEProblem(f, u₀, tspan)
 We use a `DifferentialEquations` solver to construct an accurate approximation to the exact solution.
 
 ```{code-cell}
-u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
+u_ref = solve(ivp, reltol=1e-14, abstol=1e-14);
 ```
 
 Now we perform a convergence study of our two Runge–Kutta implementations.

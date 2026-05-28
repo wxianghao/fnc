@@ -126,7 +126,7 @@ You can use any `DifferentialEquations` solver on the IVP system.
 
 ```{code-cell}
 using Plots, LaTeXStrings
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 plot(sol, label=["prey" "predator"],
     title="Predator-prey solution")
 ```
@@ -300,7 +300,7 @@ Here `idxs` is used to plot two components as functions of time.
 ```{code-cell}
 γ, L, k = 0, 0.5, 0
 ivp = ODEProblem(couple, u₀, tspan, [γ, L, k])
-sol = solve(ivp, Tsit5())
+sol = solve(ivp)
 plot(sol, idxs=[1, 2], 
     label=[L"\theta_1" L"\theta_2"],
     xlims=[20, 50], 
@@ -335,7 +335,7 @@ With coupling activated, a different behavior is seen.
 ```{code-cell}
 k = 1
 ivp = ODEProblem(couple, u₀, tspan, [γ, L, k])
-sol = solve(ivp, Tsit5())
+sol = solve(ivp)
 plot(sol, idxs=[1, 2], 
     label=[L"\theta_1" L"\theta_2"],
     xlims=[20, 50], 

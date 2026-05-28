@@ -139,12 +139,12 @@ u₀ = -1.0                       # initial value
 tspan = (0.0, 4.0)              # t interval
 ```
 
-With the data above we define an IVP problem object and then solve it. Here we tell the solver to use the `Tsit5` method, which is a good first choice for most problems.
+With the data above we define an IVP problem object and then solve it.
 
 ```{code-cell}
 using OrdinaryDiffEq
 ivp = ODEProblem(f, u₀, tspan)
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 ```
 
 The resulting solution object can be shown using `plot`.
@@ -184,7 +184,7 @@ The equation $u'=(u+t)^2$ gives us some trouble.
 ```{code-cell}
 f(u, p, t) = (t + u)^2
 ivp = ODEProblem(f, 1.0, (0.0, 1.0))
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 ```
 
 The warning message we received can mean that there is a bug in the formulation of the problem. But if everything has been done correctly, it suggests that the solution may not exist past the indicated time. This is a possibility in nonlinear ODEs.
@@ -266,7 +266,7 @@ plot!(t, u, m=2, label="n=50")
 Increasing $n$ changed the solution noticeably. Since we know that interpolants and finite differences become more accurate as $h\to 0$, we should anticipate the same behavior from Euler's method. We don't have an exact solution to compare to, so we will use a `DifferentialEquations` solver to construct an accurate reference solution.
 
 ```{code-cell}
-u_exact = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14)
+u_exact = solve(ivp, reltol=1e-14, abstol=1e-14)
 plot!(u_exact, l=(2, :black), label="reference")
 ```
 
@@ -329,7 +329,7 @@ You can use any `DifferentialEquations` solver on the IVP system.
 
 ```{code-cell}
 using Plots, LaTeXStrings
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 plot(sol, label=["prey" "predator"],
     title="Predator-prey solution")
 ```
@@ -434,7 +434,7 @@ Here `idxs` is used to plot two components as functions of time.
 ```{code-cell}
 γ, L, k = 0, 0.5, 0
 ivp = ODEProblem(couple, u₀, tspan, [γ, L, k])
-sol = solve(ivp, Tsit5())
+sol = solve(ivp)
 plot(sol, idxs=[1, 2], 
     label=[L"\theta_1" L"\theta_2"],
     xlims=[20, 50], 
@@ -469,7 +469,7 @@ With coupling activated, a different behavior is seen.
 ```{code-cell}
 k = 1
 ivp = ODEProblem(couple, u₀, tspan, [γ, L, k])
-sol = solve(ivp, Tsit5())
+sol = solve(ivp)
 plot(sol, idxs=[1, 2], 
     label=[L"\theta_1" L"\theta_2"],
     xlims=[20, 50], 
@@ -521,7 +521,7 @@ ivp = ODEProblem(f, u₀, tspan)
 We use a `DifferentialEquations` solver to construct an accurate approximation to the exact solution.
 
 ```{code-cell}
-u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
+u_ref = solve(ivp, reltol=1e-14, abstol=1e-14);
 ```
 
 Now we perform a convergence study of our two Runge–Kutta implementations.
@@ -631,7 +631,7 @@ We study the convergence of AB4 using the IVP $u'=\sin[(u+t)^2]$ over $0\le t \l
 ```{code-cell}
 using OrdinaryDiffEq
 ivp = ODEProblem((u, p, t) -> sin((t + u)^2), -1.0, (0.0, 4.0))
-u_ref = solve(ivp, Tsit5(), reltol=1e-14, abstol=1e-14);
+u_ref = solve(ivp, reltol=1e-14, abstol=1e-14);
 ```
 
 Now we perform a convergence study of the AB4 code.

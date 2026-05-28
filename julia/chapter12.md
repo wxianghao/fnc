@@ -32,7 +32,7 @@ f = (u, c, t) -> -c * (Dₓ*u);
 The following initial condition isn't mathematically periodic, but the deviation is less than machine precision. We specify RK4 as the solver.  
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqLowOrderRK
 u_init = @. 1 + exp( -3x^2 )
 IVP = ODEProblem(f, u_init, (0., 4.), 2)
 sol = solve(IVP, RK4());
@@ -92,6 +92,7 @@ ode = (ρ, ϵ, t) -> -dQ0.(ρ) .* (Dₓ*ρ) + ϵ * (Dₓₓ*ρ);
 Our first initial condition has moderate density with a small bump. Because of the diffusion present, we use a stiff solver for the IVP.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 ρ_init = @. 400 + 10 * exp( -20*(x-3)^2 )
 IVP = ODEProblem(ode, ρ_init, (0., 1.), 0.02)
 sol = solve(IVP, Rodas4P());
@@ -125,6 +126,7 @@ mp4(anim, "figures/traffic-small.mp4")
 Now we use an initial condition with a larger bump. Note that the scale on the $y$-axis is much different for this solution.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 ρ_init = @. 400 + 80 * exp( -16*(x - 3)^2 )
 IVP = ODEProblem(ode, ρ_init, (0., 0.5), 0.02)
 sol = solve(IVP, Rodas4P());
@@ -165,7 +167,7 @@ In this case the density bump travels backward along the road. It also steepens 
 For time stepping, we use the adaptive explicit method `RK4`.
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqLowOrderRK
 m = 400;
 x, Dₓ = FNC.diffper(m, [0, 1])
 u_init = x -> exp( -80 * (x - 0.5)^2 )
@@ -432,7 +434,7 @@ w_init = [ chop(u_init); z_init ];
 Because the wave equation is hyperbolic, we can use a nonstiff explicit solver.
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqLowOrderRK
 IVP = ODEProblem(ode, w_init ,(0., 2.), 2)
 w = solve(IVP, RK4());
 ```

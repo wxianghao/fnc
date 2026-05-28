@@ -343,9 +343,10 @@ The solution appears to be correct. But the number of time steps that were selec
 println("Number of time steps for rk23: $(length(t)-1)")
 ```
 
-Now we apply a solver from `DifferentialEquations`.
+Now we apply a specialized solver.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 u = solve(IVP, Rodas4P());
 println("Number of time steps for Rodas4P: $(length(u.t) - 1)")
 ```
@@ -473,6 +474,7 @@ You can see that there is one eigenvalue that ranges over a wide portion of the 
 The `Rodas4P` solver is good for stiff problems, and needs few time steps to solve the Oregonator from @demo-stiffness-oregon.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 oregon = remake(oregon, tspan=(0., 25.))
 sol = solve(oregon, Rodas4P())
 println("Number of time steps for Rodas4P: $(length(sol.t) - 1)")

@@ -248,7 +248,7 @@ end;
 Since this problem is parabolic, a stiff time integrator is appropriate.
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqRosenbrock
 IVP = ODEProblem(du_dt, vec(U₀), (0, 0.2), 0.1)
 sol = solve(IVP, Rodas4P());
 ```
@@ -318,7 +318,7 @@ function dw_dt(w, ϵ, t)
     dU_dt = @. 1 - Ux + ϵ * (Uxx + Uyy)
     return pack(dU_dt)
 end
-
+using OrdinaryDiffEq, OrdinaryDiffEqRosenbrock
 IVP = ODEProblem(dw_dt, pack(U₀), (0.0, 2), 0.05)
 w = solve(IVP, Rodas4P());
 ```

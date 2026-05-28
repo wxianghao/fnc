@@ -181,7 +181,7 @@ w_init = [ chop(u_init); z_init ];
 Because the wave equation is hyperbolic, we can use a nonstiff explicit solver.
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqLowOrderRK
 IVP = ODEProblem(ode, w_init ,(0., 2.), 2)
 w = solve(IVP, RK4());
 ```

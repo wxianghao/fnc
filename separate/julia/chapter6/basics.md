@@ -119,12 +119,12 @@ u₀ = -1.0                       # initial value
 tspan = (0.0, 4.0)              # t interval
 ```
 
-With the data above we define an IVP problem object and then solve it. Here we tell the solver to use the `Tsit5` method, which is a good first choice for most problems.
+With the data above we define an IVP problem object and then solve it.
 
 ```{code-cell}
 using OrdinaryDiffEq
 ivp = ODEProblem(f, u₀, tspan)
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 ```
 
 The resulting solution object can be shown using `plot`.
@@ -169,7 +169,7 @@ The equation $u'=(u+t)^2$ gives us some trouble.
 ```{code-cell}
 f(u, p, t) = (t + u)^2
 ivp = ODEProblem(f, 1.0, (0.0, 1.0))
-sol = solve(ivp, Tsit5());
+sol = solve(ivp);
 ```
 
 The warning message we received can mean that there is a bug in the formulation of the problem. But if everything has been done correctly, it suggests that the solution may not exist past the indicated time. This is a possibility in nonlinear ODEs.

@@ -322,9 +322,10 @@ The solution appears to be correct. But the number of time steps that were selec
 println("Number of time steps for rk23: $(length(t)-1)")
 ```
 
-Now we apply a solver from `DifferentialEquations`.
+Now we apply a specialized solver.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 u = solve(IVP, Rodas4P());
 println("Number of time steps for Rodas4P: $(length(u.t) - 1)")
 ```

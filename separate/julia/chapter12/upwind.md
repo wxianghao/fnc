@@ -151,7 +151,7 @@ We solve linear advection with velocity $c=2$ and periodic end conditions. The i
 For time stepping, we use the adaptive explicit method `RK4`.
 
 ```{code-cell}
-using OrdinaryDiffEq
+using OrdinaryDiffEq, OrdinaryDiffEqLowOrderRK
 m = 400;
 x, Dₓ = FNC.diffper(m, [0, 1])
 u_init = x -> exp( -80 * (x - 0.5)^2 )

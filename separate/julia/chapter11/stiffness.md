@@ -203,6 +203,7 @@ In @demo-stiffness-oregon, for example, you can see a combination of fast change
 The `Rodas4P` solver is good for stiff problems, and needs few time steps to solve the Oregonator from @demo-stiffness-oregon.
 
 ```{code-cell}
+using OrdinaryDiffEqRosenbrock: Rodas4P
 oregon = remake(oregon, tspan=(0., 25.))
 sol = solve(oregon, Rodas4P())
 println("Number of time steps for Rodas4P: $(length(sol.t) - 1)")

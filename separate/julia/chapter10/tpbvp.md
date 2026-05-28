@@ -156,17 +156,19 @@ function ode!(f, y, λ, r)
 end;
 ```
 
-To encode the boundary conditions $y_2(0)=0$, $y_1(2)-1=0$, we define a function for their residual values. In other words, these are quantities that the solver has to make zero in order to satisfy the boundary conditions. This uses in-place style as well.
+To encode the boundary conditions $y_2(0)=0$, $y_1(2)-1=0$, we define functions for their residual values at each boundary point, again using in-place style. We also need to indicate there is one condition at each boundary by defining a prototype tuple.
 
 ```{code-cell}
-function bc!(g, y, λ, r)    # output, solution vector, parameter, indep. var.
-    g[1] = y[1][2]          # first node, second component = 0
-    g[2] = y[end][1] - 1    # last node, first component = 1
-    return nothing
+function bca!(ga, ya, λ)    # output, solution vector, parameter
+    ga[1] = ya[2]           # at left, y[2] = 0
+end
+    
+function bcb!(gb, yb, λ)    # output, solution vector, parameter
+    gb[1] = yb[1] - 1       # at right, y[1] - 1 = 0
 end;
-```
 
-In the `bc!` function, the `y` argument is just like an IVP solution from {numref}`section-ivp-basics`. Thus, `y(0)` is the value of the solution at $x=0$, and the second component of that value is what we wish to make zero. Similarly, `y(1)[1]` is the notation for $y_1(1)$, which is supposed to equal 1. 
+bcresid_prototype = (zeros(1), zeros(1));    # one bc at left, one at right
+```
 
 The domain of the mathematical problem is $r\in [0,1]$. However, there is a division by $r$ in the ODE, so we want to avoid $r=0$ by truncating the domain a bit.
 
@@ -177,15 +179,15 @@ domain = (1e-15, 1.0)
 We need one last ingredient that is not part of the mathematical specification: an initial guess for the solution $\mathbf{y}(r)$. As we will see, this plays the same role as initialization in Newton's method for rootfinding. Here, we try a constant value for each component.
 
 ```{code-cell}
-est = [1, 0]
+y₀ = [1.0, 0.5]
 ```
 
-Now we set up and solve a `BVProblem` with the parameter value $\lambda=0.6$.
+Now we set up and solve a `TwoPointBVProblem` with the parameter value $\lambda=0.6$. To help the solver, we also provide a reasonable starting value for the time stepsize. 
 
 ```{code-cell}
 using BoundaryValueDiffEq, OrdinaryDiffEq, Plots
-bvp = BVProblem(ode!, bc!, est, domain, 0.6)
-y = solve(bvp, Shooting(Tsit5()))
+bvp = TwoPointBVProblem(ode!, (bca!, bcb!), y₀, domain, 0.6; bcresid_prototype)
+y = solve(bvp, Shooting(Tsit5()); dt=0.02)
 plot(y;
     label = [L"w" L"w'"],
     legend = :right,
