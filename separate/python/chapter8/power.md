@@ -162,7 +162,7 @@ This issue is resolved by alternating matrix–vector multiplications with renor
 :label:  definition-poweriteration
 Given matrix $\mathbf{A}$:
 
-1. Choose $\mathbf{x}_1$ such that $\twonorm{\mathbf{x}_k}=1$.
+1. Choose $\mathbf{x}_1$ such that $\twonorm{\mathbf{x}_1}=1$.
 2. For $k=1,2,\ldots$,
 
     a. Set $\mathbf{y}_k = \mathbf{A} \mathbf{x}_k$.
