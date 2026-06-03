@@ -23,13 +23,22 @@ suppress_crash_reporters() {
     done
 }
 
+# Remove built output before a build so MyST's non-content-addressed asset
+# hashing can't accumulate orphaned copies (see _build/site/public bloat).
+# Preserves execute/ (notebook cache) and templates/ so builds stay fast.
+clean_output() {
+    rm -rf "$1/_build/site" "$1/_build/html" "$1/_build/temp"
+}
+
 echo "==> Building language sites..."
 for lang in julia python; do
     echo "  [$lang]"
+    clean_output "$REPO_ROOT/separate/$lang"
     (cd "$REPO_ROOT/separate/$lang" && BASE_URL="/$lang" myst build --execute --execute-parallel 4 --html)
 done
 lang=matlab
 echo "  [$lang]"
+clean_output "$REPO_ROOT/separate/$lang"
 suppress_crash_reporters &
 SUPPRESS_PID=$!
 (cd "$REPO_ROOT/separate/$lang" && BASE_URL="/$lang" myst build --execute --execute-parallel 1 --html)
@@ -38,6 +47,7 @@ wait "$SUPPRESS_PID" 2>/dev/null || true
 cleanup_matlab
 
 echo "==> Building main site..."
+clean_output "$REPO_ROOT"
 (cd "$REPO_ROOT" && myst build --execute --execute-parallel 4 --html)
 
 echo "==> Assembling _site/..."
