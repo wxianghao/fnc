@@ -11,14 +11,14 @@ site:
 
 This is an online edition of the textbook [Fundamentals of Numerical Computation](https://tobydriscoll.net/FNC) by [Tobin A. Driscoll](https://tobydriscoll.net) and Richard J. Braun.
 
-## Choose your programming language
-
 +++ { "kind": "centered", "class": "col-body"}
+
+<div style="font-size: larger"><strong>Choose your programming language</strong></div>
 
 `````{grid}
 ````{card}
-:header: [Julia version](julia/usage)
-:url: julia/usage
+:header: [Julia version](julia)
+:url: julia
 ```{image} _static/julia-logo-color.*
 :class: dark:hidden
 :alt: Julia
@@ -35,8 +35,8 @@ Julia edition
 ````
 
 ````{card}
-:header: [MATLAB version](matlab/usage)
-:url: matlab/usage
+:header: [MATLAB version](matlab)
+:url: matlab
 ```{image} _static/logo-matlab.*
 :alt: MATLAB
 :height: 100px
@@ -45,8 +45,8 @@ MATLAB[^trademark] edition
 ````
 
 ````{card}
-:header: [Python version](python/usage)
-:url: python/usage
+:header: [Python version](python)
+:url: python
 ```{image} _static/logo-python.*
 :alt: Python
 :height: 100px
@@ -55,5 +55,11 @@ Python support
 ```` 
 
 `````
+
++++
+
+---
+
+To track aggregate traffic patterns, this site uses [Plausible Analytics](https://plausible.io), a privacy-first platform that collects no personal data and sets no cookies.
 
 [^trademark]: MATLAB and Simulink are registered trademarks of The MathWorks, Inc. See mathworks.com/trademarks for a list of additional trademarks.
