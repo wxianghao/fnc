@@ -63,6 +63,29 @@ This is our first example of an iterative algorithm that never quite gets to the
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_991myqrx&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_m0x0jgjv%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 ## Series analysis
 
 In @demo-fp-spiral, the two computed iterations differ only in the choice of $x_1$. In the first case, we evidently generated a sequence that converged to one of the fixed points. In the second case, however, the generated sequence diverged.[^finsample] The easiest way to uncover the essential difference between the two cases is to use a Taylor series expansion.
@@ -149,6 +172,29 @@ Linear convergence is marked by an approximate reduction of the error at each it
 :::{embed} #demo-fp-converge-python
 :::
 ```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_97dkntzb&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_kecwi01j%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
 `````
 
 ::::

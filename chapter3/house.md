@@ -128,6 +128,29 @@ The QR factorization is computed by using successive Householder reflections to 
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_ujr71idu&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_fgs2hckx%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 You may be wondering what happened to $\mathbf{Q}$ in @demo-house-qr. Each Householder reflector is orthogonal but not full-size. We have to pad it out to represent algebraically the fact that a block of the first rows is left alone. Given a reflector $\mathbf{P}_k$ that is of square size $m-k+1$, we define
 
 ```{math}

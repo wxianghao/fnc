@@ -261,6 +261,16 @@ Q̂' * Q̂ - I
 
 ::::
 
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_hau7xjmx&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_8szjsmc2%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 ## Least squares and QR
 
 ```{index} linear least-squares problem
@@ -330,6 +340,16 @@ observed_error = norm(FNC.lsqrfact(A, b) - x) / norm(x);
 @show observed_error;
 @show error_bound = cond(A) * eps();
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_p9kgvi6t&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_jlw1tj3j%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

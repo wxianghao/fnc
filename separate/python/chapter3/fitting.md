@@ -85,6 +85,11 @@ As you can see, the interpolant does represent the data, in a sense. However it'
 ```{index} data fitting
 ```
 
+::::{aside}
+
+
+::::
+
 In many cases we can get better results by relaxing the interpolation requirement. In the polynomial case this allows us to lower the degree of the polynomial, which limits the number of local max and min points. Let $(t_i,y_i)$ for $i=1,\ldots,m$ be the given points. We will represent the data by the polynomial
 
 ```{math}
@@ -192,6 +197,11 @@ fig
 ```
 
 If we were to continue increasing the degree of the polynomial, the residual at the data points would get smaller, but overfitting would increase.
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -341,6 +351,11 @@ plot(k, a*k**b, "--", label="power fit")
 xlabel("$k$");  ylabel("$\epsilon_k$"); 
 legend(); title("Sequence convergence");
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

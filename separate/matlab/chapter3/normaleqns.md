@@ -249,6 +249,11 @@ digits = -log10(observed_err)
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}

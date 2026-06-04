@@ -95,6 +95,11 @@ Judging by the residual, we appear to be getting closer to the true root each ti
 
 ::::
 
+::::{aside}
+
+
+::::
+
 Using general notation, if we have a root approximation $x_k$, we can construct a **linear model** of $f(x)$ using the classic formula for the tangent line of a differentiable function,
 
 ```{math}
@@ -238,6 +243,11 @@ The clear convergence to 2 above constitutes good evidence of quadratic converge
 ```{index} roots; multiplicity of
 ```
 
+::::{aside}
+
+
+::::
+
 Let's summarize the assumptions made to derive quadratic convergence as given by {eq}`newtonerr`:
 
 1. The residual function $f$ has to have enough continuous derivatives to make the Taylor series expansion valid. Often this is stated as $f$ having sufficient *smoothness*. This is usually not a problem, but see @problem-newton-alternate.
@@ -302,6 +312,11 @@ plot([0, max(y_)], [0, max(y_)], 'k--')
 xlabel('x'), ylabel('y')
 legend('h(x)', 'inverse', 'y=x');
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

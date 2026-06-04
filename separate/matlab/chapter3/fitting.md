@@ -70,6 +70,11 @@ fplot(p, [1955, 2000])    % plot the interpolating function
 ```{index} data fitting
 ```
 
+::::{aside}
+
+
+::::
+
 In many cases we can get better results by relaxing the interpolation requirement. In the polynomial case this allows us to lower the degree of the polynomial, which limits the number of local max and min points. Let $(t_i,y_i)$ for $i=1,\ldots,m$ be the given points. We will represent the data by the polynomial
 
 ```{math}
@@ -170,6 +175,11 @@ legend('data', 'linear', 'cubic', 'Location', 'northwest');
 ```
 
 If we were to continue increasing the degree of the polynomial, the residual at the data points would get smaller, but overfitting would increase.
+
+::::
+
+::::{aside}
+
 
 ::::
 
@@ -314,6 +324,11 @@ hold on
 loglog(k, a * k.^b)
 legend('sequence', 'power-law fit');
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

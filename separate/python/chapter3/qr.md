@@ -259,6 +259,11 @@ print(f"norm of (Q_hat^T Q_hat - I) is {norm(Q_hat.T @ Q_hat - eye(4)):.3e}")
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Least squares and QR
 
 ```{index} linear least-squares problem
@@ -326,6 +331,11 @@ from numpy.linalg import cond
 print(f"observed error: {norm(FNC.lsqrfact(A, b) - x) / norm(x):.3e}")
 print(f"conditioning bound: {cond(A) * finfo(float).eps:.3e}")
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

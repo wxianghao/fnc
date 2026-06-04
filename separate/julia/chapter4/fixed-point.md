@@ -135,7 +135,7 @@ abs(y - rmax) / rmax
 Now let's try to find the other fixed point $\approx 1.29$ in the same way. We'll use 1.3 as a starting approximation.
 
 ```{code-cell}
-plt = plot([g x->x], 1, 2, l=2, label=["y=g(x)" "y=x"], aspect_ratio=1, 
+plt = plot([g x->x], 1, 2, l=2, label=[L"y=g(x)" L"y=x"], aspect_ratio=1, 
     xlabel=L"x", ylabel=L"y", title="Divergence", legend=:bottomright)
 
 x = 1.3; y = g(x);
@@ -151,6 +151,16 @@ plt
 ```
 
 This time, the iteration is pushing us _away from_ the correct answer.
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_991myqrx&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_m0x0jgjv%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -275,6 +285,16 @@ The error should therefore decrease by a factor of $\sigma$ at each iteration. W
 ```
 
 The methods for finding $\sigma$ agree well.
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_97dkntzb&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_kecwi01j%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

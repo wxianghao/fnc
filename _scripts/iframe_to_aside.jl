@@ -18,7 +18,6 @@ function aside_block(src_url)
 ````{tab-item} Julia
 :sync: julia
 :::{div}
-:width: 100%
 ```{iframe} $url
 
 ```

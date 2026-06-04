@@ -57,6 +57,29 @@ which states that the drumhead is clamped around the rim. Bessel functions often
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_1k17r3pb&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_vo0fh6ay%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 ## Conditioning, error, and residual
 
 In the rootfinding problem, the data is a continuous function $f$ and the result is a root. (This overrides our Chapter 1 notation of $f$ as the map from data to result.) How does the result change in response to perturbations in $f$? We will compute an absolute condition number rather than a relative one.
@@ -116,6 +139,29 @@ Equivalently, {eq}`rootcondnum` is just the magnitude of the derivative of the i
 
 ```{index} ! residual; of rootfinding
 ```
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_k982s4c6&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_ejn4ngp1%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
 
 We must accept that when $|f'|$ is small at the root, it may not be possible to get a small error in a computed root estimate. As always, the error is not a quantity we can compute without knowing the exact answer. There is something else we can measure, though.
 

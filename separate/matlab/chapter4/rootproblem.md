@@ -98,6 +98,11 @@ scatter(omega, J3(omega), '<')
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Conditioning, error, and residual
 
 In the rootfinding problem, the data is a continuous function $f$ and the result is a root. (This overrides our Chapter 1 notation of $f$ as the map from data to result.) How does the result change in response to perturbations in $f$? We will compute an absolute condition number rather than a relative one.
@@ -180,6 +185,11 @@ The vertical displacements in this picture are exactly the same as before. But t
 
 ```{index} ! residual; of rootfinding
 ```
+
+::::{aside}
+
+
+::::
 
 We must accept that when $|f'|$ is small at the root, it may not be possible to get a small error in a computed root estimate. As always, the error is not a quantity we can compute without knowing the exact answer. There is something else we can measure, though.
 

@@ -214,6 +214,29 @@ The thin QR factorization is $\mathbf{A} = \hat{\mathbf{Q}} \hat{\mathbf{R}}$, w
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_hau7xjmx&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_8szjsmc2%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 ## Least squares and QR
 
 ```{index} linear least-squares problem
@@ -296,6 +319,29 @@ The solution of least-squares problems via QR factorization is more stable than 
 :::{embed} #demo-qr-stable-python
 :::
 ```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_p9kgvi6t&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_jlw1tj3j%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
 `````
 
 ::::

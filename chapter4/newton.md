@@ -33,6 +33,29 @@ Newton's method is the cornerstone of rootfinding. We introduce the key idea wit
 
 ::::
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_5xhf9fli&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_10eya0sd%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 Using general notation, if we have a root approximation $x_k$, we can construct a **linear model** of $f(x)$ using the classic formula for the tangent line of a differentiable function,
 
 ```{math}
@@ -157,6 +180,29 @@ Recall that linear convergence is identifiable by trending toward a straight lin
 ```{index} roots; multiplicity of
 ```
 
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_tryyvehy&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_g7xtvr29%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
+`````
+
+::::
+
 Let's summarize the assumptions made to derive quadratic convergence as given by {eq}`newtonerr`:
 
 1. The residual function $f$ has to have enough continuous derivatives to make the Taylor series expansion valid. Often this is stated as $f$ having sufficient *smoothness*. This is usually not a problem, but see @problem-newton-alternate.
@@ -224,6 +270,29 @@ Our implementation of Newton's iteration is given in {numref}`Function {number} 
 :::{embed} #demo-newton-usage-python
 :::
 ```` 
+`````
+
+::::
+
+::::{aside}
+
+`````{tab-set}
+````{tab-item} Julia
+:sync: julia
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_dm2gbvhf&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_ns3acbyk%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+````
+
+````{tab-item} MATLAB
+:sync: matlab
+````
+
+````{tab-item} Python
+:sync: python
+````
 `````
 
 ::::

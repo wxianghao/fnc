@@ -140,6 +140,11 @@ This time, the iteration is pushing us _away from_ the correct answer.
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Series analysis
 
 In @demo-fp-spiral, the two computed iterations differ only in the choice of $x_1$. In the first case, we evidently generated a sequence that converged to one of the fixed points. In the second case, however, the generated sequence diverged.[^finsample] The easiest way to uncover the essential difference between the two cases is to use a Taylor series expansion.
@@ -258,6 +263,11 @@ err(9:12) ./ err(8:11)
 ```
 
 The methods for finding $\sigma$ agree well.
+
+::::
+
+::::{aside}
+
 
 ::::
 

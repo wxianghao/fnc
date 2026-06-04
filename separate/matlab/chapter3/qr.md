@@ -247,6 +247,11 @@ Q_hat' * Q_hat - eye(n)
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Least squares and QR
 
 ```{index} linear least-squares problem
@@ -311,6 +316,11 @@ The error in the solution by {numref}`Function {number} <function-lsqrfact>` is 
 observed_error = norm(lsqrfact(A, b) - x) / norm(x)
 error_bound = cond(A) * eps
 ```
+
+::::
+
+::::{aside}
+
 
 ::::
 

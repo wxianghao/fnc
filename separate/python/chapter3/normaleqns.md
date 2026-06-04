@@ -266,6 +266,11 @@ print(f"accurate digits: {-log10(relative_err):.2f}")
 
 ::::
 
+::::{aside}
+
+
+::::
+
 ## Exercises
 
 ``````{exercise}

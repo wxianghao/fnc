@@ -86,6 +86,16 @@ As you can see, the interpolant does represent the data, in a sense. However it'
 ```{index} data fitting
 ```
 
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_icey153m&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4vs9d66g%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 In many cases we can get better results by relaxing the interpolation requirement. In the polynomial case this allows us to lower the degree of the polynomial, which limits the number of local max and min points. Let $(t_i,y_i)$ for $i=1,\ldots,m$ be the given points. We will represent the data by the polynomial
 
 ```{math}
@@ -180,6 +190,16 @@ plot!(f, 1955, 2000, label="cubic fit")
 ```
 
 If we were to continue increasing the degree of the polynomial, the residual at the data points would get smaller, but overfitting would increase.
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_ges4y8cc&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_iscymz9h%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
@@ -322,6 +342,16 @@ It's tempting to conjecture that the slope $b\to -1$ asymptotically. Here is how
 ```{code-cell}
 plot!(k, a * k.^b, l=:dash, label="power-law fit")
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_rtd5uk4p&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_ekr5corr%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 

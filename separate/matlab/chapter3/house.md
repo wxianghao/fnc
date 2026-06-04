@@ -189,6 +189,11 @@ R = A
 
 ::::
 
+::::{aside}
+
+
+::::
+
 You may be wondering what happened to $\mathbf{Q}$ in @demo-house-qr. Each Householder reflector is orthogonal but not full-size. We have to pad it out to represent algebraically the fact that a block of the first rows is left alone. Given a reflector $\mathbf{P}_k$ that is of square size $m-k+1$, we define
 
 ```{math}

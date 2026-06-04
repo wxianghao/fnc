@@ -104,6 +104,16 @@ Judging by the residual, we appear to be getting closer to the true root each ti
 
 ::::
 
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_5xhf9fli&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_10eya0sd%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 Using general notation, if we have a root approximation $x_k$, we can construct a **linear model** of $f(x)$ using the classic formula for the tangent line of a differentiable function,
 
 ```{math}
@@ -267,6 +277,16 @@ The clear convergence to 2 above constitutes good evidence of quadratic converge
 ```{index} roots; multiplicity of
 ```
 
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_tryyvehy&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_g7xtvr29%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
+
+::::
+
 Let's summarize the assumptions made to derive quadratic convergence as given by {eq}`newtonerr`:
 
 1. The residual function $f$ has to have enough continuous derivatives to make the Taylor series expansion valid. Often this is stated as $f$ having sufficient *smoothness*. This is usually not a problem, but see @problem-newton-alternate.
@@ -335,6 +355,16 @@ plot(g, 0, 2, aspect_ratio=1, label=L"g(x)")
 plot!(y, x, label=L"g^{-1}(y)", title="Function and its inverse")
 plot!(x -> x, 0, maximum(y), label="", l=(:dash, 1), color=:black)
 ```
+
+::::
+
+::::{aside}
+
+:::{div}
+```{iframe} https://cdnapisec.kaltura.com/p/2358381/embedPlaykitJs/uiconf_id/57659783?iframeembed=true&entry_id=1_dm2gbvhf&config%5Bprovider%5D=%7B%22widgetId%22%3A%221_ns3acbyk%22%7D&config%5Bplayback%5D=%7B%22startTime%22%3A0%7D
+
+```
+:::
 
 ::::
 
