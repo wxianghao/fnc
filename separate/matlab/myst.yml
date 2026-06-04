@@ -228,4 +228,5 @@ site:
     logo: _static/FNClogo.png
     analytics_plausible: fncbook.com # Domain(s) to track
     style: _static/style.css
+    hide_title_block: true  # use the numbered in-body heading as the page title
   base_url: /matlab
