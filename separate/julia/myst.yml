@@ -85,15 +85,19 @@ project:
     - file: usage.md
     - file: setup.md
     - file: frontmatter/differences.md
-    - file: chapter1/overview.md
+    - title: 1. Introduction
       children:
+        - file: chapter1/overview.md
+          title: Overview
         - file: chapter1/floating-point.md
         - file: chapter1/conditioning.md
         - file: chapter1/algorithms.md
         - file: chapter1/stability.md
         - file: chapter1/next.md
-    - file: chapter2/overview.md
+    - title: 2. Linear systems of equations
       children:
+        - file: chapter2/overview.md
+          title: Overview
         - file: chapter2/polyinterp.md
         - file: chapter2/matrices.md
         - file: chapter2/linear-systems.md
@@ -104,15 +108,19 @@ project:
         - file: chapter2/condition-number.md
         - file: chapter2/structure.md
         - file: chapter2/next.md
-    - file: chapter3/overview.md
+    - title: 3. Overdetermined linear systems
       children:
+        - file: chapter3/overview.md
+          title: Overview
         - file: chapter3/fitting.md
         - file: chapter3/normaleqns.md
         - file: chapter3/qr.md
         - file: chapter3/house.md
         - file: chapter3/next.md
-    - file: chapter4/overview.md
+    - title: 4. Roots of nonlinear equations
       children:
+        - file: chapter4/overview.md
+          title: Overview
         - file: chapter4/rootproblem.md
         - file: chapter4/fixed-point.md
         - file: chapter4/newton.md
@@ -121,8 +129,10 @@ project:
         - file: chapter4/quasinewton.md
         - file: chapter4/nlsq.md
         - file: chapter4/next.md
-    - file: chapter5/overview.md
+    - title: 5. Piecewise interpolation
       children:
+        - file: chapter5/overview.md
+          title: Overview
         - file: chapter5/interpolation.md
         - file: chapter5/pwlin.md
         - file: chapter5/splines.md
@@ -131,8 +141,10 @@ project:
         - file: chapter5/integration.md
         - file: chapter5/adaptive.md
         - file: chapter5/next.md
-    - file: chapter6/overview.md
+    - title: 6. Initial-value problems for ODEs
       children:
+        - file: chapter6/overview.md
+          title: Overview
         - file: chapter6/basics.md
         - file: chapter6/euler.md
         - file: chapter6/systems.md
@@ -142,16 +154,20 @@ project:
         - file: chapter6/implicit.md
         - file: chapter6/zerostability.md
         - file: chapter6/next.md
-    - file: chapter7/overview.md
+    - title: 7. Matrix analysis
       children:
+        - file: chapter7/overview.md
+          title: Overview
         - file: chapter7/insight.md
         - file: chapter7/evd.md
         - file: chapter7/svd.md
         - file: chapter7/symm-eig.md
         - file: chapter7/dimreduce.md
         - file: chapter7/next.md
-    - file: chapter8/overview.md
+    - title: 8. Krylov methods in linear algebra
       children:
+        - file: chapter8/overview.md
+          title: Overview
         - file: chapter8/structure.md
         - file: chapter8/power.md
         - file: chapter8/inviter.md
@@ -161,8 +177,10 @@ project:
         - file: chapter8/matrixfree.md
         - file: chapter8/precond.md
         - file: chapter8/next.md
-    - file: chapter9/overview.md
+    - title: 9. Global function approximation
       children:
+        - file: chapter9/overview.md
+          title: Overview
         - file: chapter9/polynomial.md
         - file: chapter9/barycentric.md
         - file: chapter9/stability.md
@@ -171,8 +189,10 @@ project:
         - file: chapter9/spectral-integration.md
         - file: chapter9/improper.md
         - file: chapter9/next.md
-    - file: chapter10/overview.md
+    - title: 10. Boundary-value problems
       children:
+        - file: chapter10/overview.md
+          title: Overview
         - file: chapter10/tpbvp.md
         - file: chapter10/shooting.md
         - file: chapter10/diffmats.md
@@ -180,23 +200,29 @@ project:
         - file: chapter10/nonlinear.md
         - file: chapter10/galerkin.md
         - file: chapter10/next.md
-    - file: chapter11/overview.md
+    - title: 11. Diffusion equations
       children:
+        - file: chapter11/overview.md
+          title: Overview
         - file: chapter11/blackscholes.md
         - file: chapter11/methodlines.md
         - file: chapter11/absstab-diffusion.md
         - file: chapter11/stiffness.md
         - file: chapter11/boundaries.md
         - file: chapter11/next.md
-    - file: chapter12/overview.md
+    - title: 12. Advection equations
       children:
+        - file: chapter12/overview.md
+          title: Overview
         - file: chapter12/traffic.md
         - file: chapter12/upwind.md
         - file: chapter12/absstab-advection.md
         - file: chapter12/wave.md
         - file: chapter12/next.md
-    - file: chapter13/overview.md
+    - title: 13. Two-dimensional problems
       children:
+        - file: chapter13/overview.md
+          title: Overview
         - file: chapter13/tensorprod.md
         - file: chapter13/diffadv.md
         - file: chapter13/laplace.md
