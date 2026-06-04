@@ -270,7 +270,7 @@ abs(y - rmax) / rmax
 Now let's try to find the other fixed point $\approx 1.29$ in the same way. We'll use 1.3 as a starting approximation.
 
 ```{code-cell}
-plt = plot([g x->x], 1, 2, l=2, label=["y=g(x)" "y=x"], aspect_ratio=1, 
+plt = plot([g x->x], 1, 2, l=2, label=[L"y=g(x)" L"y=x"], aspect_ratio=1, 
     xlabel=L"x", ylabel=L"y", title="Divergence", legend=:bottomright)
 
 x = 1.3; y = g(x);
