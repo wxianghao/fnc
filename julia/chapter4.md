@@ -698,14 +698,14 @@ end;
 
 function jac(x)
     [
-        -exp(x[2] - x[1]) exp(x[2] - x[1]) 0
-        x[2] x[1] 1
-        2*x[1] x[3]-1 x[2]
+        -exp(x[2] - x[1])  exp(x[2] - x[1])  0
+        x[2]  x[1]  1
+        2*x[1]  x[3]-1  x[2]
     ]
 end;
 ```
 
-We will use a `BigFloat` starting value, and commensurately small stopping tolerances, in order to get a sequence long enough to measure convergence.
+We will use a `BigFloat` starting value, and correspondingly small stopping tolerances, in order to get a sequence long enough to measure convergence.
 
 ```{code-cell}
 x₁ = BigFloat.([0, 0, 0])
@@ -794,7 +794,7 @@ The function $\mathbf{g}(\mathbf{x}) - \mathbf{g}(\mathbf{p})$ obviously has a z
 ```
 
 ```{code-cell}
-using Printf
+using Printf, LaTeXStrings
 plt = plot(xlabel="iteration", yaxis=(:log10, "error"),
     title="Convergence of Gauss–Newton")
 for R in [1e-3, 1e-2, 1e-1]
@@ -804,12 +804,12 @@ for R in [1e-3, 1e-2, 1e-1]
     r = x[end]
     err = [norm(x - r) for x in x[1:end-1]]
     normres = norm(f(r))
-    plot!(err, label=@sprintf("R=%.2g", normres))
+    plot!(err, label=latexstring(@sprintf("||f||=%.2g", normres)))
 end
 plt
 ```
 
-In the least perturbed case, where the minimized residual is less than $10^{-3}$, the convergence is plausibly quadratic. At the next level up, the convergence starts similarly but suddenly stagnates for a long time. In the most perturbed case, the quadratic phase is nearly gone and the overall shape looks linear.
+In the least perturbed case, where the minimized residual is less than $10^{-3}$, the convergence is plausibly quadratic. At the next level up, the convergence starts similarly but suddenly stagnates for a long time. In the most perturbed case, the quadratic phase is nearly gone, and the overall shape looks linear.
 ``````
 
 (demo-nlsq-MM-julia)=
@@ -817,15 +817,15 @@ In the least perturbed case, where the minimized residual is less than $10^{-3}$
 :open:
 ```{code-cell}
 m = 25;
-s = range(0.05, 6, length=m)
-ŵ = @. 2 * s / (0.5 + s)                      # exactly on the curve
-w = @. ŵ + 0.15 * cos(2 * exp(s / 16) * s);     # smooth noise added
+s = range(0.05, 6, m)
+w_exact = @. 2s / (0.5 + s)
+w = @. w_exact + 0.15 * cos(2 * exp(s / 16) * s);    # smooth noise added
 ```
 
 ```{code-cell}
 scatter(s, w, label="noisy data",
     xlabel="s", ylabel="v", leg=:bottomright)
-plot!(s, ŵ, l=:dash, color=:black, label="perfect data")
+plot!(s, w_exact, l=:dash, color=:black, label="perfect data")
 ```
 
 ```{index} ! Julia; destructuring
@@ -839,28 +839,28 @@ Putting comma-separated values on the left of an assignment will **destructure**
 
 ```{code-cell}
 function misfit(x)
-    V, Km = x   # rename components for clarity
+    V, Km = x    # rename components for clarity
     return @. V * s / (Km + s) - w
-end
+end;
 ```
 
 In the Jacobian the derivatives are with respect to the parameters in $\mathbf{x}$.
 
 ```{code-cell}
 function misfitjac(x)
-    V, Km = x   # rename components for clarity
+    V, Km = x    # rename components for clarity
     J = zeros(m, 2)
     J[:, 1] = @. s / (Km + s)              # dw/dV
     J[:, 2] = @. -V * s / (Km + s)^2         # dw/d_Km
     return J
-end
+end;
 ```
 
 ```{code-cell}
 x₁ = [1, 0.75]
 x = FNC.newtonsys(misfit, misfitjac, x₁)
 
-@show V, Km = x[end]  # final values
+@show V, Km = x[end];    # final values
 ```
 
 The final values are reasonably close to the values $V=2$, $K_m=0.5$ that we used to generate the noise-free data. Graphically, the model looks close to the original data.
@@ -883,7 +883,7 @@ $$f_i([\alpha,\beta]) = \left(\alpha \cdot \frac{1}{s_i} + \beta\right) - \frac{
 for $i=1,\ldots,m$. Although this misfit is nonlinear in $s$ and $w$, it's linear in the unknown parameters $\alpha$ and $\beta$. This lets us pose and solve it as a linear least-squares problem.
 
 ```{code-cell}
-A = [s .^ (-1) s .^ 0]
+A = [s.^(-1) s.^0]
 u = 1 ./ w
 α, β = A \ u
 ```

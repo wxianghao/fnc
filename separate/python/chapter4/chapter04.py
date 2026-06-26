@@ -15,7 +15,7 @@ def newton(f, dfdx, x1):
     xtol = 100 * eps
     maxiter = 40
 
-    x = np.zeros(maxiter)
+    x = np.zeros(maxiter + 1)
     x[0] = x1
     y = f(x1)
     dx = np.inf  # for initial pass below
@@ -47,7 +47,7 @@ def secant(f, x1, x2):
     xtol = 100 * eps
     maxiter = 40
 
-    x = np.zeros(maxiter)
+    x = np.zeros(maxiter + 1)
     x[:2] = [x1, x2]
     y1 = f(x1)
     y2 = 100
@@ -79,7 +79,7 @@ def newtonsys(f, jac, x1):
     xtol = 1000 * np.finfo(float).eps
     maxiter = 40
 
-    x = np.zeros((maxiter, len(x1)))
+    x = np.zeros((maxiter + 1, len(x1)))
     x[0] = x1
     y, J = f(x1), jac(x1)
     dx = 10.0  # for initial pass below
@@ -126,7 +126,7 @@ def levenberg(f, x1, tol=1e-12):
     maxiter = 40
 
     n = len(x1)
-    x = np.zeros((maxiter+1, n))
+    x = np.zeros((maxiter + 1, n))
     x[0] = x1
     fk = f(x1)
     k = 0

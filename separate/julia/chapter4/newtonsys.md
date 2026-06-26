@@ -235,14 +235,14 @@ end;
 
 function jac(x)
     [
-        -exp(x[2] - x[1]) exp(x[2] - x[1]) 0
-        x[2] x[1] 1
-        2*x[1] x[3]-1 x[2]
+        -exp(x[2] - x[1])  exp(x[2] - x[1])  0
+        x[2]  x[1]  1
+        2*x[1]  x[3]-1  x[2]
     ]
 end;
 ```
 
-We will use a `BigFloat` starting value, and commensurately small stopping tolerances, in order to get a sequence long enough to measure convergence.
+We will use a `BigFloat` starting value, and correspondingly small stopping tolerances, in order to get a sequence long enough to measure convergence.
 
 ```{code-cell}
 x₁ = BigFloat.([0, 0, 0])

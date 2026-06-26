@@ -790,13 +790,13 @@ for R in [1e-3, 1e-2, 1e-1]:
     r = x[-1]
     err = [norm(x[j] - r) for j in range(len(x) - 1)]
     normres = norm(f(r))
-    semilogy(err, label=f"R={normres:.2g}")
+    semilogy(err, label=f"|| f || = {normres:.2g}")
 title("Convergence of Gauss–Newton")
 xlabel("iteration"), ylabel("error")
 legend();
 ```
 
-In the least perturbed case, where the minimized residual is less than $10^{-3}$, the convergence is plausibly quadratic. At the next level up, the convergence starts similarly but suddenly stagnates for a long time. In the most perturbed case, the quadratic phase is nearly gone and the overall shape looks linear.
+In the least perturbed case, where the minimized residual is less than $10^{-3}$, the convergence is plausibly quadratic. At the next level up, the convergence starts similarly but suddenly stagnates for a long time. In the most perturbed case, the quadratic phase is nearly gone, and the overall shape looks linear.
 ``````
 
 (demo-nlsq-MM-python)=
@@ -855,6 +855,7 @@ The final values are reasonably close to the values $V=2$, $K_m=0.5$ that we use
 ```{code-cell}
 # since V and Km have been updated, model() is too
 ax.plot(s, model(s), label="nonlinear fit")
+fig
 ```
 
 For this particular model, we also have the option of linearizing the fit process. Rewrite the model as 
